@@ -1,0 +1,139 @@
+{	
+	"version": "0.1",
+	"headTitle" : "ASSISTANCE",
+	"breadCrumbs" :[ "Accueil", "Assistance"],
+	"items": [{
+		"name": "13Util'",
+		"icon": "assistance01.png",
+		"phoneNumber": "01 40 14 33 13",
+		"photoMap":"",
+		"schedule": {
+			"info": "Du lundi au samedi de 8h00 à 20h00",
+			"startHour": "8",
+			"endHour": "20",
+			"days": ["1", "2", "3", "4", "5", "6"],
+			"startMinutes": "0",
+			"endMinutes": "0"
+		},
+		"location": {
+			"info": ""
+		},
+		"person": {
+			"info": ""
+		},
+		"extra_info": {
+			"info": "Support Postes de Travail. Demandes et incidents techniques liés:",
+		    "subItems": ["Au poste de travail", "Au compte Neos", "A la messagerie", "Aux solutions Digital Working", "A la téléphonie fixe et mobile"] 
+		}
+	}, {
+		"name": "Accueil EuroAtrium",
+		"icon": "assistance02.png",
+		"phoneNumber": "01 49 21 30 01",
+		"photoMap":"carte0.jpg",
+		"schedule": {
+			"info": "8h30-19h00",
+			"startHour": "8",
+			"endHour": "19",
+			"days": ["1", "2", "3", "4", "5", "6"],
+			"startMinutes": "30",
+			"endMinutes": "0"
+		},
+		"location": {
+			"info": "7 rue Emmy Noether 93400 Saint Ouen"
+		},
+		"person": {
+			"info": ""
+		},
+		"extra_info": {
+			"info": ""
+		}
+	}, {
+		"name": "Accueil Sémaphore",
+		"icon": "assistance02.png",
+		"phoneNumber": "01 46 39 99 39",
+		"photoMap":"carte0.jpg",
+		"schedule": {
+			"info": "8h30-19h00",
+			"startHour": "8",
+			"endHour": "19",
+			"days": ["1", "2", "3", "4", "5", "6"],
+			"startMinutes": "30",
+			"endMinutes": "0"
+		},
+		"location": {
+			"info": "54 Quai Michelet 92300 Levallois Perret"
+		},
+		"person": {
+			"info": ""
+		},
+		"extra_info": {
+			"info": ""
+		}
+	}, {
+		"name": "Accueil 20LevPom",
+		"icon": "assistance02.png",
+		"phoneNumber": "01 46 39 10 27",
+		"photoMap":"carte0.jpg",
+		"schedule": {
+			"info": "8h30-19h00",
+			"startHour": "8",
+			"endHour": "19",
+			"days": ["1", "2", "3", "4", "5", "6"],
+			"startMinutes": "30",
+			"endMinutes": "0"
+		},
+		"location": {
+			"info": "220 rue Georges Pompidou 92300 Levallois Perret"
+		},
+		"person": {
+			"info": ""
+		},
+		"extra_info": {
+			"info": ""
+		}
+	}, {
+		"name": "Service médical EuroAtrium",
+		"icon": "assistance06.png",
+		"phoneNumber": "01 49 21 35 81",
+		"photoMap":"carte0.jpg",
+		"schedule": {
+			"info": "8h15-17h00",
+			"startHour": "8",
+			"endHour": "17",
+			"days": ["1", "2", "3", "4", "5", "6"],
+			"startMinutes": "15",
+			"endMinutes": "0"
+		},
+		"location": {
+		    "info": "Bureau: 1070A, 7 Rue Emmy Noether 93400 Saint-Ouen"
+		},
+		"person": {
+			"info": "Docteur: Mme Catherine COULANGE"
+		},
+		"extra_info": {
+			"info": ""
+		}
+	}, {
+		"name": "PC Sécurité EuroAtrium",
+		"icon": "assistance07.png",
+		"phoneNumber": "01 40 12 44 65",
+		"photoMap":"carte0.jpg",
+		"schedule": {
+			"info": "24h/24",
+			"startHour": "0",
+			"endHour": "24",
+			"days": ["1", "2", "3", "4", "5", "6"],
+			"startMinutes": "0",
+			"endMinutes": "0"
+		},
+		"location": {
+			"info": "Bureau: Hall d'entrée"
+		},
+		"person": {
+			"info": ""
+		},
+		"extra_info": {
+			"info": ""
+		}
+	}]
+}

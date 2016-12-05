@@ -1,0 +1,11 @@
+{  
+  "FIRST_PAGE": {
+  	"HEADING" : "Welcome text",
+    "CONTENT": {
+    			"FIRST_PARAGHRAPG" :"With strong roots anchored in Europe’s economic history, BNP Paribas supports its customers and employees in today’s changing world and has positioned itself as a leading bank in the eurozone and a prominent international banking institution.",
+    			"SECOND_PARAGHRAPG" :"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce quis lorem et tellus interdum aliquet. Aliquam erat volutpat. In hac habitasse platea dictumst. Cras egestas dictum dolor nec lobortis. Fusce vitae mollis elit. Praesent commodo dictum dignissim. Maecenas nec ullamcorper leo, at vestibulum orci. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Suspendisse sit amet tortor imperdiet, convallis massa quis, pretium magna. In fringilla tincidunt enim, ac faucibus enim facilisis quis. Suspendisse potenti. Nunc imperdiet quam sit amet dolor rutrum, eget consequat nisl rutrum.",
+    			"THIRD_PARAGHRAPG" :"Pellentesque facilisis sapien sagittis quam pharetra, sit amet malesuada ipsum semper. Ut consequat purus sed sem malesuada, in fermentum quam egestas. Integer volutpat rutrum metus at auctor. Maecenas venenatis nunc a accumsan fringilla. Aliquam erat volutpat."
+ 	 			} 
+   }
+  
+}

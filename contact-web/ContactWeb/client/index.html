@@ -1,114 +1,203 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-    <title></title>
+<!DOCTYPE HTML>
+<html ng-app="bnp.unicity">
 
-    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+<head>
+    <meta charset="UTF-8">
+    <title>MyUnicity</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
 
-    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
-    <link href="css/ionic.app.css" rel="stylesheet">
-      <script src="lib/ionic/js/ionic.bundle.js"></script>
-    -->
+    <link rel="stylesheet" href="css/main.css">
+    <link href="lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="css/leaflet.css">
 
+      <!--   <script data-main="js/index" src="requirejs/require.js"></script> -->
     
-    <!-- ionic/angularjs js -->
-  
-
     <script type="text/javascript" src="ibm-mfp-web-sdk/lib/analytics/ibmmfpfanalytics.js"></script> 
     <script type="text/javascript" src="ibm-mfp-web-sdk/ibmmfpf.js"></script> 
 
+</head>
 
-  </head>
-  <body ng-app="app" ng-controller="MainCtrl" animation="slide-left-right-ios7">
-  <div>
-    <div>
-        <ion-nav-bar class="bar-balanced" align-title="center">
-            <ion-nav-back-button></ion-nav-back-button>
-        </ion-nav-bar>
-        <ion-nav-view></ion-nav-view>
-    </div>
-</div>
-<script id="login.html" type="text/ng-template">
-<ion-view title="Login">
-    <ion-content padding="true" class="has-header">
-        <form class="outerForm">
-            <div class="mainLogo">
-              <img src="img/thumbnail.png" />
+<body ng-controller="MainController">
+    <div class="introHeader" ng-style="headerSource">
+        <div class="navbar navigation-bar " role="navigation" >
+            <div class="center-block">
+                <div class="col-xs-4 col-md-5 pull-left" style="padding-left: 0px;">
+                    <a href="#" ui-sref="accueil"><div class="pull-left">
+                        <img src="images/png/credito.png" alt="Credito" class="creditoImg">
+                    </div>
+                    </a>
+                   <a href="#" ui-sref="accueil"> <div class="pull-left">
+                   <br/>
+                        <h3 style="margin-top: 10px; margin-left: 10px; color: white;">MyUnicity</h3>
+                    </div></a>
+                </div>
+                <div class="col-xs-6 col-md-4 pull-right" style="text-align: right;padding-right: 0px;">
+                    <div class="right-nav ">
+                        <div class="pull-right" ng-class="{ active: isActive('/assistance')}">
+                            <a href="#" ui-sref="assistance"> <img src="images/svgs/assistance.svg" alt="Assistance"><span translate>TOP_RIGHT_NAVIGATION.ASSISTANCE_LABEL</span></a>
+                        </div>
+                        <div class="pull-right" ng-class="{ active: isActive('/accueil')}">
+                            <a href="#" ui-sref="accueil"> <img src="images/svgs/accueil.svg" alt="Accueil"><span translate>TOP_RIGHT_NAVIGATION.ACCUEIL_LABEL</span></a>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="innerForm"><ion-list>
-                <label class="item item-input stable-bg">
-                    <span class="input-label"></span>
-                    <input type="text" placeholder="Username" ng-model="username">
-                </label>
-                <label class="item item-input stable-bg">
-                    <span class="input-label"></span>
-                    <input type="password" placeholder="Password" ng-model="password">
-                </label>
-            </ion-list></div>
-            <div class="spacer"></div>
-            <a ng-click="doLogin(username, password)" class="button button-positive button-block ">Log in</a>
-            <div class="errorMessage assertive" ng-show="displayError">{{displayMessage}}</div>
-        </form>
-    </ion-content>
-</ion-view></script>
-<script id="main.html" type="text/ng-template">
-<ion-view title="Contacts">
-<div class="bar bar-subheader item-input-inset">
-<label class="item-input-wrapper">
-    <i class="icon ion-search placeholder-icon"></i>
-    <input type="search" placeholder="">
-</label>
-</div>
-    <ion-content class="has-header has-subheader">
-        <ion-list>
+        </div>
+        <div class="center-block">
+            <div class="container-fluid">
+                <ul class="nav navbar-nav main-navigation container-fluid smallNav" >
+                    <li class="active col-cinq green">
+                        <a href="#" ui-sref="espacesTravail.sallesDeReunion">
+                            <div class="card">
+                                <div class="pImg green-menu-item" ng-class="{ active: isActiveButton('/espaces-de-travail')}">
+                                </div>
+                                <div class="pDes">
+                                    <div class="user-heading">
+                                        <h4 ng-class="{ active: isActiveButton('/espaces-de-travail')}" translate>MAIN_NAVIGATION.ESPACES_LABEL</h4>
+                                    </div>
+                                </div>
 
-            <ion-item class="item-thumbnail-left noBorder" ng-repeat="contact in contacts" ng-click="goto(contact)">
-                <img ng-src="{{contact.picture.thumbnail}}">
-                <h2>{{contact.name.first}} {{contact.name.last}}</h2>
-                <p>Courier in {{contact.location.city}}</p>
-            </ion-item>
-        </ion-list>
-    </ion-content>
-    <div class="bar bar-footer bar-balanced">
+                            </div>
+                        </a>
+                    </li>
+                    <li class="col-cinq pink">
+                        <a href="#" ui-sref="vieBatiment.kiosque">
+                            <div class="card">
+                                <div class="pImg pink-menu-item" ng-class="{ active: isActiveButton('/vie-du-batiment')}">
+                                </div>
+                                <div class="pDes">
+                                    <div class="user-heading">
+                                        <h4 ng-class="{ active: isActiveButton('/vie-du-batiment')}" translate>MAIN_NAVIGATION.BATIMENT_LABEL</h4>
+                                    </div>
+                                </div>
 
-  <div class="title"></div>
-  <button class="button button-clear" ng-click="doLogout()">Logout</button>
-</div>
-</ion-view></script>
-<script id="details.html" type="text/ng-template">
-<ion-view title="contact detail">
-    <ion-content class="has-header">
-        <ion-list>
-            <ion-item class="item-thumbnail-left noBorder">
-                <img src="{{currentcontact.picture.thumbnail}}">
-                <h2>{{currentcontact.name.first}} {{currentcontact.name.last}}</h2>
-                <p>Courier in {{currentcontact.location.city}}</p>
-            </ion-item>
-            <ion-item class="item-icon-right positive noBorder">Send email
-            <p>{{currentcontact.email}}</p>
-            <i class="icon ion-android-mail"></i>
-            </ion-item>
-            <ion-item class="item-icon-right positive noBorder">Call to the office
-            <p>{{currentcontact.phone}}</p>
-            <i class="icon ion-android-call"></i>
-            </ion-item>
-            <ion-item class="item-icon-right positive noBorder">Call to mobile
-            <p>{{currentcontact.cell}}</p>
-            <i class="icon ion-android-phone-portrait"></i>
-            </ion-item>
-            <ion-item class="item-icon-right positive noBorder">Send sms
-            <p>{{currentcontact.cell}}</p>
-            <i class="icon ion-android-textsms"></i>
-            </ion-item>
-        </ion-list>
-    </ion-content>
-</ion-view></script>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="col-cinq blue">
+                        <a href="#" ui-sref="transports.publics" ng-click='setHeader("/transports")'>
+                            <div class="card">
+                                <div class="pImg blue-menu-item" ng-class="{ active: isActiveButton('/transports')}">
+                                </div>
+                                <div class="pDes">
+                                    <div class="user-heading">
+                                        <h4 ng-class="{ active: isActiveButton('/transports')}" translate>MAIN_NAVIGATION.TRANSPORTS_LABEL</h4>
+                                    </div>
+                                </div>
 
-    <script src="js/index.js"></script>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="col-cinq red">
+                        <a href="#" ui-sref="restauration.restaurant">
+                            <div class="card">
+                                <div class="pImg red-menu-item" ng-class="{ active: isActiveButton('/restauration')}">
+                                </div>
+                                <div class="pDes">
+                                    <div class="user-heading">
+                                        <h4 ng-class="{ active: isActiveButton('/restauration')}" translate>MAIN_NAVIGATION.RESTAURATION_LABEL</h4>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </a>
+                    </li>
+                    <li class="col-cinq orange">
+                        <a href="#" ui-sref="livretAccueil.OneOne">
+                            <div class="card" style="border-right: none">
+                                <div class="pImg orange-menu-item" ng-class="{active: isActiveButton('/livret-d-accueil')}">
+                                </div>
+                                <div class="pDes">
+                                    <div class="user-heading">
+                                        <h4 ng-class="{active: isActiveButton('/livret-d-accueil')}" translate>MAIN_NAVIGATION.LIVRET_LABEL</h4>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+
+        </div>
+        <div class="blank-fix-div">
+        </div>
+        
+    </div>
+
+
+    <ui-view></ui-view>
+    <div class="footer">
+        <div class="center-block">
+            <div class="col-md-3">
+                <a  ui-sref="accueil"><img src="images/png/bnp-logo.png" width="200" alt="BNP Paris"></a>
+            </div>
+            <div class="col-md-9">
+                <ul class="list-inline custom-nav pull-right">
+                    <li><a href="#" ui-sref="accueil" translate>TOP_RIGHT_NAVIGATION.ACCUEIL_LABEL</a></li>
+                    <li><a href="#" ui-sref="assistance" translate>TOP_RIGHT_NAVIGATION.ASSISTANCE_LABEL</a></li>
+                    <li><a href="#" ui-sref="espacesTravail.pointCopieStandard" translate>MAIN_NAVIGATION.ESPACES_LABEL</a></li>
+                    <li><a href="#" ui-sref="vieBatiment.kiosque" translate>MAIN_NAVIGATION.BATIMENT_ONELINE_LABEL</a></li>
+                    <li><a href="#" ui-sref="transports.publics" translate>MAIN_NAVIGATION.TRANSPORTS_LABEL</a></li>
+                    <li><a href="#" ui-sref="restauration.restaurant" translate>MAIN_NAVIGATION.RESTAURATION_LABEL</a></li>
+                    <li><a href="#" ui-sref="livretAccueil.OneOne" translate>MAIN_NAVIGATION.LIVRET_LABEL</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Libraries imported with bower -->
+    <script src="lib/jquery/jquery.min.js"></script>
+    <script src="lib/angular/angular.min.js"></script>
+    <script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="lib/angular-ui-router/release/angular-ui-router.min.js"></script>    
+    <script src="lib/angular-translate/angular-translate.min.js"></script>
+    <script src="lib/angular-translate-loader-partial/angular-translate-loader-partial.min.js"></script>
+    <script src="lib/angular-animate/angular-animate.min.js"></script>
+    <script src="lib/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script src="lib/angular-leaflet-directive.js"></script>
+     
+    
+    
+
+
+    <!-- Custom modules used in app -->
+    <script src="js/accueil/accueil.js"></script>
+    <script src="js/assistance/assistance.js"></script>
+    <script src="js/espacesTravail/espaces.js"></script>
+    <script src="js/livretAccueil/livret.js"></script>
+    <script src="js/restauration/restauration.js"></script>
+    <script src="js/transports/transports.js"></script>
+    <script src="js/vieBatiment/batiment.js"></script>
+
+    <!-- Controllers used in app -->
+    <script src="js/controller.js"></script>
+    <script src="js/assistance/controller.js"></script>
+    <script src="js/restauration/controller.js"></script>
+    <script src="js/transports/controller.js"></script>
+    <script src="js/transports/calendarController.js"></script>       
+    <script src="js/transports/covoiturageController.js"></script>
+    <script src="js/transports/trouverController.js"></script>
+    <script src="js/transports/proposerController.js"></script>
+    <script src="js/livretAccueil/controller.js"></script>
+    <script src="js/espacesTravail/controller.js"></script>
+    <script src="js/vieBatiment/controller.js"></script>
+
+    <!-- Services-->
+    <script src="js/services.js"></script>
+    <script src="js/restauration/services.js"></script>
+    <script src="js/transports/services.js"></script>
+    <script src="js/leaflet.js"></script>
+    
+        <!-- Initial Wl js -->
+    <script src="js/initOptions.js"></script>
+    <script src="js/messages.js"></script>
+
     <script src="js/app.js"></script>
-    <script src="js/controllers.js"></script>
-  </body>
+</body>
+
 </html>

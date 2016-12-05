@@ -1,0 +1,52 @@
+<div class="center-block text-block" ng-controller="LivretCtrl" ng-init="init()">
+
+    <h1 translate>LIVRET D'ACCUEIL.HEADTITLE</h1>
+    <div>
+        <div>
+            <img src="images/png/ibcr.png" />
+            <span translate>LIVRET D'ACCUEIL.HEADTITLE</span><span>>&nbsp;{{currentSubitem}}</span>
+        </div>
+    </div>
+    <div class="lineSeparator"></div>
+
+    <div class="table-layout">
+        <div class="table-cell fixed-width-column" style="height: 900px;">
+            <uib-accordion close-others="true">
+                <uib-accordion-group heading="{{item.name}}" ng-repeat="item in listItems" class="accordion-custom-heading" 
+                is-open="status.isItemOpen[$index]" ui-sref="{{item.state}}" ng-click="ShowFirstSubitem(item.noAccordeon, item.subsections[0].name, item.subsections[0].location, item.subsections[0].imageName)" >
+                    <ul class="nav nav-list bs-docs-sidenav">
+                        <li ng-repeat="subItem in item.subsections" ng-click="doThis(subItem.name, subItem.location, subItem.imageName)" 
+                        class="mitem" ng-class="{active: isActive(subItem.path)}" ng-if="item.noAccordeon == null">
+                            <a ui-sref="{{subItem.state}}">
+                                <div class="subitemClass">{{subItem.name}}</div>
+                                <div class="arrow-right"></div>
+                            </a>
+                        </li>	
+                    </ul>
+                </uib-accordion-group>
+            </uib-accordion>
+        </div>
+        
+
+        <div class="table-cell">
+        <a href="#" class="top">
+        	<div style="margin-top: 35px;" ng-if="showPlan == null ">
+				<div class="greenBullet">{{currentSubitemNo}}</div>
+				<div><h3>{{currentSubitem}}</h3></div>
+        	</div>
+        	
+        		<div style="margin-top: 35px;"  ng-if="showPlan != null ">
+				<div style="margin-left: 20px;"><h3>{{currentSubitemNo}} {{currentSubitem}}</h3></div>
+		
+        	</div>
+        </a>
+            <br/>
+			<div style="margin-right: 20px;" class="subitemClass" ng-if="showPlan != null ">
+				<p>{{currentSubitemLocation}}</p> 
+ 				<img  ng-src="{{currentSubitemImageName}}" width="100%"/>
+ 				
+ 			</div>
+            <div ui-view> </div>
+        </div>
+    </div>
+</div>

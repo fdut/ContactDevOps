@@ -1,0 +1,68 @@
+<div class="tableCellRight">
+
+<!--  
+    <div class="information-block row">
+        <div class="col-lg-1 col-md-1 col-sm-1">
+            <img src="images/png/icon_car_affluence.png" style="width: 24px;">
+        </div>
+        <div class="col-lg-11 col-md-11 col-sm-11 information-block-text">
+            <div translate>TRANSPORTS.PARKING.AFFLUENCE_COMPONENT.AFFLUENCE</div>
+        </div>
+    </div>
+    <div class="occupation">
+        <div class="greyCar pull-left"></div>
+        <div class="overlayCar pull-left" ng-style="carWidth"></div>
+        <div class="percentNumber pull-right">
+            {{parkingAffluencePercent | number:0}} %
+        </div>
+
+    </div>
+    <div class="occupiedNumber" translate="TRANSPORTS.PARKING.AFFLUENCE_COMPONENT.LIBERTE">
+    </div>
+-->
+    <div class="information-block row">
+        <div class="public-block">
+            <div class="col-lg-6 col-md-6 col-sm-6" style="margin-top: 150px;color: white;text-align: center;">
+                <h2 translate>TRANSPORTS.LISTITEMTWO</h2>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6">
+                <div class="information-block-publics" style="margin-top: 30px !important;">
+                    <div class="pull-left">
+                        <img src="images/png/assistance_detail_location.png" width="25">
+                    </div>
+                    <div class="" style="margin-left:30px;width: 100%;">
+                        <span class="header-publics" translate>TRANSPORTS.PUBLICS.ADDRESS</span>
+                        <br/><span translate>TRANSPORTS.PARKING.ADDRESS</span>
+                    </div>
+                </div>
+                <div class="information-block-publics" ng-if='markerType != "BUS" && markerType != "METRO" && markerType != "TRANSILIEN"'>
+                    <div class="pull-left">
+                        <img src="images/png/assistance_detail_schedule.png" width="25">
+                    </div>
+                    <div style="margin-left:30px;width: 100%;">
+                        <span class="header-publics" translate>TRANSPORTS.PUBLICS.SCHEDULE</span>
+                        <br/> <span translate>TRANSPORTS.PARKING.SCHEDULE</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="calendar"></div>
+
+    <div class="information-block row">
+            <div>
+                <ul class="nav parkingNav">
+                    <li ng-class="{ active: isActive('/transports/parking/proposer') }">
+                        <a  ui-sref="transports.parking.proposer" ng-click="proposerCalendar()"  class="col-lg-5 col-md-5 telnr" translate>TRANSPORTS.PARKING.TAB1</a>
+                    </li>
+                    <li ng-class="{ active: isActive('/transports/parking/trouver') }">
+                        <a  ui-sref="transports.parking.trouver" ng-click="trouverCalendar()"  class="col-lg-5 col-md-5 telnr" translate>TRANSPORTS.PARKING.TAB2</a>
+                    </li>
+                </ul>
+                <div class="lightLineSeparator" style="margin-top:0px;"></div>
+                    <div ui-view>       
+        </div>
+            </div>
+           
+       
+     </div>

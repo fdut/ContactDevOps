@@ -1,0 +1,131 @@
+{
+    "BATIMENT": {
+        "HEADTITLE": "Services aux collaborateurs",
+         "CONCIERGERIE": {
+            "HEADTITLE": " Conciergerie ",
+            "PHONE": "+33 1 49 21 32 00",
+            "MAIL": "bnppf-unicity@easy-life.fr",
+            "LINK": "Application Easy Life",
+            "LOCATION": "Plan (RDC A)",
+            "PICTURE": "rdc-conciergerie.png",
+            "PARAGRAPHONE": {
+                "TITLE": "La conciergerie d'Unicity c'est :",
+                "LINE1": "- Un accueil physique dans Unicity pour tous les services",
+                "LINE2": "- Une conciergerie téléphonique de 8h00 à 18h00 du lundi au vendredi",
+                "LINE3": "- Une application mobile sur votre iPhone "
+            },
+            "PARAGRAPHTWO": {
+            
+                "TITLE": "Les services proposés sont les suivants:",
+                "LINE1": "- Pressing/Repassage",
+                "LINE2": "- Retouches/Cordonnerie",
+                "LINE3": "- Service Poste et relais colis",
+                "LINE4": "- Mini boutique relais ",
+                "LINE5": "- Courses à la carte",
+                "LINE6": "- Paniers de fruits et légumes ",
+                "LINE7": "- Aide aux démarches administratives",
+                "LINE8": "- Vente de capsules Nespresso"
+            },
+            "SCHEDULE": "Horaires: du lundi au vendredi de {{startHourC1}}h{{startMinutesC1}} à {{endHourC1}}h{{endMinutesC1}}, de {{startHourC2}}h{{startMinutesC2}} à {{endHourC2}}h{{endMinutesC2}}, et de {{startHourC3}}h{{startMinutesC3}} à {{endHourC3}}h{{endMinutesC3}}"
+        },
+        "COURRIER": {
+            "HEADTITLE": " Courrier interne ",
+            "PHONE": "+33 1 46 39 13 48",
+            "LOCATION": "20 Levallois Pompidou",
+            "PARAGRAPHONE": {
+                "LINE1": "Tout courrier envoyé à vos interlocuteurs doit comporter un code ACI à 7 caractères",
+                "LINE2": "(adressage de courrier interne) que vous trouverez sur l'annuaire BNP Paribas.",
+                "LINE3": "Sans l'information du code ACI, les courriers font l'objet d'une identification manuelle",
+                "LINE4": "qui en retarde forcément l'acheminement (ou occasionne parfois un retour à l'expéditeur...)."
+            },
+            "PARAGRAPHTWO": {
+                "LINE1": "Vos courriers doivent systématiquement être insérés dans des enveloppes de courrier ",
+                "LINE2": "interne qui permettent l'indication exacte du code ACI (sans oublier de compléter les données expéditeur et les données destinataire).",
+                "LINE3": "Pour rappel, les références d'enveloppes à utiliser sont les suivantes :",
+                "LINE4": "- 10048080N (enveloppe format A4 sans soufflet)",
+                "LINE5": "- 10049503N (enveloppe format A4 avec soufflet)"
+            },
+            "SCHEDULE": "Horaires: du lundi au vendredi, de {{startHourCI1}}h{{startMinutesCI1}} à {{endHourCI1}}h{{endMinutesCI1}}"
+        },
+         "FITNESS": {
+            "HEADTITLE": " Fitness ",
+            "LOCATION": "PLAN (SS1 A)",
+            "PHONE": "+33 1 49 21 31 00",
+            "PICTURE": "ss1-fitness.png",
+            "MAIL": "gymbnpparibaspf@thecorporategym.com",
+                "PARAGRAPHONE": {
+                "TITLE": "Services:",
+                "LINE1": "- Une salle de fitness équipée de matériel professionnel de dernière génération.",
+                "LINE2": "- Des salles de cours collectifs équipées pour proposer des programmes \"classiques\" (step, Pump, etc...), de relaxation (Pilates, Yoga, etc...) mais aussi ludiques (salsa, sh'bam, etc...).",
+                "LINE3": "- Des vestiaires modernes, spacieux et confortables. ",
+                "LINE4": "Le site web de Corporate Gym disponible sur la version web de MyUnicity PF permet à chaque collaborateur de trouver le formulaire d'inscription et de réserver les cours une fois inscrits.",
+                "LINE5": "Le formulaire d'inscription doit être imprimé et déposé à la salle de Fitness au niveau -1 accompagné du certificat médical, vous serez alors coaché pour avoir un accompagnement adapté à vos besoins."
+            },
+            "SCHEDULE": "Horaires: du lundi au vendredi de {{startHourF0}}h{{startMinutesF0}} à {{endHourF0}}h{{endMinutesF0}}, de {{startHourF1}}h{{startMinutesF1}} à {{endHourF1}}h{{endMinutesF1}}, et de {{startHourF2}}h{{startMinutesF2}} à {{endHourF2}}h{{endMinutesF2}} excepté le lundi pas d'ouverture le matin",
+            "SITEWEB": "Site web de corporate gym"
+        },
+        "KIOSQUE": {
+            "HEADTITLE": " Kiosques ",
+            "KIOSQUEB":{
+             "HEADTITLE": " Kiosque principal",
+             "LOCATION": "PLAN (RDC B)",
+            "PICTURE": "rdc-kiosque-it.png",
+             "SCHEDULE": "Horaires: du lundi au vendredi de {{startHourKB}}h{{startMinutesKB}} à {{endHourKB}}h{{endMinutesKB}}",
+             "PARAGRAPHONE": {
+                "TITLE": "Services",
+                "LINE1": "- Gestion d'incidents (iPhone, PC, Portable, Connect Once...)",
+                "LINE2": "- Prêt de matériel",
+                "LINE3": "- Digital Lounge (accompagnement et paramétrage des outils digitaux)",
+                "LINE4": "- Welcome Digital (guichet nouvel arrivant)"
+               }           
+            },
+            "KIOSQUEA":{
+             "HEADTITLE": " Kiosque secondaire ",
+             "LOCATION": "Plan (R+1 A)",
+            "PICTURE": "r1-kioksque-it.png",
+             "SCHEDULE": "Horaires: du lundi au vendredi de {{startHourKA}}h{{startMinutesKA}} à {{endHourKA}}h{{endMinutesKA}}",
+             "PARAGRAPHONE": {
+                "TITLE": "Services :",
+                "LINE1": "- Gestion d'incidents (iPhone, PC Portable, Connect Once...)",
+                "LINE2": "- Digital Lounge (accompagnement et paramétrage des outils digitaux)"
+               }           
+            }
+            
+        },
+        "SALONS": {
+            "HEADTITLE": " Petits salons ",
+            "LOCATION": "PLAN (R+7 A)",
+            "PICTURE": "r7-petits-salons.png",
+            "MAIL": "virgil.custodio@bnpparibas.com",
+                "PARAGRAPHONE": {
+                "LINE1": "- Ouverts pour des prestations aux réservations par l'encadrement supérieur (SMP)",
+               	"LINE2": "- Pour des petits déjeuners et déjeuners (capacité de 70 couverts)"
+            },
+            "SCHEDULE": "Horaires: du lundi au vendredi de {{startHourPS1}}h{{startMinutesPS1}} à {{endHourPS1}}h{{endMinutesPS1}}"
+        },
+        
+        "REPROGRAPHIE": {
+            "HEADTITLE": " Reprographie",
+            "LOCATION": "Mérignac",
+            "MAIL": "DSO-REPROGRAPHIE@bnpparibas-pf.com",
+            "PHONE": "05 56 55 25 05",
+            "PHONE2": "05 56 55 26 50",
+                "PARAGRAPHONE": {
+                "LINE1": "Le service Reprographie s’engage à renvoyer les travaux demandés sous 3 jours, délai de livraison compris. La fiche travaux disponible sur echonet doit être complétée et renvoyée par email.",
+               	"LINE2": "NB : pour répondre aux demandes urgentes (à jour J) venant de Paris, le service Reprographie fera appel à un prestataire parisien qui se chargera de répondre dans les plus brefs délais. L’enjeu est d’atteindre 80% des demandes en standard (3 jours) et 20% de demandes urgentes à jour J."
+            },
+            "SCHEDULE": "Horaires: du lundi au vendredi de {{startHourR1}}h{{startMinutesR1}} à {{endHourR1}}h{{endMinutesR1}}"
+        },
+        
+         "RESERVATION": {
+            "HEADTITLE": " Réservation de salles spécifiques",
+            "MAIL": "intendance-immeubles-siege@cetelem.fr",
+                "PARAGRAPHONE": {
+                "LINE1": "Réservation des salles du premier étage et de l'auditorium."
+                },
+            "SCHEDULE": "Horaires: du lundi au vendredi de {{startHourRSS1}}h{{startMinutesRSS1}} à {{endHourRSS1}}h{{endMinutesRSS1}}"
+        }
+        
+    }
+
+}

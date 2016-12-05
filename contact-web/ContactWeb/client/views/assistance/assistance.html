@@ -1,0 +1,171 @@
+<div class="center-block text-block" ng-controller="AssistanceCtrl" ng-init="init()">
+
+    <h1>{{info.headTitle}}</h1>
+    <div><img src="images/png/ibcr.png" />&nbsp;{{info.breadCrumbs[1]}} > {{currentArea.name}}</div>    
+    <div class ="greenishLine"></div>
+
+    <div class="table-layout">
+        <div class="table-cell fixed-width-column">
+            <ul class="nav nav-list bs-docs-sidenav navigationHeight" >
+                <li ng-repeat="item in info.items" class="mitem" ng-click="select($index)" ng-class="{active: $index == selected}" on-finish-render="finishRenderMenu()">
+                    <a id="{{'it-' + $index }}" ng-click="renderRightInfo($index)">
+                        <div class="left"><img ng-src="images/png/{{item.icon}}" width="25"/></div>
+                        <div class="right">{{item.name}}</div>
+                        <div class="arrow-right"></div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="table-cell">
+            <div class="tableA" style="position: relative; z-index: 2">
+                <div class="tableA-row" ng-if="currentArea.phoneNumber">
+                    <div class="tableA-col">
+                        <img src="images/png/appeler.png" width="32">
+                    </div>
+                    <div class="tableA-col telnr">
+                        {{currentArea.phoneNumber}}
+                    </div>
+                </div>
+                <div class="tableA-row">
+                    <div class="tableA-col" style="padding-top:14px !important"></div>
+                </div>
+                <div class="tableA-row" ng-if="currentArea.msgState">
+                    <div class="tableA-col">
+                        <img src="images/png/assistance_detail_schedule.png" width="25">
+                    </div>
+                    <div class="tableA-col text-assistance">
+                        {{currentArea.msgState}}
+                    </div>
+                </div>
+                <div class="tableA-row">
+                    <div class="tableA-col">&nbsp;</div>
+                    <div class="tableA-col text-assistance">
+                        {{currentArea.msgWait}}
+                    </div>
+                </div>
+                <div class="tableA-row" ng-if="currentArea.schedule.info">
+                    <div class="tableA-col">&nbsp;</div>
+                    <div class="tableA-col text-assistance">
+                        Horaires: {{currentArea.schedule.info}}
+                    </div>
+                </div>
+                <div class="tableA-row">
+                    <div class="tableA-col" style="padding-top:8px !important"></div>
+                </div>
+                   <div ng-if="currentArea.email" class="tableA-row">
+                    <div class="tableA-col">
+                        <img src="images/png/mail.png" width="25">
+                    </div>
+                    <div class="tableA-col text-assistance">
+                        {{currentArea.email}}
+                    </div>
+                </div>
+                 <div class="tableA-row">
+                    <div class="tableA-col" style="padding-top:14px !important"></div>
+                </div>
+                
+                <div class="tableA-row">
+                    <div class="tableA-col" style="padding-top:8px !important"></div>
+                </div>
+                <div ng-if="currentArea.person.info" class="tableA-row">
+                    <div class="tableA-col">
+                        <img src="images/png/assistance_detail_person.png" width="25">
+                    </div>
+                    <div class="tableA-col text-assistance">
+                        {{currentArea.person.info}}
+                    </div>
+                </div>
+                <div ng-if="currentArea.extra_info.info" class="tableA-row">
+                <div class="tableA-col">
+                        <img src="images/png/support.png" width="25">
+                    </div>
+                    <div class="tableA-col text-assistance">
+                        {{currentArea.extra_info.info}}
+                    </div>
+                </div>
+                <div ng-if="currentArea.extra_info.info" class="tableA-row">
+                    <div class="tableA-col text-assistance">
+                        <ul style="list-style: none;">
+                            <li ng-repeat="eItem in currentArea.extra_info.subItems" style="line-height:26px;">
+                                <span class="greenBulletList">&bull;&nbsp;</span> {{eItem}}
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <br/>
+                <div class="tableA-row" ng-if="currentArea.extra_info_titled" style="margin-top:20px">
+                    <div class="tableA-col text-assistance">
+                        {{currentArea.extra_info_titled.title}}
+                    </div>
+                    <br/><br/>
+                <div class="tableA-row">
+                    <div class="tableA-col text-assistance">
+                        {{currentArea.extra_info_titled.lines.line1}}
+                    </div>
+                </div>
+                <div class="tableA-row">
+                    <div class="tableA-col text-assistance">
+                        {{currentArea.extra_info_titled.lines.line2}}
+                    </div>
+                </div>
+                
+                <div class="tableA-row">
+                    <div class="tableA-col text-assistance">
+                        {{currentArea.extra_info_titled.lines.line3}}
+                    </div>
+                </div>
+                
+                </div>
+                <br/>
+                <div class="tableA-row" ng-if="currentArea.extra_info_titled2" style="margin-top:10px;margin-bottom:20px">
+                  
+                    <div class="tableA-col text-assistance">
+                        {{currentArea.extra_info_titled2.title}}
+                    </div>
+                    <br/><br/>
+                <div class="tableA-row">
+                    <div class="tableA-col text-assistance">
+                        {{currentArea.extra_info_titled2.lines.line1}}
+                    </div>
+                </div>
+                <div class="tableA-row">
+                    <div class="tableA-col text-assistance">
+                        {{currentArea.extra_info_titled2.lines.line2}}
+                    </div>
+                </div>
+                <div class="tableA-row">
+                    <div class="tableA-col text-assistance">
+                        {{currentArea.extra_info_titled2.lines.line3}}
+                    </div>
+                </div>	
+                <div class="tableA-row">
+                    <div class="tableA-col text-assistance">
+                        {{currentArea.extra_info_titled2.lines.line4}}
+                    </div>
+                </div>
+                <div class="tableA-row">
+                    <div class="tableA-col text-assistance">
+                        {{currentArea.extra_info_titled2.lines.line5}}
+                    </div>
+                </div>
+                </div>
+                <br/>
+                   <div ng-if="currentArea.location.info" class="tableA-row">
+                    <div class="tableA-col">
+                        <img src="images/png/assistance_detail_location.png" width="25">
+                    </div>
+                    <div class="tableA-col text-assistance" style="padding-top:8px">
+                        {{currentArea.location.info}}
+                    </div>
+                </div>
+                
+            </div>
+            <div style="position:relative;z-index:1;" ng-if="currentArea.photoMap">
+            <img src="images/cartes/{{currentArea.photoMap}}" width="100%">
+            </div>
+
+        </div>
+        <!-- end cell -->
+    </div>
+</div>

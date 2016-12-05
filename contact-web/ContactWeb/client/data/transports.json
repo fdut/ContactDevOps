@@ -1,0 +1,355 @@
+{
+    "version": "0.1",
+    "items": [{
+            "name": "Parc Marcel Cerdan",
+            "icon": "images/png/parking_green.png",
+            "phoneNumber": "",
+            "schedule": {
+                "info": "24h/24 et 7 jours sur 7",
+                "startHour": "0",
+                "endHour": "24",
+                "days": ["1", "2", "3", "4", "5", "6"],
+                "startMinutes": "0",
+                "endMinutes": "0"
+            },
+            "location": {
+                "info": "145 rue Danton 92300 Levallois-Perret",
+                "latitude": "48.896619",
+                "longitude": "2.286056"
+            },
+            "person": {
+                "info": ""
+            },
+            "extra_info": {
+                "info": ""
+            },
+            "tarifs": {
+                "info": "30min Gratuit\n0h45: 1€\n1h00: 1,70€\n1h15: 2,40€\n1h30: 3,10€\n1h45: 3,80€\n2h00: 4,50€\n2h15: 5,20€\nPuis 0,70€par 1/4 d'heure suivant.\n-50% pour les motos."
+            },
+            "services": {
+                "info": "Paiement sur la borne sortie par CB\nHauteur limitée à 1,90m\n356 places\n3 niveaux\nSortie pour Unicity: à définir"
+            },
+            "category": "TRANSPORT",
+            "subcategory": "PARKING",
+            "image": "p1.png"
+    }, {
+            "name": "Parc Andre Citroen",
+            "icon": "images/png/parking_green.png",
+            "phoneNumber": "",
+            "schedule": {
+                "info": "24h/24 et 7 jours sur 7",
+                "startHour": "0",
+                "endHour": "24",
+                "days": ["1", "2", "3", "4", "5", "6"],
+                "startMinutes": "0",
+                "endMinutes": "0"
+            },
+            "location": {
+                "info": "33 rue Ernest Cognacq 92300 Levallois-Perret",
+                "latitude": "48.897289",
+                "longitude": "2.276258"
+            },
+            "person": {
+                "info": ""
+            },
+            "extra_info": {
+                "info": ""
+            },
+            "tarifs": {
+                "info": "30min Gratuit\n0h45: 1€\n1h00: 1,70€\n1h15: 2,40€\n1h30: 3,10€\n1h45: 3,80€\n2h00: 4,50€\n2h15: 5,20€\nPuis 0,70€par 1/4 d'heure suivant.\n-50% pour les motos."
+            },
+            "services": {
+                "info": "Paiement sur la borne sortie par CB\nHauteur limitée à 1,90m\n447 places\n2 niveaux\nSortie pour Unicity: à définir"
+            },
+            "category": "TRANSPORT",
+            "subcategory": "PARKING",
+            "image": "p2.png"
+    }, {
+            "name": "AUTOLIB Station 1",
+            "icon": "images/png/autolib.png",
+            "phoneNumber": "",
+            "schedule": {
+                "info": "24h/24 et 7 jours sur 7",
+                "startHour": "0",
+                "endHour": "24",
+                "days": ["1", "2", "3", "4", "5", "6"],
+                "startMinutes": "0",
+                "endMinutes": "0"
+            },
+            "location": {
+                "info": "33 rue Ernest Cognacq 92300 Levallois-Perret",
+                "latitude": "48.8976",
+                "longitude": "2.2759"
+            },
+            "person": {
+                "info": ""
+            },
+            "extra_info": {
+                "info": ""
+            },
+            "tarifs": {
+                "info": ""
+            },
+            "services": {
+                "info": "6"
+            },
+            "category": "TRANSPORT",
+            "subcategory": "AUTOLIB",
+            "image": "p2.png",
+            "capacity": "6"
+    }, {
+            "name": "AUTOLIB Station 2",
+            "icon": "images/png/autolib.png",
+            "phoneNumber": "",
+            "schedule": {
+                "info": "24h/24 et 7 jours sur 7",
+                "startHour": "0",
+                "endHour": "24",
+                "days": ["1", "2", "3", "4", "5", "6"],
+                "startMinutes": "0",
+                "endMinutes": "0"
+            },
+            "location": {
+                "info": "1 place Georges Pompidou 92300 Levallois-Perret",
+                "latitude": "48.898889",
+                "longitude": "2.281398"
+            },
+            "person": {
+                "info": ""
+            },
+            "extra_info": {
+                "info": ""
+            },
+            "tarifs": {
+                "info": ""
+            },
+            "services": {
+                "info": "6"
+            },
+            "category": "TRANSPORT",
+            "subcategory": "AUTOLIB",
+            "image": "p2.png",
+            "capacity": "6"
+    }, {
+            "name": "arrêt Pont de Levallois - Bécon",
+            "icon": "images/png/bus.png",
+            "phoneNumber": "",
+            "schedule": {
+                "info": "",
+                "startHour": "0",
+                "endHour": "24",
+                "days": ["1", "2", "3", "4", "5", "6"],
+                "startMinutes": "0",
+                "endMinutes": "0"
+            },
+            "location": {
+                "info": "143 rue Anatole France 92300 Levallois-Perret",
+                "latitude": "48.8968",
+                "longitude": "2.2808"
+            },
+            "person": {
+                "info": ""
+            },
+            "extra_info": {
+                "info": "arrêt Pont de Levallois - Bécon"
+            },
+            "tarifs": {
+                "info": ""
+            },
+            "lignes": {
+                "info": [{
+                        "number": "53",
+                        "from": "Pont de Levallois - Bécon",
+                        "to": "Opéra"
+                    }, {
+                        "number": "N16",
+                        "from": "Pont de Levallois - Bécon",
+                        "to": "Mairie de Montreuil"
+                    }, {
+                        "number": "N52",
+                        "from": "Gare d'Argentuil",
+                        "to": "Gare Saint-Lazare"
+                    }
+            ]
+            },
+            "services": {
+                "info": ""
+            },
+            "category": "TRANSPORT",
+            "subcategory": "BUS",
+            "image": "p2.png"
+    }, {
+            "name": "gare Clichy - Levallois",
+            "icon": "images/png/sncf.png",
+            "phoneNumber": "",
+            "schedule": {
+                "info": "",
+                "startHour": "0",
+                "endHour": "24",
+                "days": ["1", "2", "3", "4", "5", "6"],
+                "startMinutes": "0",
+                "endMinutes": "0"
+            },
+            "location": {
+                "info": "5 place du 8 Mai 1945 92300 Levallois-Perret",
+                "latitude": "48.898097",
+                "longitude": "2.296823"
+            },
+            "person": {
+                "info": ""
+            },
+            "extra_info": {
+                "info": "gare Clichy - Levallois"
+            },
+            "tarifs": {
+                "info": ""
+            },
+            "services": {
+                "info": ""
+            },
+            "category": "TRANSPORT",
+            "subcategory": "TRANSILIEN",
+            "gareNumber": "1",
+            "image": "p2.png"
+       },{
+            "name": "gare Asnières sur Seine",
+            "icon": "images/png/sncf.png",
+            "phoneNumber": "",
+            "schedule": {
+                "info": "",
+                "startHour": "0",
+                "endHour": "24",
+                "days": ["1", "2", "3", "4", "5", "6"],
+                "startMinutes": "0",
+                "endMinutes": "0"
+            },
+            "location": {
+                "info": "92600 Asnières-sur-Seine",
+                "latitude": "48.906861",
+                "longitude": "2.283010"
+            },
+            "person": {
+                "info": ""
+            },
+            "extra_info": {
+                "info": "gare Asnières sur Seine"
+            },
+            "tarifs": {
+                "info": ""
+            },
+            "services": {
+                "info": ""
+            },
+            "category": "TRANSPORT",
+            "subcategory": "TRANSILIEN",
+            "image": "p2.png",
+             "gareNumber": "2"
+      },{
+            "name": "gare Bécon les Bruyères",
+            "icon": "images/png/sncf.png",
+            "phoneNumber": "",
+            "schedule": {
+                "info": "",
+                "startHour": "0",
+                "endHour": "24",
+                "days": ["1", "2", "3", "4", "5", "6"],
+                "startMinutes": "0",
+                "endMinutes": "0"
+            },
+            "location": {
+                "info": "92400 Courbevoie",
+                "latitude": "48.905949",
+                "longitude": "2.268458"
+            },
+            "person": {
+                "info": ""
+            },
+            "extra_info": {
+                "info": "gare Bécon les Bruyères"
+            },
+            "tarifs": {
+                "info": ""
+            },
+            "services": {
+                "info": ""
+            },
+            "category": "TRANSPORT",
+            "subcategory": "TRANSILIEN",
+            "image": "p2.png",
+             "gareNumber": "3"
+    }, {
+            "name": "arrêt Pont de Levallois - Bécon",
+            "icon": "images/png/metro.png",
+            "phoneNumber": "",
+            "schedule": {
+                "info": "",
+                "startHour": "0",
+                "endHour": "24",
+                "days": ["1", "2", "3", "4", "5", "6"],
+                "startMinutes": "0",
+                "endMinutes": "0"
+            },
+            "location": {
+                "info": "143 rue Anatole France 92300 Levallois-Perret",
+                "latitude": "48.897236",
+                "longitude": "2.280339"
+            },
+            "person": {
+                "info": ""
+            },
+            "extra_info": {
+                "info": "arrêt Pont de Levallois - Bécon"
+            },
+            "tarifs": {
+                "info": ""
+            },
+            "services": {
+                "info": ""
+            },
+            "category": "TRANSPORT",
+            "subcategory": "METRO",
+            "lignes": {
+                "info": [{
+                        "number": "3",
+                        "from": "Pont de Levallois - Bécon",
+                        "to": "Gallieni"
+                    }
+            ]
+            },
+           "image": "p2.png"
+    },
+        {
+            "name": "Unicity",
+            "icon": "images/png/unicityPin.png",
+            "phoneNumber": "",
+            "schedule": {
+                "info": "24h/24 et 7 jours sur 7",
+                "startHour": "0",
+                "endHour": "24",
+                "days": ["1", "2", "3", "4", "5", "6"],
+                "startMinutes": "0",
+                "endMinutes": "0"
+            },
+            "location": {
+                "info": "143 rue Anatole France 92300 Levallois-Perret",
+                "latitude": "48.896248",
+                "longitude": "2.2810443"
+            },
+            "person": {
+                "info": ""
+            },
+            "extra_info": {
+                "info": ""
+            },
+            "tarifs": {
+                "info": ""
+            },
+            "services": {
+                "info": ""
+            },
+            "category": "TRANSPORT",
+            "subcategory": "MYUNICITY",
+            "image": "p1.png"
+    }
+    ]
+}

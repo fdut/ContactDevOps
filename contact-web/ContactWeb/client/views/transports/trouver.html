@@ -1,0 +1,43 @@
+
+<div ng-controller="TrouverCtrl" ng-init="init()">
+<div>
+    <div class="col-lg-3 col-md-3" translate>
+        TRANSPORTS.PARKING.EMAIL
+    </div>
+    <form name="" ng-submit="trouverLot()">
+        <div class="col-lg-9 col-md-9" style="padding-right: 0px;">
+            <input type="text" name="userEmailReserver"  ng-model="formTrouver.userEmailReserver" class="inputCustom" style="margin-top: -10px !important;" >
+        </div>
+        <div class="col-lg-12 col-md-12">
+            <ng-calendarcustom trouver="true" lots="lots"></ng-calendarcustom>
+        </div>
+        <div>
+            <button type="submit" class="btn pull-right transportsButton">RES&Eacute;RVER</button>
+        </div>
+    </form>
+</div>
+
+<div class="modal fade" id="modalTrouver" role="dialog">
+    <div class="modal-dialog">
+         <div class="modal-content">
+            <div class="modal-body">
+                 <p translate>TRANSPORTS.PARKING.TROUVERSUCCESS</p>
+                 <ul>
+                <li ng-repeat="date in reservations.dates">{{date}}</li>
+                </ul>                
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="modal fade" id="modalTextTrouver" role="dialog">
+    <div class="modal-dialog">
+         <div class="modal-content">
+            <div class="modal-body">
+                <div>{{modalTextTrouver}}</div>                
+            </div>
+        </div>
+    </div>
+</div>
+</div>

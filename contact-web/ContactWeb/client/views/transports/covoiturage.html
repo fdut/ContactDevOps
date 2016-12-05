@@ -1,0 +1,81 @@
+<div ng-controller="CovoiturageCtrl" ng-init=init() class="covoiturageCell">
+    <div class="information-block " style="margin:20px 0px; border-bottom: 2px solid #e8e8e8;">
+        <p translate>TRANSPORTS.COVOITURAGE.DESCRIPTION</p>
+    </div>
+    <div class="information-block " style="margin-top:20px; border-bottom: 2px solid #e8e8e8; min-height: 60px;">
+        <div class="col-log-10 col-md-10 left-inner-addon" style="padding-left: 0px;">
+            <span><img src="images/png/covoiturage_search.png"></span>
+            <input type="text" name="searchPerson" placeholder="{{'TRANSPORTS.COVOITURAGE.SEARCHBOXHOLDER' | translate}}" ng-model="covoiturage.searchWord" class="inputCustom" style="margin-top: 4px;" required>
+        </div>
+        <div class="col-log-2 col-md-2">
+            <button ng-click="searchCovoiturage()" type="button" class="btn pull-right transportsButton" style="padding: 4px 10px 0px 10px !important;" translate>TRANSPORTS.COVOITURAGE.SEARCHBUTTON</button>
+        </div>
+    </div>
+
+    <div ng-show="!hasNoData" class="information-block " ng-repeat="car in cars">
+        <div class="col-lg-12 col-md-12 covoiturageCars" ng-class="{noBorder:$first}">
+            <div class="col-lg-3 col-md-3" style="padding-left: 0px; margin-top:30px;">
+                <img ng-src="{{routeCovoiturage+'/'+car.email+'/icon'}}" width="180" />
+            </div>
+
+            <div class="col-lg-9 col-md-9">
+                <div class="col-lg-12 col-md-12">
+                    <h2 style="padding-left:15px; color:black;">{{car.name}}</h2>
+                </div>
+                <div class="col-lg-12 col-md-12">
+                    <div class="col-lg-6 col-md-6" style="color:black;">
+                        <span><img src="images/png/covoiturage_map.png"></span>
+                        <span translate>TRANSPORTS.COVOITURAGE.DEPARTURE</span>
+                    </div>
+                    <div class="col-lg-6 col-md-6">{{car.city}}</div>
+                </div>
+                <div class="col-lg-12 col-md-12">
+                    <div class="col-lg-6 col-md-6" style="color:black;">
+                        <span><img src="images/png/covoiturage_places.png"></span>
+                        <span translate>TRANSPORTS.COVOITURAGE.PLACES</span></div>
+                    <div class="col-lg-6 col-md-6">{{car.places}}</div>
+                </div>
+                <div class="col-lg-12 col-md-12">
+                    <div class="col-lg-6 col-md-6" style="color:black;">
+                        <span><img src="images/png/covoiturage_call.png" ></span>
+                        <span translate>TRANSPORTS.COVOITURAGE.PHONE</span></div>
+                    <div class="col-lg-6 col-md-6">{{car.phone}}</div>
+                </div>
+                <div class="col-lg-12 col-md-12">
+                    <div class="col-lg-6 col-md-6" style="color:black;">
+                        <span><img src="images/png/covoiturage_email.png"></span>
+                        <span translate>TRANSPORTS.COVOITURAGE.EMAIL</span></div>
+                    <div class="col-lg-6 col-md-6" style="color: #53b795;">{{car.email}}</div>
+                </div>                
+            </div>
+            
+        </div>
+    </div>
+    
+    <div class="" ng-show="hasNoData" class="ng-hide" style="text-align: center;font-size:20px;margin-top:40px">
+		<div translate>TRANSPORTS.COVOITURAGE.NORESULTS</div>	
+	</div>
+    
+    <nav ng-show="!hasNoData">
+        <div class="col-lg-12 col-md-12 text-center" ng-if="pageNr">
+            <ul class="pagination">
+                <li>
+                    <a aria-label="Previous" ng-click="prev()">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li ng-repeat="pag in pageArray" ng-class="{active: $index == currentPage}">
+                    <a href="" ng-click="setDataPagination($index)">
+                        <span>{{$index+1}}</span>
+                    </a>
+                </li>
+                <li>
+                    <a aria-label="Next" ng-click="next()">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+</div>

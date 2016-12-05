@@ -1,0 +1,15 @@
+{  
+  "TOP_RIGHT_NAVIGATION": {
+    	  "ACCUEIL_LABEL": "Accueil",
+   		  "ASSISTANCE_LABEL": "Assistance "
+  },  
+  "MAIN_NAVIGATION" : {
+          "ESPACES_LABEL" : "Plans",
+          "BATIMENT_LABEL" : "Services aux<br>collaborateurs",
+          "BATIMENT_ONELINE_LABEL" : "Services aux collaborateurs",
+          "TRANSPORTS_LABEL": "Transports",
+          "RESTAURATION_LABEL": "Restauration",
+          "LIVRET_LABEL": "Vivre dans Unicity"  
+  }
+  
+}

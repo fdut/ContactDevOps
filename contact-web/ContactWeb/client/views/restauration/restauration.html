@@ -1,0 +1,47 @@
+<div class="center-block text-block" ng-controller="RestaurationCtrl" ng-init="init()">
+
+    <h1 translate>RESTAURATION.HEADTITLE</h1>
+    <div>
+        <div>
+        <img src="images/png/ibcr.png" />
+        <span ng-if="isActive('/restauration/restaurant')"><span  translate>RESTAURATION.HEADTITLE</span><span  translate>></span><span  translate>RESTAURATION.LISTITEMONE</span></span>
+        <span ng-if="isActive('/restauration/cafeteria')"><span  translate>RESTAURATION.HEADTITLE</span><span  translate>></span><span  translate>RESTAURATION.LISTITEMTWO</span></span>
+        </div>
+    </div>
+    <div class="lineSeparator"></div>
+
+    <div class="table-layout">
+        <div class="table-cell fixed-width-column">
+            <ul class="nav nav-list bs-docs-sidenav navigationHeight" >
+               <li class="mitem" ng-class="{ active: isActive('/restauration/restaurant')}">
+                 <a ui-sref="restauration.restaurant" >
+                        <div class="left"><img ng-src="images/png/restaurant.png" width="25"/></div>
+                        <div class="right" translate>RESTAURATION.LISTITEMONE</div>
+                         <div class="arrow-right"></div>
+                 </a>
+                </li>
+                <li class="mitem" ng-class="{ active: isActive('/restauration/cafeteria')}">
+                 <a ui-sref="restauration.cafeteria">
+                        <div class="left"><img ng-src="images/png/cafeteria.png" width="25"/></div>
+                        <div class="right" translate>RESTAURATION.LISTITEMTWO</div>
+                         <div class="arrow-right"></div>
+                 </a>
+                </li>
+                    <li class="mitem" ng-class="{ active: isActive('/restauration/cafeteria2')}">
+                 <a ui-sref="restauration.cafeteria2">
+                        <div class="left"><img ng-src="images/png/cafeteria.png" width="25"/></div>
+                        <div class="right" translate>RESTAURATION.LISTITEMTREE</div>
+                         <div class="arrow-right"></div>
+                 </a>
+                </li>
+                                
+          </ul>
+        </div>
+        
+     
+        
+        <div class="table-cell" ui-view>       
+        </div>
+ 
+    </div>
+</div>

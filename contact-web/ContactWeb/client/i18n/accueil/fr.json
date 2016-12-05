@@ -1,0 +1,13 @@
+{  
+  "FIRST_PAGE": {
+  	"HEADING" : "Bienvenue sur le site de MyUnicity PF !",
+    "CONTENT": {
+    			"FIRST_PARAGHRAPG" :"Ce site met à disposition tous les aspects pratiques d'Unicity de celles et ceux qui y travaillent. Il permet par exemple de :",
+				"FIRST_PARAGHRAPG1":"Identifier les points clés du bâtiment (salles, bulles, kiosque IT, points copies, etc…)",
+				"FIRST_PARAGHRAPG2":"Trouver toutes les informations importantes (horaires, numéros de téléphones, etc…)",
+				"FIRST_PARAGHRAPG3":"Se renseigner en quelques clics sur tous les moyens de transports à proximité",    			
+    			"SECOND_PARAGHRAPG" :"Ce site est accessible depuis tous les postes de travail Neos de PF, et offre à toutes les personnes n'ayant pas un iPhone professionnel PF la possibilité de gérer et d'organiser facilement son temps de travail et d'échanges à Unicity.",
+    			"THIRD_PARAGHRAPG" :"Pour rappel, la version mobile de MyUnicity est disponible dans le store d’entreprise Apps@BNPP uniquement pour les iPhone professionnels PF."
+    			} 
+   }
+}

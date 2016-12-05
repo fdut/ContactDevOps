@@ -1,0 +1,172 @@
+<div class="tableCellRight">
+
+    <div class="information-block row">
+        <leaflet width="100%" height="450px" markers="markers" lf-center="center" defaults="defaults"></leaflet>
+    </div>
+    <div ng-if='markerType === "VELIB"' style="margin-top:20px;">
+        <div class="information-block row">
+            <div class="col-lg-1 col-md-1 col-sm-1">
+                <img src="images/png/guy_on_bike.png" style="width: 24px;">
+            </div>
+            <div class="col-lg-11 col-md-11 col-sm-11 information-block-text">
+                <div translate>TRANSPORTS.PUBLICS.DISPONIBILITE_COMPONENT.DISPONIBILITE</div>
+            </div>
+        </div>
+        <div class="occupation">
+            <div class="greyBike pull-left"></div>
+            <div class="overlayBike pull-left" ng-style="bikeWidth"></div>
+            <div class="percentNumber pull-right">
+                {{disponibilitePercent | number:0}} %
+            </div>
+
+        </div>
+        <div class="occupiedNumber" translate="TRANSPORTS.PUBLICS.DISPONIBILITE_COMPONENT.BIKESLIBRE" translate-values="{ availableBikes: availableBikes }">
+        </div>
+        <div class="information-block row">
+            <div class="col-lg-1 col-md-1 col-sm-1">
+                <img src="images/png/guy_on_bike.png" style="width: 24px;">
+            </div>
+            <div class="col-lg-11 col-md-11 col-sm-11 information-block-text">
+                <div translate>TRANSPORTS.PUBLICS.AFFLUENCE_COMPONENT.AFFLUENCE</div>
+            </div>
+        </div>
+        <div class="occupation">
+            <div class="greyBikeStand pull-left"></div>
+            <div class="overlayBikeStand pull-left" ng-style="bikeStandWidth"></div>
+            <div class="percentNumber pull-right">
+                {{affluencePercent | number:0}} %
+            </div>
+
+        </div>
+        <div class="occupiedNumber" style="margin-bottom: 20px;" translate="TRANSPORTS.PUBLICS.AFFLUENCE_COMPONENT.STANDSLIBRE" translate-values="{ availableStands: availableStands }">
+        </div>
+    </div>
+
+
+    <div class="information-block row" ng-if="stationName">
+        <div class="public-block" ng-class='{ velibBlock: (markerType === "BUS" || markerType === "METRO"), parkMarcel: stationName.split(" ")[1] === "Marcel",  parkAndre: stationName.split(" ")[1] === "Andre"}'>
+            <div class="col-lg-6 col-md-6 col-sm-6" style="margin-top: 150px;color: white;text-align: center;">
+                <h2>
+                <span ng-if='markerType === "BUS"'>
+                <span>Ligne</span>
+                <span class="lineNumber" style="color:black;margin: 0px 10px;">53</span>
+                </span>
+                <span ng-if='markerType === "METRO"'>
+                <span>Ligne</span>
+                <span class="metroLineNumber">3</span>
+                </span>
+                <span ng-if='markerType === "TRANSILIEN"'>
+                <span>Ligne</span>
+                <span class="transilienLineNumber">L</span>
+                </span>
+                <span ng-if='markerType === "VELIB"'>
+                <span>VELIB Station</span>  
+                 {{stationName | capitalizeVelib}}
+                </span>        
+               <span ng-if='markerType !== "VELIB"'>{{stationName}}</span>              
+                </h2>
+                <h4>{{distance | number}}&nbsp;kilom&egrave;tres</h4>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6">  
+                <div class="information-block-publics">
+                    <div class="pull-left">
+                        <img src="images/png/assistance_detail_location.png" width="25">
+                    </div>
+                    <div class="" style="margin-left:30px;width: 100%;">
+                        <span class="header-publics" translate>TRANSPORTS.PUBLICS.ADDRESS</span>
+                        <br/> {{stationAddress}}
+                    </div>
+                </div>
+                <div ng-if='markerType === "BUS"' class="busLineSeparator"></div>
+                <div class="information-block-publics" ng-if='markerType === "BUS"' style="padding-left:40px !important;">
+                    <div class="header-publics" translate>TRANSPORTS.PUBLICS.LIGNES</div>
+                    <div ng-repeat="line in lines" style="margin-bottom:20px;">
+                        <div class="header-publics"><span translate>TRANSPORTS.PUBLICS.LIGNE</span><span class="lineNumber">{{line.number}}</span></div>
+                        <div><span>{{line.from}}</span><img src="images/png/arrow.png" style="padding: 0px 2px;"/><span>{{line.to}}</span></div>
+                    </div>
+                </div>
+
+                <div class="information-block-publics" ng-if='markerType === "METRO"'>
+
+                    <div class="pull-left">
+                        <img src="images/png/metro.png" style="height: 25px;">
+                    </div>
+                    <div class="" style="margin-left:30px;width: 100%;">
+                        <span class="header-publics" translate>TRANSPORTS.PUBLICS.LIGNES</span>
+
+                        <div ng-repeat="metroLine in metroLines" style="margin-bottom:20px;">
+                            <div class="metro-header-publics"><span translate>TRANSPORTS.PUBLICS.LIGNE</span><span class="metroLineNumber"  style="padding: 1px 8px;">{{metroLine.number}}</span></div>
+                            <div><span>{{metroLine.from}}</span><img src="images/png/arrow.png" style="padding: 0px 2px;"/><span>{{metroLine.to}}</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="information-block-publics" ng-if='markerType != "BUS" && markerType != "METRO" && markerType != "TRANSILIEN"'>
+                    <div class="pull-left">
+                        <img src="images/png/assistance_detail_schedule.png" width="25">
+                    </div>
+                    <div style="margin-left:30px;width: 100%;">
+                        <span class="header-publics" translate>TRANSPORTS.PUBLICS.SCHEDULE</span>
+                        <br/> {{schedule}}
+                    </div>
+                </div>
+                <div ng-if='markerType === "PARKING"'>
+                    <div class="information-block-publics">
+                        <div class="pull-left">
+                            <img src="images/png/information.png" width="25">
+                        </div>
+                        <div style="margin-left:30px;width: 100%;">
+                            <span class="header-publics" translate>TRANSPORTS.PUBLICS.SERVICES</span>
+                            <br/>{{servicesParking}}
+                            <br/>
+                            <span class="header-publics" translate>TRANSPORTS.PUBLICS.PRICE</span>
+                            <br/>{{priceParking}}
+
+                        </div>
+                    </div>
+                </div>
+                <div ng-if='markerType === "AUTOLIB"'>
+                    <div class="information-block-publics">
+                        <div class="pull-left">
+                            <img src="images/png/information.png" width="25">
+                        </div>
+                        <div style="margin-left:30px;width: 100%;">
+                            <span class="header-publics" translate>TRANSPORTS.PUBLICS.CAPACITE</span>
+                            <br/>{{capacite}}
+                            <br/>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="information-block-publics" ng-if='markerType === "TRANSILIEN"'>
+                    <div class="metroLineSeparator"></div>
+                    <div style="margin-bottom:20px;height: 13px;    width: 300px;">
+                        <span class="pull-left metroHeader" translate>TRANSPORTS.PUBLICS.DIRECTIONS</span>
+                        <span class="pull-right metroHeader" translate>TRANSPORTS.PUBLICS.PROCHAINTRAIN</span>
+                    </div>
+                    <div>
+                        <div ng-repeat="departure in departuresList | limitTo:7" class="row">
+                            <div class="col-lg-8 col-md-8 col-sm-8" style="border-right: 1px solid #00a471;padding-right: 10px;padding-top: 10px;">
+                                {{departure.destinationName}}
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4" style="padding-top: 10px;padding-right: 0px;">
+                                          
+                               <span ng-if='!departure.state'>
+                                <span>{{departure.departureTime}}min</span>
+                                <span class="greenFlag"></span>
+                                </span>  
+                                
+                                 <span ng-if='departure.state'>
+                            	 <span ng-if='departure.state[0] === "R"'>Retard&eacute;</span>
+                            	 <span ng-if='departure.state[0] === "S"'>Supprim&eacute;</span>
+                                <span class="redFlag"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

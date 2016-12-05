@@ -1,0 +1,37 @@
+<div class="center-block text-block" ng-controller="TransportsCtrl" ng-init="init()">
+
+    <h1 translate>TRANSPORTS.HEADTITLE</h1>
+    <div>
+        <div>
+        <img src="images/png/ibcr.png" />
+        <span ng-if="isActive('/transports/publics')"><span  translate>TRANSPORTS.HEADTITLE</span><span  translate>></span><span  translate>TRANSPORTS.LISTITEMONE</span></span>
+        <span ng-if="isActive('/transports/parking/proposer') || isActive('/transports/parking/trouver')"><span  translate>TRANSPORTS.HEADTITLE</span><span  translate>></span><span  translate>TRANSPORTS.LISTITEMTWO</span></span>
+        <span ng-if="isActive('/transports/covoiturage')"><span  translate>TRANSPORTS.HEADTITLE</span><span  translate>></span><span  translate>TRANSPORTS.LISTITEMTHREE</span></span>
+        </div>
+    </div>
+    <div class="lineSeparator"></div>
+
+    <div class="table-layout">
+        <div class="table-cell fixed-width-column">
+            <ul class="nav nav-list bs-docs-sidenav" style="height:841px;">
+               <li class="mitem" ng-class="{ active: isActive('/transports/publics')}">
+                 <a ui-sref="transports.publics" >
+                        <div class="left"><img ng-src="images/png/icon_publics.png" style="width:25px;" /></div>
+                        <div class="right" translate>TRANSPORTS.LISTITEMONE</div>
+                         <div class="arrow-right"></div>
+                 </a>
+                </li>
+                
+                                      
+          </ul>
+        </div>
+        
+        
+     
+        
+        <div class="table-cell" ui-view>       
+        </div>
+ 
+    </div>
+</div>
+

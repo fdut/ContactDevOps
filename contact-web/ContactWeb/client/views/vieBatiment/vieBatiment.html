@@ -1,0 +1,81 @@
+<div class="center-block text-block" ng-controller="BatimentCtrl" ng-init="init()">
+
+    <h1 translate>BATIMENT.HEADTITLE</h1>
+    <div>
+        <div>
+        <img src="images/png/ibcr.png" />
+        <span translate>BATIMENT.HEADTITLE</span>><span>{{currentItem}}</span>
+   </div>
+    </div>
+    <div class="lineSeparator"></div>
+
+    <div class="table-layout">
+        <div class="table-cell fixed-width-column">
+            <ul class="nav nav-list bs-docs-sidenav" style="height:841px;">
+               </li>
+                 <li class="mitem" ng-class="{ active: isActive('/vie-du-batiment/conciergerie')}" ng-click='currentItem=" Conciergerie"'>
+                 <a ui-sref="vieBatiment.conciergerie">
+                        <div class="left"><img ng-src="images/png/conciergerie.png" style="width: 25px;"/></div>
+                        <div class="right" translate>BATIMENT.CONCIERGERIE.HEADTITLE</div>
+                         <div class="arrow-right"></div>
+                 </a>
+                </li>   
+                
+                 </li>
+                 <li class="mitem" ng-class="{ active: isActive('/vie-du-batiment/courrier')}" ng-click='currentItem=" Courrier"'>
+                 <a ui-sref="vieBatiment.courrier">
+                        <div class="left"><img ng-src="images/png/courrier-interne.png" style="width: 25px;"/></div>
+                        <div class="right" translate>BATIMENT.COURRIER.HEADTITLE</div>
+                         <div class="arrow-right"></div>
+                 </a>
+                </li>   
+              
+               </li>
+                <li class="mitem" ng-class="{ active: isActive('/vie-du-batiment/fitness')}" ng-click='currentItem=" Fitness"'>
+                 <a ui-sref="vieBatiment.fitness">
+                        <div class="left"><img ng-src="images/png/fitness.png" style="width: 25px;"/></div>
+                        <div class="right" translate>BATIMENT.FITNESS.HEADTITLE</div>
+                         <div class="arrow-right"></div>
+                 </a>
+                 
+               <li class="mitem" ng-class="{ active: isActive('/vie-du-batiment/kiosque')}" ng-click='currentItem=" Kiosque"'>
+                 <a ui-sref="vieBatiment.kiosque" >
+                        <div class="left"><img ng-src="images/png/kiosque.png" style="width: 25px;"/></div>
+                        <div class="right" translate>BATIMENT.KIOSQUE.HEADTITLE</div>
+                         <div class="arrow-right"></div>
+                 </a>
+               
+                </li>
+                <li class="mitem" ng-class="{ active: isActive('/vie-du-batiment/salons')}" ng-click='currentItem=" Salons"'>
+                 <a ui-sref="vieBatiment.salons">
+                        <div class="left"><img ng-src="images/png/petits-salons.png" style="width: 25px;"/></div>
+                        <div class="right" translate>BATIMENT.SALONS.HEADTITLE</div>
+                         <div class="arrow-right"></div>
+                 </a>
+                 
+                 <li class="mitem" ng-class="{ active: isActive('/vie-du-batiment/reprographie')}" ng-click='currentItem=" Reprographie"'>
+                 <a ui-sref="vieBatiment.reprographie">
+                        <div class="left"><img ng-src="images/png/reprographie.png" style="width: 25px;"/></div>
+                        <div class="right" translate>BATIMENT.REPROGRAPHIE.HEADTITLE</div>
+                         <div class="arrow-right"></div>
+                 </a>
+                </li>    
+                
+                
+                 <li class="mitem" ng-class="{ active: isActive('/vie-du-batiment/reservation')}" ng-click='currentItem=" Reservation"'>
+                 <a ui-sref="vieBatiment.reservation">
+                        <div class="left"><img ng-src="images/png/auditorium.png" style="width: 25px;"/></div>
+                        <div class="right" translate>BATIMENT.RESERVATION.HEADTITLE</div>
+                         <div class="arrow-right"></div>
+                 </a>
+                </li>  
+                                   
+          </ul>
+        </div>
+        
+        <div class="table-cell" ui-view>       
+        </div>
+ 
+    </div>
+</div>
+

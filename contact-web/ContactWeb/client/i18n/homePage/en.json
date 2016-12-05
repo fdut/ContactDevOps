@@ -1,0 +1,15 @@
+{  
+    "TOP_RIGHT_NAVIGATION": {
+    "ACCUEIL_LABEL": "Home",
+    "ASSISTANCE_LABEL": "Assistance "
+  },
+  
+  "MAIN_NAVIGATION" : {
+          "ESPACES_LABEL" : "Workspace",
+          "BATIMENT_LABEL" : "Activities",
+          "TRANSPORTS_LABEL": "Transports",
+          "RESTAURATION_LABEL": "Restaurant",
+          "LIVRET_LABEL": "Welcome booklet"  
+  }
+  
+}

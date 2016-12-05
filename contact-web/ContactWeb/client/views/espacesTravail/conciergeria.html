@@ -1,0 +1,18 @@
+<div ng-if="!noInfo">
+<div>
+       <img imageonload="imageLoaded()" ng-src="http://myunicity-cdn.eu-gb.mybluemix.net/images/cartes/{{currentImgFloor}}" style="width:100%; margin-top:-178px;position:absolute">
+</div>
+
+<div ng-repeat="point in pointsArray" ng-style="point.cssStyle" class="circlePoint">
+   <div class="popover above">{{point.desc}}</div>
+</div>
+</div>
+
+<div ng-if="noInfo" style="text-align: center;">
+No information provided
+</div>
+
+<div ng-if="!noInfo && !isImgLoaded">
+  <div class="img-preloader"></div>
+  <img src="images/spin.svg" class="greenSpin">
+</div>

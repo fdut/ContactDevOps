@@ -1,0 +1,48 @@
+{
+    "RESTAURATION": {
+        "HEADTITLE": " Restauration ",
+        "LISTITEMONE": " Restaurant ",
+        "LISTITEMTWO": " Alto Café ",
+        "LISTITEMTREE": " Le Contemporain ",
+        "RESTAURANT": {
+            "OCCUPATION_COMPONENT": {
+                "CROWDED": "Affluence",
+                "OCCUPIED": "{{occupiedNumber}} places libres"
+            },
+            "LOCATION": "Plan (RDC A)",
+            "MAIL" : "restaurant.unicity@rif.bnpparibas.com",
+            "SCHEDULE": "Horaires: du lundi au vendredi de {{startHourR}}h{{startMinutesR}} à {{endHourR}}h{{endMinutesR}}. Espace de convivialité de {{startHourR2}}h{{startMinutesR2}} à {{endHourR2}}h{{endMinturesR2}}.",
+            "MENU": "Menu de la semaine",
+            "PARAGRAPH1" : "L'offre plats chauds pour Unicity :",
+            "PARAGRAPH2" : "- Cuisines du monde",
+            "PARAGRAPH3" : "- Animation",
+            "PARAGRAPH4" : "- Mijotés",
+            "PARAGRAPH5" : "- Le grill et la plancha",
+            "PARAGRAPH6" : "- Le bar à légumes",
+            "PARAGRAPH7" : "- Pizzas, pastas, tartes",
+            "PARAGRAPH8" : "",
+            "PARAGRAPH9" : "Les autres offres pour Unicity :",
+            "PARAGRAPH10" : "- Hors d'oeuvres sur assiettes",
+            "PARAGRAPH11" : "- Salad'Bar",
+            "PARAGRAPH12" : "- Animations salées",
+            "PARAGRAPH13" : "- Boissons ",
+            "PARAGRAPH14" : "- Fraich'attitude",
+            "PARAGRAPH15" : "- Desserts sur assiettes",
+            "PARAGRAPH16" : "- Animations sucrées",
+            "PARAGRAPH17" : "- Produits laitiers"
+        },
+        "CAFETERIA": {
+            "LOCATION": "Plan (RDC A)",
+            "MAIL" : "restaurant.unicity@rif.bnpparibas.com",
+            "SCHEDULE": "Horaires: Service caféteria de {{startHourAC}}h{{startMinutesAC}} à {{endHourAC}}h{{endMinutesAC}} et de {{startHourAC2}}h{{startMinutesAC2}} à {{endHourAC2}}h{{endMinutesAC2}}. Espace convivialité accessible jusqu'à {{startHourAC3}}h{{startMinutesAC3}}.",
+            "PARAGRAPHONE": "Chaque jour, le GAM-Restaurant vous propose, pour votre petit moment de pause, des boissons chaudes ou froides (café, thé, chocolat, infusion...), des viennoiseries (croissant, pain au chocolat, chausson aux pommes, pain aux raisins...), des tartines beurrées, des jus de fruits (smoothies, oranges pressées, divers jus de fruits au verre ou en bouteille), des sodas, des eaux, des fruits frais (oranges, bananes...)"
+        },
+        "CAFETERIA2": {
+            "LOCATION": "Plan (RDC A)",
+            "MAIL" : "restaurant.unicity@rif.bnpparibas.com", 
+            "SCHEDULE": "Horaires: Service Restauration de {{startHourC}}h{{startMinutesC}} à {{endHourC}}h{{endMinutesC}}. Espace de convivialité accessible jusqu'à {{startHourC2}}h{{startMinutesC2}}.",
+            "PARAGRAPHONE": "Chaque jour de 12h à 16h, le GAM-Restaurant vous propose à la carte des salades, de nombreuses variétés de sandwichs, des quiches, des pâtes, des boissons... pour manger \"sur le pouce\" mais aussi des formules. ",
+            "PARAGRAPHTWO": "A vous de choisir !"
+        }
+    }
+}

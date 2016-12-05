@@ -1,7 +1,7 @@
 {
-  "name": "ContactWeb",
+  "name": "MyUnicityWeb-client",
   "version": "1.0.0",
-  "description": "ContactWeb holds the ibm-mfp-sdk, a node_modules that is mandatory for this web app",
+  "description": "MyUnicityWeb-client holds the ibm-mfp-sdk, a node_modules that is mandatory for this web app",
   "dependencies": {
     "ibm-mfp-sdk": "latest"
   },

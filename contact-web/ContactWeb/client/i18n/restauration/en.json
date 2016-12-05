@@ -1,0 +1,24 @@
+{
+    "RESTAURATION": {
+        "HEADTITLE": " Restauration ",
+        "LISTITEMONE": " Restaurant ",
+        "LISTITEMTWO": " Cafeteria ",
+        "RESTAURANT": {
+            "OCCUPATION_COMPONENT": {
+                "CROWDED": "Affluence",
+                "OCCUPIED": "{{occupiedNumber}} places occupees"
+            },
+            "LOCATION": "20 rue Georges Pompidou 92300 Levallois-Perret",
+            "SCHEDULE": "Horaires: de {{startHourR}}h{{startMinutesR}} à {{endHourR}}h{{endMinutesR}}",
+            "MENU": "Menu de la semaine"
+        },
+        "CAFETERIA": {
+            "LOCATION": "20 rue Georges Pompidou 92300 Levallois-Perret",
+            "SCHEDULE": "Horaires: de {{startHourC}}h{{startMinutesC}} à {{endHourC}}h{{endMinutesC}}",
+            "PARAGRAPHONE": "Chaque jour, le GAM-Restaurant vous propose, pour votre petit moment de pause, des boissons chaudes ou froides (café, thé, chocolat, infusion...), des viennoiseries (croissant, pain au chocolat, chausson aux pommes, pain aux raisins...), des tartines beurrées, des jus de fruits (smoothies, oranges pressées, divers jus de fruits au verre ou en bouteille), des sodas, des eaux, des fruits frais (oranges, bananes...)",
+            "PARAGRAPHTWO": "SNACKING",
+            "PARAGRAPHTHREE": "Chaque jour, le GAM-Restaurant vous propose à la carte des salades, de nombreuses variétés de sandwichs, des quiches, des pâtes, des boissons... pour manger \"sur le pouce\" mais aussi des formules. ",
+            "PARAGRAPHFOUR": "A vous de choisir !"
+        }
+    }
+}

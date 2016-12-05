@@ -1,0 +1,40 @@
+<div class="center-block text-block" ng-controller="EspacesCtrl" ng-init="init()">
+
+    <h1 translate>ESPACES DE TRAVAIL.HEADTITLE</h1>
+    <div>
+        <div>
+            <img src="images/png/ibcr.png" />
+            <span translate>ESPACES DE TRAVAIL.HEADTITLE</span><span>>&nbsp;{{currentSubitem}}</span>
+        </div>
+    </div>
+    <div class="lineSeparator"></div>
+
+    <div class="table-layout">
+        <div class="table-cell fixed-width-column">
+            <ul class="nav nav-list bs-docs-sidenav navigationHeight">
+                <li ng-repeat="item in listItems"  class="mitem" ng-click="setSection(item.name,item.keyName)" ng-class='{active: isActive(item.path)}'>
+                    <a ui-sref="{{item.state}}">
+                        <div class="subitemClass">{{item.name}}</div>
+                        <div class="arrow-right"></div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="table-cell">
+            <div class="tableCellRight" style="padding-top:0px;">
+                    <ul class="nav nav-pills nav-stacked green-nav" >
+                        <li id="floor{{$index}}" ng-repeat="i in [8,7,6,5,4,3,2,1,0,-1] track by $index">
+                        <a onclick="console.log('----click----')" ng-class='{active: currentFloor == i, floorDisable:!listEnabledFloors[i+1]}' ng-click="setFloor(i)" href="" style="">{{i}}</a>
+                        <span ng-if="currentFloor == i" class="arrow-right-out">
+                        <span class="floorClass"><span translate>ESPACES DE TRAVAIL.FLOOR</span><span>{{i}}</span></span>
+                        </span>
+                        </li>
+                    </ul>
+            </div>
+            <div ui-view class="espacesMapsPosition">
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,471 @@
+{
+    "sections": [{
+            "name": "I. Description des espaces",
+            "state": "livretAccueil.One",
+            "path": "/livret-d-accueil/one",
+            "noAccordeon": "true",
+            "subsections": [
+                {
+            "name": "I. Description des espaces",
+            "state": "livretAccueil.OneOne",
+            "path": "/livret-d-accueil/one-one"
+                 }
+                 ]
+        },
+
+        {
+            "name": "II. Principes et règles d'usage",
+            "state": "livretAccueil.Two",
+            "path": "/livret-d-accueil/two",
+            "noAccordeon": "true",
+            "subsections": [
+                {
+            "name": "II. Principes et règles d'usage",
+            "state": "livretAccueil.TwoOne",
+            "path": "/livret-d-accueil/two.desc"
+                 }
+                 ]
+            
+        },
+        
+        {
+            "name": "III. Principes d'ergonomie",
+            "state": "livretAccueil.Three",
+            "path": "/livret-d-accueil/three",
+            "noAccordeon": "true",
+            "subsections": [
+                {
+            "name": "III. Principes d'ergonomie",
+            "state": "livretAccueil.ThreeOne",
+            "path": "/livret-d-accueil/three.desc"
+                 }
+                 ]
+            
+        },
+        
+        {
+            "name": "IV. Mon casier",
+            "state": "livretAccueil.Four",
+            "path": "/livret-d-accueil/four",
+            "noAccordeon": "true",
+            "subsections": [
+                {
+            "name": "IV. Mon casier",
+            "state": "livretAccueil.FourOne",
+            "path": "/livret-d-accueil/four.desc"
+                 }
+                 ]
+            
+        },
+        
+        {
+            "name": "V. Implantations",
+            "state": "livretAccueil.Five",
+            "path": "/livret-d-accueil/five",
+            "subsections": [
+                {
+                    "name": "Automobile France",
+                    "location":"Bâtiment B - 7eme étage",
+                    "imageName":"r7-batiment-B.png",
+                    "state": "livretAccueil.FiveOne",
+                    "path": "/livret-d-accueil/automobile-france"
+                 },
+                 
+                {
+                    "name": "Automotive Financial Services (AFS)",
+                    "location":"Bâtiment A - 5eme étage",
+                    "imageName":"r5-FC-AFS.png",
+                    "state": "livretAccueil.FiveOne",
+                    "path": "/livret-d-accueil/automobile-financial"
+                 },
+                 
+                {
+                    "name": "Commerciale & Marketing (DCM)",
+                    "location":"Bâtiment A - 5eme étage",
+					"imageName":"r5-batiment-A.png",
+                    "state": "livretAccueil.FiveOne",
+                    "path": "/livret-d-accueil/commerciale-marketing"
+                 },
+                 
+                {
+                    "name": "Crédit Moderne",
+                    "location":"Bâtiment B - 8eme étage",
+					"imageName":"r6-credits-modernes.png",	
+                    "state": "livretAccueil.FiveOne",
+                    "path": "/livret-d-accueil/credit-moderne"
+                 },
+                    {
+                    "name": "DSI / Architecture d'entreprise",
+                    "location":"Bâtiment A - 2eme étage",
+"imageName":"r2-batiment-A.png",
+                    "state": "livretAccueil.FiveOne",
+                    "path": "/livret-d-accueil/architecture-entreprise"
+                 },
+                 
+                    {
+                    "name": "DSI / Direction",
+                    "location":"Bâtiment A - 2eme étage",
+"imageName":"r2-batiment-A.png",
+                    "state": "livretAccueil.FiveOne",
+                    "path": "/livret-d-accueil/direction"
+                 },
+                 
+                    {
+                    "name": "DSI / Fonctions Centrales & Décisionnelles",
+                    "location":"Bâtiment A - 1er étage",
+"imageName":"r1-batiment-A.png",
+                    "state": "livretAccueil.FiveOne",
+                    "path": "/livret-d-accueil/fonctions-centrales-decisionelles"
+                 },
+                 
+                    {
+                    "name": "DSI / France",
+                    "location":"Bâtiment A - 3eme étage",
+"imageName":"r3-batiment-A.png",
+                    "state": "livretAccueil.FiveOne",
+                    "path": "/livret-d-accueil/france"
+                 },
+                 
+                 {
+                    "name": "DSI / Gouvernance & Transformation",
+                    "location":"Bâtiment A - 2eme étage",
+"imageName":"r2-batiment-A.png",
+                    "state": "livretAccueil.FiveOne",
+                    "path": "/livret-d-accueil/gouvernance-transformation"
+                 },
+                    {
+                    "name": "DSI / International",
+                    "location":"Bâtiment A - 5eme étage",
+"imageName":"r5-batiment-A.png",
+                    "state": "livretAccueil.FiveOne",
+                    "path": "/livret-d-accueil/international"
+                 },
+                 
+                    {
+                    "name": "DSI / Qualité Logicielle",
+                   "location":"Bâtiment A - 2eme étage",
+"imageName":"r2-batiment-A.png",
+                    "state": "livretAccueil.FiveOne",
+                    "path": "/livret-d-accueil/qualite-logicielle"
+                 },
+                 
+                    {
+                    "name": "Direction Générale",
+                    "location": "Bâtiment A - 7eme étage",
+                    "imageName": "r7-batiment-A.png",
+                    "state": "livretAccueil.FiveOne",
+                    "path": "/livret-d-accueil/direction-generale"
+                 },
+                      {
+                    "name": "Direction Générale France",
+                    "location":"Bâtiment B - 7eme étage",
+"imageName":"r7-PFF-Direction.png",
+"state": "livretAccueil.FiveOne",
+                    "path": "/livret-d-accueil/direction-generale-france"
+                 },
+                 
+                    {
+                    "name": "Distribution France",
+                   "location":"Bâtiment B - 5eme étage",
+"imageName":"r5-PFF-Distribution.png",
+                    "state": "livretAccueil.FiveOne",
+                    "path": "/livret-d-accueil/distribution-france"
+                 },
+                 
+                 {
+                    "name": "Finance",
+                    "location":"Bâtiment A - 4eme étage",
+"imageName":"r4-batiment-A.png",
+                    "state": "livretAccueil.FiveOne",
+                    "path": "/livret-d-accueil/finance"
+                 },
+                   {
+                    "name": "Finance France",
+                    "location":"Bâtiment B - 4eme étage",
+"imageName":"r4-batiment-B.png",
+                    "state": "livretAccueil.FiveOne",
+                    "path": "/livret-d-accueil/finance-france"
+                 },
+                    {
+                    "name": "Grands Partenaires (DGP)",
+"location":"Bâtiment A - 6eme étage",
+"imageName":"r6-batiment-A.png",
+                    "state": "livretAccueil.FiveOne",
+                    "path": "/livret-d-accueil/grands-partenaires"
+                 },
+                 
+                    {
+                    "name": "IMEX",
+"location":"Bâtiment A - 6eme étage",
+"imageName":"r6-batiment-A.png",
+                    "state": "livretAccueil.FiveOne",
+                    "path": "/livret-d-accueil/imex"
+                 },
+                 
+                    {
+                    "name": "Inspection Générale",
+                    "location":"Bâtiment A - 1er étage",
+"imageName":"r1-batiment-A.png",
+                    "state": "livretAccueil.FiveOne",
+                    "path": "/livret-d-accueil/inspection-generale"
+                 },
+                 
+                    {
+                    "name": "Juridique & Conformité",
+                    "location":"Bâtiment A - 7eme étage",
+"imageName":"r7-batiment-A.png",
+                    "state": "livretAccueil.FiveOne",
+                    "path": "/livret-d-accueil/juridique-conformite"
+                 },
+                 
+                    {
+                    "name": "Juridique & Conformité France",
+                    "location":"Bâtiment B - 7eme étage",
+"imageName":"r7-batiment-B.png",
+                    "state": "livretAccueil.FiveOne",
+                    "path": "/livret-d-accueil/juridique-conformite-france"
+                 },
+                 
+                 {
+                    "name": "Locaux Syndicaux / CE",
+                    "location":"Bâtiment A - 1er étage",
+"imageName":"r1-batiment-A.png",
+                    "state": "livretAccueil.FiveOne",
+                    "path": "/livret-d-accueil/locaux-syndicaux"
+                 },
+                    {
+                    "name": "MCP / Communication, Evènementiel & RSE",
+                    "location":"Bâtiment A - 7eme étage",
+"imageName":"r7-batiment-A.png",
+                    "state": "livretAccueil.FiveOne",
+                    "path": "/livret-d-accueil/communication-evenementiel"
+                 },
+                 
+                    {
+                    "name": "MCP / Marque & Publicité",
+                    "location":"Bâtiment B - 6eme étage",
+"imageName":"r6-batiment-B.png",
+                    "state": "livretAccueil.FiveOne",
+                    "path": "/livret-d-accueil/"
+                 },
+                 
+                    {
+                    "name": "Marketing France",
+                    "location":"Bâtiment B - 6eme étage",
+"imageName":"r5-batiment-B.png",
+                    "state": "livretAccueil.FiveOne",
+                    "path": "/livret-d-accueil/marketing-france"
+                 },
+                      {
+                    "name": "Marketing France II",
+                   "location":"Bâtiment B - 5eme étage",
+"imageName":"r4-marketing.png",
+                    "state": "livretAccueil.FiveOne",
+                    "path": "/livret-d-accueil/marketing-france-2"
+                 },
+                 
+                    {
+                    "name": "Opérations & Services / Efficacité Opérationnelle & Qualité",
+                   "location":"Bâtiment B - 2eme étage",
+"imageName":"r2-batiment-B.png",
+                    "state": "livretAccueil.FiveOne",
+                    "path": "/livret-d-accueil/efficacite-operationnelle-qualite"
+                 },
+                      {
+                    "name": "Opérations & Services / Production & Services",
+                    "location":"Bâtiment B - 2eme étage",
+"imageName":"r2-batiment-A.png",
+                    "state": "livretAccueil.FiveOne",
+                    "path": "/livret-d-accueil/production-service"
+                 },     {
+                    "name": "Opérations & Services / Communication Interne France",
+                    "location":"Bâtiment B - 3eme étage",
+"imageName":"r3-batiment-B.png",
+                    "state": "livretAccueil.FiveOne",
+                    "path": "/livret-d-accueil/operations-services-communication-interne"
+                 },     {
+                    "name": "Opérations & Services / Direction",
+                    "location":"Bâtiment B - 3eme étage",
+"imageName":"r3-batiment-B.png",
+                    "state": "livretAccueil.FiveOne",
+                    "path": "/livret-d-accueil/operations-services-direction"
+                 },     {
+                    "name": "Opérations & Services / MOA",
+                    "location":"Bâtiment B - 3eme étage",
+"imageName":"r3-batiment-B.png",
+                    "state": "livretAccueil.FiveOne",
+                    "path": "/livret-d-accueil/moa"
+                 },     {
+                    "name": "Opérations & Services / Relation Vendeurs & Octroi",
+                    "location":"Bâtiment B - 2eme étage",
+"imageName":"r8-PFF-RCVT-&-OCTROI.png",
+                    "state": "livretAccueil.FiveOne",
+                    "path": "/livret-d-accueil/vendeur-octroi"
+                 },
+                 
+                   {
+                    "name": "Opérations (DO)",
+                    "location":"Bâtiment A - 6eme étage",
+"imageName":"r6-batiment-A.png",
+                    "state": "livretAccueil.FiveOne",
+                    "path": "/livret-d-accueil/operations"
+                 },
+                 
+                   {
+                    "name": "PF Consulting",
+"location":"Bâtiment A - 7eme étage",
+"imageName":"R6-FC-PF-Consulting.png",
+                    "state": "livretAccueil.FiveOne",
+                    "path": "/livret-d-accueil/consulting"
+                 },
+                   {
+                    "name": "PF Forward",
+                    "title":"PF Forward",
+"location":"Bâtiment A - 8eme étage",
+"imageName":"r8-batiment-A.png",
+                    "state": "livretAccueil.FiveOne",
+                    "path": "/livret-d-accueil/forward"
+                 },
+                   {
+                    "name": "Particulier France",
+                   "title":"Particulier France",
+"location":"Bâtiment B - 5eme étage",
+"imageName":"r5-batiment-B.png",
+                    "state": "livretAccueil.FiveOne",
+                    "path": "/livret-d-accueil/particulier-france"
+                 },
+                   {
+                    "name": "Plateau Digital",
+                    "location":"Bâtiment B - 6eme étage",
+"imageName":"r6-batiment-B.png",
+                    "state": "livretAccueil.FiveOne",
+                    "path": "/livret-d-accueil/plateau-digital"
+                 },
+                   {
+                    "name": "Plateau Migration",
+                    "location":"Bâtiment B - 3eme étage",
+"imageName":"r3-batiment-B.png",
+                    "state": "livretAccueil.FiveOne",
+                    "path": "/livret-d-accueil/plateau-migration"
+                 },
+                       {
+                    "name": "Plateau Rapprochement",
+                    "location":"Bâtiment B - 3eme étage",
+"imageName":"r3-batiment-B.png",
+                    "state": "livretAccueil.FiveOne",
+                    "path": "/livret-d-accueil/plateau-rapprochement"
+                 },
+                   {
+                    "name": "Recouvrement France (DRACS)",
+                   "location":"Bâtiment B - 8eme étage",
+"imageName":"r8-batiment-B.png",
+                    "state": "livretAccueil.FiveOne",
+                    "path": "/livret-d-accueil/dracs"
+                 },
+                   {
+                    "name": "Relations Institutionnelles",
+                    "location":"Bâtiment A - 7eme étage",
+"imageName":"r7-batiment-A.png",
+                    "state": "livretAccueil.FiveOne",
+                    "path": "/livret-d-accueil/"
+                 },
+                   {
+                    "name": "Ressources Humaines",
+                    "location":"Bâtiment A - 8eme étage",
+"imageName":"r8-FC-DRH.png",
+                    "state": "livretAccueil.FiveOne",
+                    "path": "/livret-d-accueil/ressources-humaines"
+                 },
+                   {
+                    "name": "Ressources Humaines France",
+                    "location":"Bâtiment B - 7eme étage",
+"imageName":"r7-batiment-B.png",
+                    "state": "livretAccueil.FiveOne",
+                    "path": "/livret-d-accueil/ressources-humaines-france"
+                 },
+                   {
+                    "name": "Régions: Sun - Euro / PF Inside / Europe Centrale",
+                   "location":"Bâtiment A - 5eme étage",
+"imageName":"R5-FC-REGIONS.png",
+                    "state": "livretAccueil.FiveOne",
+                    "path": "/livret-d-accueil/regions"
+                 },
+                   {
+                    "name": "Risques",
+                   "location":"Bâtiment A - 4eme étage",
+"imageName":"r4-risk.png",
+                    "state": "livretAccueil.FiveOne",
+                    "path": "/livret-d-accueil/risques"
+                 },
+                 
+                   {
+                    "name": "Risques France",
+                    "location":"Bâtiment B - 1er étage",
+"imageName":"r1-batiment-B.png",
+                    "state": "livretAccueil.FiveOne",
+                    "path": "/livret-d-accueil/risques-france"
+                 }
+            ]
+            
+        },
+        
+        {
+            "name": "VI. Objets trouvés",
+            "state": "livretAccueil.Six",
+            "path": "/livret-d-accueil/six",
+            "noAccordeon": "true",
+            "subsections": [
+                {
+            "name": "VI. Objets trouvés",
+            "state": "livretAccueil.SixOne",
+            "path": "/livret-d-accueil/six.desc"
+                 }
+                 ]
+            
+        },
+        
+              {
+            "name": "VII. Visioconférences",
+            "state": "livretAccueil.Seven",
+            "path": "/livret-d-accueil/seven",
+            "noAccordeon": "true",
+            "subsections": [
+                {
+            "name": "VII. Visioconférences",
+            "state": "livretAccueil.SevenOne",
+            "path": "/livret-d-accueil/seven.desc"
+                 }
+                 ]
+            
+        }, 
+         {
+            "name": "VIII. Pieuvre conférence",
+            "state": "livretAccueil.Eight",
+            "path": "/livret-d-accueil/eight",
+            "noAccordeon": "true",
+            "subsections": [
+                {
+            "name": "VIII. Pieuvre conférence",
+            "state": "livretAccueil.EightOne",
+            "path": "/livret-d-accueil/eight.desc"
+                 }
+                 ]
+            
+        }, 
+        {
+            "name": "IX. Le téléphone fixe",
+            "state": "livretAccueil.Nine",
+            "path": "/livret-d-accueil/nine",
+            "noAccordeon": "true",
+            "subsections": [
+                {
+            "name": "IX. Le téléphone fixe",
+            "state": "livretAccueil.NineOne",
+            "path": "/livret-d-accueil/nine.desc"
+                 }
+                 ]
+            
+        }
+        ]
+       
+}

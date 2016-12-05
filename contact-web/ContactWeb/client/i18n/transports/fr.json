@@ -1,0 +1,52 @@
+{
+    "TRANSPORTS": {
+        "HEADTITLE": " Transports ",
+        "LISTITEMONE": " Publics ",
+        "LISTITEMTWO": " Parking Unicity ",
+        "LISTITEMTHREE": " Covoiturage ",
+        "PUBLICS": {
+            "ADDRESS": "Adresse",
+            "SCHEDULE": "Horaires",
+            "SERVICES": "Services",
+            "PRICE": "Tarifs",
+            "EXTRA": "Extra information",
+            "CAPACITE": "Capacité",
+            "LIGNES": "Lignes",
+            "LIGNE": "Ligne",
+            "DIRECTIONS":"Directions",
+            "PROCHAINTRAIN":"Prochains trains",
+            "DISPONIBILITE_COMPONENT": {
+                "DISPONIBILITE": "Disponibilité",
+                "BIKESLIBRE": " Il reste {{availableBikes}} vélos"
+            },
+            "AFFLUENCE_COMPONENT": {
+                "AFFLUENCE": "Affluence",
+                "STANDSLIBRE": " et {{availableStands}} places"
+            }
+        },
+        "PARKING": {
+        	"ADDRESS": "145 rue Danton 92300 Levallois-Perret",
+            "SCHEDULE": "07h00 à 19h00",
+            "PROPOSERSUCCESS":"Vous avez libéré avec succès des places de stationnement depuis:",
+            "TROUVERSUCCESS":"Vous avez réservé avec succès des places de stationnement depuis:",
+            "TAB1": "PROPOSER SA PLACE DE PARKING",
+            "EMAIL": "Votre e-mail:",
+            "TAB2": "TROUVER UNE PLACE DE PARKING",
+             "AFFLUENCE_COMPONENT": {
+                "AFFLUENCE": "Affluence",
+                "LIBERTE": " XX places libérées temporairement jusqu'à la fin du mois. Profitez-en!"
+                
+            }
+        },
+        "COVOITURAGE": {
+        	"DESCRIPTION": "Le service de covoiturage d’Unicity permet aux collaborateurs de créer des trajets et de contacter les différents conducteurs, libre ensuite à chacun de s’organiser pour venir travailler dans les meilleurs conditions. Le service est dédié exclusivement aux trajets domicile travail et inversement, attention la création des trajets n’est disponible que sur la version iPhone de myUnicity.",
+        	"SEARCHBOXHOLDER": "Chercher",
+        	"SEARCHBUTTON" : "CHERCHER",
+        	"DEPARTURE": "VILLE DE DÉPART:",
+        	"PLACES": "PLACES DISPONIBLES:",
+        	"PHONE": "PHONE:",
+        	"EMAIL": "EMAIL:",
+        	"NORESULTS": "Aucun résultat trouvé!"        
+        }
+    }
+}

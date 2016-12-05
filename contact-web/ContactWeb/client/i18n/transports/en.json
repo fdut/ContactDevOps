@@ -1,0 +1,21 @@
+{  
+	"TRANSPORTS":{
+   			"HEADTITLE":" Transports ",
+   			"LISTITEMONE":" Publics ",
+  			"LISTITEMTWO":" Parking Unicity ",
+   			"LISTITEMTHREE":" Covoiturage ",
+   			"PUBLICS":{
+   				"ADDRESS":"Adresse",
+   				"SCHEDULE":"Horaires",
+   				"SERVICES":"Services",
+   				"PRICE":"Tarrifs",
+   				"EXTRA":"Extra information"
+   				
+  			 },
+   			"PARKING":{  
+			 },
+			"COVOITURAGE":{  
+			}
+   }
+   
+}

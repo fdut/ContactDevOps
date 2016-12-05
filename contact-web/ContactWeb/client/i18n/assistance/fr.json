@@ -1,0 +1,173 @@
+{	
+	"version": "0.1",
+	"headTitle" : "ASSISTANCE",
+	"breadCrumbs" :[ "Accueil", "Assistance"],
+	"items": [{
+		"name": "PC Sécurité",
+		"icon": "assistance07.png",
+		"phoneNumber": "+33 1 49 21 30 30",
+		"email": "unicity.securite@bnpparibas.com",
+		"photoMap":"rdc-pc-securite.png",
+		"schedule": {
+			"info": "24h/24",
+			"startHour": "0",
+			"endHour": "24",
+			"days": ["1", "2", "3", "4", "5", "6", "7"],
+			"startMinutes": "0",
+			"endMinutes": "0"
+		},
+		"location": {
+			"info": "Plan (RDC A) :"
+		},
+		"person": {
+			"info": ""
+		},
+		"extra_info": {
+			"info": ""
+		}
+	}, {
+		"name": "Cellule badge",
+		"icon": "icon_badge.png",
+		"phoneNumber": "+33 1 49 21 35 50",
+		"email": "paris.imex.levallois.acces@bnpparibas.com",
+		"photoMap":"rdc-bureau-badges.png",
+		"schedule": {
+			"info": "du lundi au vendredi de 08h00 à 12h00 et de 13h00 à 16h00",
+			"startHour": "8,13",
+			"endHour": "12,16",
+			"days": ["1", "2", "3", "4", "5"],
+			"startMinutes": "0,0",
+			"endMinutes": "0,0"
+		},
+		"location": {
+			"info": "Plan (RDC B) :"
+		},
+		"person": {
+			"info": ""
+		},
+		"extra_info": {
+			"info": ""
+		}
+	},{
+		"name": "Accueil du bâtiment A",
+		"icon": "assistance02.png",
+		"phoneNumber": "+33 1 58 61 97 00",
+		"email": "accueilbatimenta.unicity@bnpparibas.com",
+		"photoMap":"rdc-accueil-batA.png",
+		"schedule": {
+			"info": "du lundi au vendredi de 07h30 à 20h00",
+			"startHour": "7",
+			"endHour": "20",
+			"days": ["1", "2", "3", "4", "5", "6"],
+			"startMinutes": "30",
+			"endMinutes": "0"
+		},
+		"location": {
+			"info": "Plan (RDC A) :"
+		},
+		"person": {
+			"info": ""
+		},
+		"extra_info": {
+			"info": "" 
+		},
+		"extra_info_titled": {
+			"title": "Accès collaborateurs :",
+			"lines": {
+			"line1" : "- 143 rue Anatole France, Levallois-Perret",
+			"line2" : "- Par le Poste de contrôle de sécurité (PCS) en dehors des heures ouvrées,",
+			"line3" : "rez-de-chaussée du bâtiment A"
+			}
+		}, 
+		"extra_info_titled2": {
+			"title": "Accueil visiteurs :",
+			"lines": {
+			"line1" : "- Présentation d’une pièce d’identité à l’accueil et remise d’un badge visiteur",
+			"line2" : "- Appel de la personne visitée et /ou de l’assistante",
+			"line3" : "- En cas de non réponse un mail d’annonce du visiteur est envoyé",
+			"line4" : "- Prise en charge systématique des visiteurs, munis de badges,",
+			"line5" : " à l’accueil par un collaborateur de PF"
+			}
+		}
+	}, {
+		"name": "Accueil du bâtiment B",
+		"icon": "assistance02.png",
+		"phoneNumber": "+33 1 58 61 98 00",
+		"photoMap":"rdc-accueil-batB.png",
+		"email": "accueilbatimentb.unicity@externe.bnpparibas.com",
+		"schedule": {
+			"info": "du lundi au vendredi de 07h30 à 20h00",
+			"startHour": "7",
+			"endHour": "20",
+			"days": ["1", "2", "3", "4", "5"],
+			"startMinutes": "30",
+			"endMinutes": "0"
+		},
+		"location": {
+			"info": "Plan (RDC B)"
+		},
+		"person": {
+			"info": ""
+		},
+		"extra_info": {
+			"info": ""
+		},
+		"extra_info_titled": {
+			"title": "Accès collaborateurs :",
+			"lines": {
+			"line1" : "- 18 rue Baudin, Levallois-Perret",
+			"line2" : "- Par le Poste de contrôle de sécurité (PCS) en dehors des heures ouvrées,",
+			"line3" : "rez-de-chaussée du bâtiment A"
+			}
+		}, 
+		"extra_info_titled2": {
+			"title": "Accueil visiteurs :",
+			"lines": {
+			"line1" : "- Présentation d’une pièce d’identité à l’accueil et remise d’un badge visiteur",
+			"line2" : "- Appel de la personne visitée et /ou de l’assistante",
+			"line3" : "- En cas de non réponse un mail d’annonce du visiteur est envoyé",
+			"line4" : "- Prise en charge systématique des visiteurs, munis de badges,",
+			"line5" : " à l’accueil par un collaborateur de PF"
+			}
+		}
+	}, {
+		"name": "13Util'",
+		"icon": "assistance01.png",	
+		"phoneNumber": "+33 1 40 14 33 13",
+		"photoMap":"",
+		"schedule": {
+			"info": "du lundi au samedi de 08h00 à 20h00",
+			"startHour": "8",
+			"endHour": "20",
+			"days": ["1", "2", "3", "4", "5", "6"],
+			"startMinutes": "0",
+			"endMinutes": "0"
+		},
+		"location": {
+			"info": ""
+		},
+		"person": {
+			"info": ""
+		},
+		"extra_info": {
+			"info": "Support Postes de Travail. Demandes et incidents techniques liés:",
+		    "subItems": ["Au poste de travail", "Au compte Neos", "A la messagerie", "Aux solutions Digital Working", "A la téléphonie fixe et mobile"] 
+		}
+	},{
+		"name": "Service médical",
+		"icon": "assistance06.png",
+		"phoneNumber": "+33 1 49 21 35 81",
+		"photoMap":"rdc-infirmerie.png",
+		"location": {
+		    "info": "Plan (RDC B)"
+		},
+		"extra_info": {
+			"info": ""
+		}
+	}, {
+		"name": "Assistante sociale",
+		"icon": "assistante-sociale.png",
+		"phoneNumber": "+33 1 46 39 15 63",
+		"email": "A venir"
+	}]
+}

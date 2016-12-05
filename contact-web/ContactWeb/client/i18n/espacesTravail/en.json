@@ -1,0 +1,1414 @@
+{
+    "ESPACES DE TRAVAIL": {
+        "HEADTITLE": " Espaces de travail ",
+        "FLOOR": " Étage "
+    },
+
+    "pointCopie": [{
+        "floor": -1,
+        "image": "",
+        "points": []
+	}, {
+        "floor": 0,
+        "image": "",
+        "points": []
+	}, {
+        "floor": 1,
+        "image": "r-1-point-copie.png",
+        "points": []
+	}, {
+        "floor": 2,
+        "image": "r-2-point-copie.png",
+        "points": []
+	}, {
+        "floor": 3,
+        "image": "r-3-point-copie.png",
+        "points": []
+	}, {
+        "floor": 4,
+        "image": "r-4-point-copie.png",
+        "points": []
+	}, {
+        "floor": 5,
+        "image": "r-5-point-copie.png",
+        "points": []
+	}, {
+        "floor": 6,
+        "image": "r-6-point-copie.png",
+        "points": []
+	}, {
+        "floor": 7,
+        "image": "r-7-point-copie.png",
+        "points": []
+	}, {
+        "floor": 8,
+        "image": "r-8-point-copie.png",
+        "points": []
+	}],
+    "sallesDeReunion": [{
+        "floor": -1,
+         "image": "",
+        "points": []
+
+	}, {
+        "floor": 0,
+         "image": "",
+        "points": []
+	}, {
+        "floor": 1,
+        "image": "r-1-reunions.png",
+        "points": [{
+            "x": 843,
+            "y": 327,
+            "desc": "Salle de réunion modulaire 50 places R+1 2 vidéoprojecteurs/4 écrans 42\"/2 Clickshare/2 Pieuvre"
+		}, {
+            "x": 582,
+            "y": 548,
+            "desc": "Salle de réunion 12 places R+1 Ecran 70\"/Clickshare-Lite/Pieuvre téléphonique"
+		}, {
+            "x": 478,
+            "y": 566,
+            "desc": "Salle de réunion 6 places R+1 Ecran 42\"/Clickshare-lite/Pieuvre téléphonique"
+		},{
+            "x": 455,
+            "y": 542,
+            "desc": "Salle de réunion 8 places R+1 Ecran 42\"/Clickshare-lite/Visio groupe/Pieuvre téléphonique"
+		},{
+            "x": 435,
+            "y": 516,
+            "desc": "Salle de réunion 6 places R+1 Ecran 42\"/Clickshare-lite/Pieuvre téléphonique"
+		},{
+            "x": 216,
+            "y": 590,
+            "desc": "Salle de réunion 6 places R+1 Ecran 42\"/Clickshare-lite/Pieuvre téléphonique"
+		},{
+            "x": 187,
+            "y": 615,
+            "desc": "Salle de réunion 12 places R+1 Ecran 70\"/Clickshare-Lite/Pieuvre téléphonique"
+		}]
+	}, {
+        "floor": 2,
+        "image": "r-2-reunions.png",
+        "points": [{
+            "x": 766,
+            "y": 106,
+            "desc": "Salle de réunion 8 places R+2 Ecran 55\"/Clickshare-lite/Pieuvre téléphonique"
+		}, {
+            "x": 804,
+            "y": 115,
+            "desc": "Salle de réunion 8 places R+2 Ecran 55\"/Clickshare-lite/Pieuvre téléphonique"
+		}, {
+            "x": 826,
+            "y": 142,
+            "desc": "Salle de réunion 6 places R+2 Ecran 42\"/Clickshare-lite/Pieuvre téléphonique"
+		}, {
+            "x": 844,
+            "y": 170,
+            "desc": "Salle de réunion 10 places R+2 2 écrans 55\"/Clickshare-lite/Visio groupe/Pieuvre"
+		}, {
+            "x": 864,
+            "y": 200,
+            "desc": "Salle créative de 10 places R+2 Canapés"
+		}, {
+            "x": 884,
+            "y": 230,
+            "desc": "Salle de réunion 6 places R+2 Ecran 42\"/Clickshare-lite/Pieuvre téléphonique"
+		}, {
+            "x": 871,
+            "y": 370,
+            "desc": "Salle de réunion 6 places R+2 Ecran 42\"/Clickshare-lite/Pieuvre téléphonique"
+		},{
+            "x": 582,
+            "y": 548,
+            "desc": "Salle de réunion 12 places R+2 Ecran 70\"/Clickshare-Lite/Pieuvre téléphonique"
+		}, {
+            "x": 210,
+            "y": 598,
+            "desc": "Salle de réunion 6 places R+2 Ecran 42\"/Clickshare-lite/Pieuvre téléphonique"
+		}, {
+            "x": 230,
+            "y": 576,
+            "desc": "Salle de réunion 6 places R+2 Ecran 42\"/Clickshare-lite/Pieuvre téléphonique"
+		 }, {
+            "x": 184,
+            "y": 618,
+            "desc": "Salle de réunion 10 places R+2 2 écrans 55\"/Clickshare-lite/Visio groupe/Pieuvre"
+		 },{
+            "x": 455,
+            "y": 543,
+            "desc": "Salle de réunion 8 places R+2 2 écrans 55\"/Clickshare-lite/Visio groupe/Pieuvre"
+		 }, {
+            "x": 477,
+            "y": 567,
+            "desc": "Salle de réunion 6 places R+2 Ecran 42\"/Clickshare-lite/Pieuvre téléphonique"
+		 }]
+	}, {
+        "floor": 3,
+        "image": "r-3-reunions.png",
+        "points": [{
+            "x": 766,
+            "y": 106,
+            "desc": "Salle de réunion 8 places R+3 Ecran 55\"/Clickshare-lite/Pieuvre téléphonique"
+		}, {
+            "x": 804,
+            "y": 115,
+            "desc": "Salle de réunion 8 places R+3 Ecran 55\"/Clickshare-lite/Pieuvre téléphonique"
+		}, {
+            "x": 826,
+            "y": 142,
+            "desc": "Salle de réunion 6 places R+3 Ecran 42\"/Clickshare-lite/Pieuvre téléphonique"
+		}, {
+            "x": 844,
+            "y": 170,
+            "desc": "Salle de réunion 10 places R+3 2 écrans 55\"/Clickshare-lite/Visio groupe/Pieuvre"
+		}, {
+            "x": 864,
+            "y": 200,
+            "desc": "Salle créative de 10 places R+3 Canapés"
+		}, {
+            "x": 884,
+            "y": 230,
+            "desc": "Salle de réunion 6 places R+3 Ecran 42\"/Clickshare-lite/Pieuvre téléphonique"
+		}, {
+            "x": 871,
+            "y": 370,
+            "desc": "Salle de réunion 6 places R+3 Ecran 42\"/Clickshare-lite/Pieuvre téléphonique"
+		},{
+            "x": 582,
+            "y": 548,
+            "desc": "Salle de réunion 12 places R+3 Ecran 70\"/Clickshare-Lite/Pieuvre téléphonique"
+		}, {
+            "x": 210,
+            "y": 598,
+            "desc": "Salle de réunion 6 places R+2 Ecran 42\"/Clickshare-lite/Pieuvre téléphonique"
+		}, {
+            "x": 230,
+            "y": 576,
+            "desc": "Salle de réunion 6 places R+3 Ecran 42\"/Clickshare-lite/Pieuvre téléphonique"
+		 }, {
+            "x": 184,
+            "y": 618,
+            "desc": "Salle de réunion 10 places R+3 2 écrans 55\"/Clickshare-lite/Visio polycom/Pieuvre"
+		 }]
+	},{
+        "floor": 4,
+        "image": "r-4-reunions.png",
+        "points": [{
+            "x": 766,
+            "y": 106,
+            "desc": "Salle de réunion 8 places R+4 Ecran 55\"/Clickshare-lite/Pieuvre téléphonique"
+		}, {
+            "x": 804,
+            "y": 115,
+            "desc": "Salle de réunion 8 places R+4 Ecran 55\"/Clickshare-lite/Pieuvre téléphonique"
+		}, {
+            "x": 826,
+            "y": 142,
+            "desc": "Salle de réunion 6 places R+4 Ecran 42\"/Clickshare-lite/Pieuvre téléphonique"
+		}, {
+            "x": 844,
+            "y": 170,
+            "desc": "Salle de réunion 10 places R+4 2 écrans 55\"/Clickshare-lite/Visio groupe/Pieuvre"
+		}, {
+            "x": 864,
+            "y": 200,
+            "desc": "Salle créative de 10 places R+4 Canapés"
+		}, {
+            "x": 884,
+            "y": 230,
+            "desc": "Salle de réunion 6 places R+4 Ecran 42\"/Clickshare-lite/Pieuvre téléphonique"
+		}, {
+            "x": 871,
+            "y": 370,
+            "desc": "Salle de réunion 6 places R+4 Ecran 42\"/Clickshare-lite/Pieuvre téléphonique"
+		},{
+            "x": 582,
+            "y": 548,
+            "desc": "Salle de réunion 12 places R+4 Ecran 70\"/Clickshare-Lite/Pieuvre téléphonique"
+		}, {
+            "x": 210,
+            "y": 598,
+            "desc": "Salle de réunion 20 places R+4 2 écrans 55\"/Clickshare-lite/Visio polycom/Pieuvre"
+		}]
+	}, {
+        "floor": 5,
+        "image": "r-5-reunions.png",
+        "points": [{
+            "x": 766,
+            "y": 106,
+            "desc": "Salle de réunion 8 places R+5 Ecran 55\"/Clickshare-lite/Pieuvre téléphonique"
+		}, {
+            "x": 804,
+            "y": 115,
+            "desc": "Salle de réunion 8 places R+5 Ecran 55\"/Clickshare-lite/Pieuvre téléphonique"
+		}, {
+            "x": 826,
+            "y": 142,
+            "desc": "Salle de réunion 6 places R+5 Ecran 42\"/Clickshare-lite/Pieuvre téléphonique"
+		}, {
+            "x": 844,
+            "y": 170,
+            "desc": "Salle de réunion 10 places R+5 2 écrans 55\"/Clickshare-lite/Visio groupe/Pieuvre"
+		}, {
+            "x": 864,
+            "y": 200,
+            "desc": "Salle créative de 10 places R+5 Canapés"
+		}, {
+            "x": 884,
+            "y": 230,
+            "desc": "Salle de réunion 6 places R+5 Ecran 42\"/Clickshare-lite/Pieuvre téléphonique"
+		}, {
+            "x": 582,
+            "y": 548,
+            "desc": "Salle de réunion 12 places R+5 Ecran 70\"/Clickshare-Lite/Pieuvre téléphonique"
+		}]
+	}, {
+        "floor": 6,
+        "image": "r-6-reunions.png",
+        "points": [{
+            "x": 766,
+            "y": 106,
+            "desc": "Salle de réunion 8 places R+6 Ecran 55\"/Clickshare-lite/Pieuvre téléphonique"
+		}, {
+            "x": 804,
+            "y": 115,
+            "desc": "Salle de réunion 8 places R+6 Ecran 55\"/Clickshare-lite/Pieuvre téléphonique"
+		}, {
+            "x": 826,
+            "y": 142,
+            "desc": "Salle de réunion 6 places R+6 Ecran 42\"/Clickshare-lite/Pieuvre téléphonique"
+		}, {
+            "x": 844,
+            "y": 170,
+            "desc": "Salle de réunion 10 places R+6 2 écrans 55\"/Clickshare-lite/Visio groupe/Pieuvre"
+		}, {
+            "x": 864,
+            "y": 200,
+            "desc": "Salle créative de 10 places R+6 Canapés"
+		}, {
+            "x": 884,
+            "y": 230,
+            "desc": "Salle de réunion 6 places R+6 Ecran 42\"/Clickshare-lite/Pieuvre téléphonique"
+		}, {
+            "x": 582,
+            "y": 548,
+            "desc": "Salle de réunion 12 places R+6 Ecran 70\"/Clickshare-Lite/Pieuvre téléphonique"
+		}, {
+            "x": 202,
+            "y": 598,
+            "desc": "Salle de réunion 20 places R+6 2 écrans 55\"/Clickshare-lite/Visio polycom/Pieuvre"
+		}]
+	}, {
+        "floor": 7,
+        "image": "r-7-reunions.png",
+        "points": [{
+            "x": 753,
+            "y": 167,
+            "desc": "Salle de réunion 8 places R+7 2 écrans 55\"/Clickshare-lite/Visio groupe/Pieuvre"
+		}, {
+            "x": 654,
+            "y": 254,
+            "desc": "7-A157"
+		}, {
+            "x": 444,
+            "y": 516,
+            "desc": "Salle de réunion 6 places R+7 Ecran 42\"/Clickshare-lite/Pieuvre téléphonique"
+		}, {
+            "x": 593,
+            "y": 538,
+            "desc": "Salle de réunion 8 places R+7 2 écrans 55\"/Clickshare-lite/Pieuvre"
+		}, {
+            "x":232,
+            "y": 576,
+            "desc": "Salle de réunion 6 places R+7 Ecran 42\"/Clickshare-lite/Pieuvre téléphonique"
+		}, {
+            "x":212,
+            "y":595,
+            "desc": "Salle de réunion 6 places R+7 Ecran 42\"/Clickshare-lite/Pieuvre téléphonique"
+		}, {
+            "x": 188,
+            "y": 618,
+            "desc": "Salle de réunion 10 places R+7 2 écrans 55\"/Clickshare-lite/Visio polycom/Pieuvre"
+		}]
+	}, {
+        "floor": 8,
+        "image": "r-8-reunions.png",
+        "points": [{
+            "x": 166,
+            "y": 638,
+            "desc": "Salle de réunion 12 places R+8 - Ecran 70\"/Clickshare-Lite/Pieuvre téléphonique"		}, {
+            "x": 191,
+            "y": 609,
+            "desc": "Salle de réunion 6 places R+8 - Ecran 42\"/Clickshare-lite/Pieuvre téléphonique "
+		}, {
+            "x":446,
+            "y": 515,
+            "desc": "Salle de réunion 4 places R+8 - Ecran 42\"/Clickshare-lite/Pieuvre téléphonique "
+		}, {
+            "x":464,
+            "y": 535,
+            "desc": "Salle de réunion 6 places R+8 - Ecran 42\"/Clickshare-lite/Pieuvre téléphonique "
+		}, {
+            "x":821,
+            "y": 139,
+            "desc": "Salle de réunion 8 places R+8 - 2 écrans 55\"/Clickshare-lite/Pieuvre"
+		}, {
+            "x":843,
+            "y": 164,
+            "desc": "Salle de réunion 4 places R+8 - Ecran 42\"/Clickshare-lite/Pieuvre téléphonique "
+		}, {
+            "x":850,
+            "y": 185,
+           "desc": "Salle de réunion 4 places R+8 - Ecran 42\"/Clickshare-lite/Pieuvre téléphonique "
+		}, {
+            "x":869,
+            "y": 207,
+            "desc": "Salle de réunion 4 places R+8 - Ecran 42\"/Clickshare-lite/Pieuvre téléphonique "
+		}
+		]
+	}],
+    "bullesTrio": [{
+        "floor": -1,
+       "image": "",
+        "points": []
+	}, {
+        "floor": 0,
+         "image": "",
+           "points": []
+	}, {
+        "floor": 1,
+        "image": "r-1-bulles3p.png",  
+        "points": [{
+            "x": 732,
+            "y": 142,
+            "desc": "Ecran 24\"/1 téléphone"
+		},{
+            "x": 624,
+            "y": 244,
+            "desc": "Ecran 24\"/1 téléphone"
+		},{
+            "x": 585,
+            "y": 315,
+            "desc": "Ecran 24\"/1 téléphone"
+		},{
+            "x": 580,
+            "y": 396,
+            "desc": "Ecran 24\"/1 téléphone"
+		},{
+            "x": 292,
+            "y": 582,
+            "desc": "Ecran 24\"/1 téléphone"
+		},{
+            "x": 274,
+            "y": 609,
+            "desc": "Ecran 24\"/1 téléphone"
+		},{
+            "x": 237,
+            "y": 702,
+            "desc": "Ecran 24\"/1 téléphone"
+		},{
+            "x": 40,
+            "y": 756,
+            "desc": "Ecran 24\"/1 téléphone"
+		},{
+            "x": 90,
+            "y": 813,
+            "desc": "Ecran 24\"/1 téléphone"
+		}]
+	}, {
+        "floor": 2,
+        "image": "r-2-bulles-3p.png",
+        "points": [{
+            "x": 742,
+            "y": 127,
+            "desc": "Ecran 24\"/1 téléphone"
+		},{
+            "x": 610,
+            "y": 249,
+            "desc": "Ecran 24\"/1 téléphone"
+		},{
+            "x": 587,
+            "y": 316,
+            "desc": "Ecran 24\"/1 téléphone"
+		},{
+            "x": 571,
+            "y": 377,
+            "desc": "Ecran 24\"/1 téléphone"
+		},{
+            "x": 584,
+            "y": 399,
+            "desc": "Ecran 24\"/1 téléphone"
+		},{
+            "x": 725,
+            "y": 452,
+            "desc": "Ecran 24\"/1 téléphone"
+		},{
+            "x": 738,
+            "y": 473,
+            "desc": "Ecran 24\"/1 téléphone"
+		},{
+            "x": 320,
+            "y": 561,
+            "desc": "Ecran 24\"/1 téléphone"
+		},{
+            "x": 237,
+            "y": 702,
+            "desc": "Ecran 24\"/1 téléphone"
+		},{
+            "x": 40,
+            "y": 756,
+            "desc": "Ecran 24\"/1 téléphone"
+		},{
+            "x": 90,
+            "y": 813,
+            "desc": "Ecran 24\"/1 téléphone"
+		}]
+	}, {
+        "floor": 3,
+        "image": "r-3-bulles-3p.png",
+          "points": [{
+            "x": 742,
+            "y": 127,
+            "desc": "Ecran 24\"/1 téléphone"
+		},{
+            "x": 610,
+            "y": 249,
+            "desc": "Ecran 24\"/1 téléphone"
+		},{
+            "x": 587,
+            "y": 316,
+            "desc": "Ecran 24\"/1 téléphone"
+		},{
+            "x": 571,
+            "y": 377,
+            "desc": "Ecran 24\"/1 téléphone"
+		},{
+            "x": 584,
+            "y": 399,
+            "desc": "Ecran 24\"/1 téléphone"
+		},{
+            "x": 725,
+            "y": 452,
+            "desc": "Ecran 24\"/1 téléphone"
+		},{
+            "x": 738,
+            "y": 473,
+            "desc": "Ecran 24\"/1 téléphone"
+		},{
+            "x": 237,
+            "y": 702,
+            "desc": "Ecran 24\"/1 téléphone"
+		},{
+            "x": 40,
+            "y": 756,
+            "desc": "Ecran 24\"/1 téléphone"
+		},{
+            "x": 90,
+            "y": 813,
+            "desc": "Ecran 24\"/1 téléphone"
+		}]
+	}, {
+        "floor": 4,
+        "image": "r-4-bulles-3p.png",
+       "points": [{
+            "x": 742,
+            "y": 127,
+            "desc": "Ecran 24\"/1 téléphone"
+		},{
+            "x": 610,
+            "y": 249,
+            "desc": "Ecran 24\"/1 téléphone"
+		},{
+            "x": 587,
+            "y": 316,
+            "desc": "Ecran 24\"/1 téléphone"
+		},{
+            "x": 571,
+            "y": 377,
+            "desc": "Ecran 24\"/1 téléphone"
+		},{
+            "x": 584,
+            "y": 399,
+            "desc": "Ecran 24\"/1 téléphone"
+		},{
+            "x": 725,
+            "y": 452,
+            "desc": "Ecran 24\"/1 téléphone"
+		},{
+            "x": 738,
+            "y": 473,
+            "desc": "Ecran 24\"/1 téléphone"
+		},{
+            "x": 237,
+            "y": 702,
+            "desc": "Ecran 24\"/1 téléphone"
+		},{
+            "x": 40,
+            "y": 756,
+            "desc": "Ecran 24\"/1 téléphone"
+		},{
+            "x": 90,
+            "y": 813,
+            "desc": "Ecran 24\"/1 téléphone"
+		}]
+	}, {
+        "floor": 5,
+        "image": "r-5-bulles-3p.png",
+        "points": [{
+            "x": 742,
+            "y": 127,
+            "desc": "Ecran 24\"/1 téléphone"
+		},{
+            "x": 610,
+            "y": 249,
+            "desc": "Ecran 24\"/1 téléphone"
+		},{
+            "x": 587,
+            "y": 316,
+            "desc": "Ecran 24\"/1 téléphone"
+		},{
+            "x": 571,
+            "y": 377,
+            "desc": "Ecran 24\"/1 téléphone"
+		},{
+            "x": 584,
+            "y": 399,
+            "desc": "Ecran 24\"/1 téléphone"
+		},{
+            "x": 725,
+            "y": 452,
+            "desc": "Ecran 24\"/1 téléphone"
+		},{
+            "x": 738,
+            "y": 473,
+            "desc": "Ecran 24\"/1 téléphone"
+		},{
+            "x": 237,
+            "y": 702,
+            "desc": "Ecran 24\"/1 téléphone"
+		},{
+            "x": 40,
+            "y": 756,
+            "desc": "Ecran 24\"/1 téléphone"
+		},{
+            "x": 90,
+            "y": 813,
+            "desc": "Ecran 24\"/1 téléphone"
+		}]
+	}, {
+        "floor": 6,
+        "image": "r-6-bulles-3p.png",
+         "points": [{
+            "x": 742,
+            "y": 127,
+            "desc": "Ecran 24\"/1 téléphone"
+		},{
+            "x": 610,
+            "y": 249,
+            "desc": "Ecran 24\"/1 téléphone"
+		},{
+            "x": 587,
+            "y": 316,
+            "desc": "Ecran 24\"/1 téléphone"
+		},{
+            "x": 571,
+            "y": 377,
+            "desc": "Ecran 24\"/1 téléphone"
+		},{
+            "x": 584,
+            "y": 399,
+            "desc": "Ecran 24\"/1 téléphone"
+		},{
+            "x": 725,
+            "y": 452,
+            "desc": "Ecran 24\"/1 téléphone"
+		},{
+            "x": 738,
+            "y": 473,
+            "desc": "Ecran 24\"/1 téléphone"
+		},{
+            "x": 237,
+            "y": 702,
+            "desc": "Ecran 24\"/1 téléphone"
+		},{
+            "x": 40,
+            "y": 756,
+            "desc": "Ecran 24\"/1 téléphone"
+		},{
+            "x": 90,
+            "y": 813,
+            "desc": "Ecran 24\"/1 téléphone"
+		}]
+	}, {
+        "floor": 7,
+        "image": "r-7-bulles-3p.png",
+        "points": [{
+            "x": 237,
+            "y": 702,
+            "desc": "Ecran 24\"/1 téléphone"
+		},{
+            "x": 40,
+            "y": 756,
+            "desc": "Ecran 24\"/1 téléphone"
+		},{
+            "x": 90,
+            "y": 813,
+            "desc": "Ecran 24\"/1 téléphone"
+		}]
+	}, {
+        "floor": 8,
+        "image": "r-8-bulles-3p.png",
+        "points": [{
+            "x": 290,
+            "y": 587,
+            "desc": "Ecran 24\"/1 téléphone"
+		},{
+            "x": 273,
+            "y": 607,
+            "desc": "Ecran 24\"/1 téléphone"
+		},{
+            "x": 40,
+            "y": 756,
+            "desc": "Ecran 24\"/1 téléphone"
+		},{
+            "x": 90,
+            "y": 813,
+            "desc": "Ecran 24\"/1 téléphone"
+		}]
+	}],
+	"bullesDuo": [{
+        "floor": -1,
+        "image": "",
+        "points": []
+
+	}, {
+        "floor": 0,
+        "image": "",
+        "points": []
+	}, {
+        "floor": 1,
+        "image": "r-1-bulles-duo.png",
+        "points": []
+	}, {
+        "floor": 2,
+        "image": "r-2-bulles-duo.png",
+        "points": []
+	}, {
+        "floor": 3,
+        "image": "r-3-bulles-duo.png",
+        "points": []
+	}, {
+        "floor": 4,
+        "image": "r-4-bulles-duo.png",
+        "points": []
+	}, {
+        "floor": 5,
+        "image": "r-5-bulles-duo.png",
+        "points": []
+	}, {
+        "floor": 6,
+        "image": "r-6-bulles-duo.png",
+        "points": []
+	}, {
+        "floor": 7,
+        "image": "r-7-bulles-duo.png",
+        "points": []
+	}, {
+        "floor": 8,
+        "image": "r-8-bulles-duo.png",
+        "points": []
+	}],
+    "bullesLounge": [{
+        "floor": -1,
+        "image": "",
+        "points": []
+
+	}, {
+        "floor": 0,
+        "image": "",
+        "points": []
+	}, {
+        "floor": 1,
+        "image": "r-1-bulles-lounge.png",
+        "points": [{
+            "x": 720,
+            "y": 124,
+            "desc": "Bulles lounge 2 places R+1 Pas d'équipement"
+		},{
+            "x": 610,
+            "y": 219,
+            "desc": "Bulles lounge 2 places R+1 Pas d'équipement"
+		},{
+            "x": 251,
+            "y": 687,
+            "desc": "Bulles lounge 2 places R+1 Pas d'équipement"
+		}]
+	}, {
+        "floor": 2,
+        "image": "r-2-bulles-lounge.png",
+        "points": [{
+            "x": 598,
+            "y": 235,
+            "desc": "Bulles lounge 2 places R+2 Pas d'équipement"
+		},{
+            "x": 251,
+            "y": 687,
+            "desc": "Bulles lounge 2 places R+2 Pas d'équipement"
+		}]
+	}, {
+        "floor": 3,
+        "image": "r-3-bulles-lounge.png",
+        "points": [{
+            "x": 598,
+            "y": 235,
+            "desc": "Bulles lounge 2 places R+3 Pas d'équipement"
+		},{
+            "x": 310,
+            "y": 547,
+            "desc": "Bulles lounge 2 places R+3 Pas d'équipement"
+		},{
+            "x": 251,
+            "y": 687,
+            "desc": "Bulles lounge 2 places R+3 Pas d'équipement"
+		}]
+	}, {
+        "floor": 4,
+        "image": "r-4-bulles-lounge.png",
+       "points": [{
+            "x": 598,
+            "y": 235,
+            "desc": "Bulles lounge 2 places R+4 Pas d'équipement"
+		},{
+            "x": 310,
+            "y": 547,
+            "desc": "Bulles lounge 2 places R+4 Pas d'équipement"
+		},{
+            "x": 251,
+            "y": 687,
+            "desc": "Bulles lounge 2 places R+4 Pas d'équipement"
+		}]
+	}, {
+        "floor": 5,
+        "image": "r-5-bulles-lounge.png",
+        "points": [{
+            "x": 598,
+            "y": 235,
+            "desc": "Bulles lounge 2 places R+5 Pas d'équipement"
+		},{
+            "x": 310,
+            "y": 547,
+            "desc": "Bulles lounge 2 places R+5 Pas d'équipement"
+		},{
+            "x": 251,
+            "y": 687,
+            "desc": "Bulles lounge 2 places R+5 Pas d'équipement"
+		}]
+	}, {
+        "floor": 6,
+        "image": "r-6-bulles-lounge.png",
+        "points": [{
+            "x": 598,
+            "y": 235,
+            "desc": "Bulles lounge 2 places R+5 Pas d'équipement"
+		},{
+            "x": 310,
+            "y": 547,
+            "desc": "Bulles lounge 2 places R+5 Pas d'équipement"
+		},{
+            "x": 251,
+            "y": 687,
+            "desc": "Bulles lounge 2 places R+5 Pas d'équipement"
+		}]
+	}, {
+        "floor": 7,
+        "image": "r-7-bulles-lounge.png",
+        "points": [{
+            "x": 251,
+            "y": 687,
+            "desc": "Bulles lounge 2 places R+7 Pas d'équipement"
+		}]
+	}, {
+        "floor": 8,
+        "image": "r-8-bulles-lounge.png",
+        "points": [{
+            "x": 739,
+            "y": 177,
+            "desc": "Bulles lounge 2 places R+8 Pas d'équipement"
+		},{
+            "x": 655,
+            "y": 264,
+            "desc": "Bulles lounge 2 places R+8 Pas d'équipement"
+		},{
+            "x": 590,
+            "y": 302,
+            "desc": "Bulles lounge 2 places R+8 Pas d'équipement"
+		}]
+	}],
+    "bullesBanquette": [{
+        "floor": -1,
+        "image": "",
+        "points": []
+
+	}, {
+        "floor": 0,
+        "image": "",
+        "points": []
+	}, {
+        "floor": 1,
+        "image": "r-1-bulles-banquette.png",
+        "points": []
+	}, {
+        "floor": 2,
+        "image": "",
+        "points": []
+	}, {
+        "floor": 3,
+        "image": "r-3-bulles-banquette.png",
+        "points": []
+	}, {
+        "floor": 4,
+        "image": "r-4-bulles-banquette.png",
+        "points": []
+	}, {
+        "floor": 5,
+        "image": "r-5-bulles-banquette.png",
+        "points": [{
+            "x": 330,
+            "y": 534,
+            "desc": "Bulles banquette 2 places R+5 Pas d'équipement"
+		},{
+            "x": 345,
+            "y": 552,
+            "desc": "Bulles banquette 2 places R+5 Pas d'équipement"
+		},{
+            "x": 288,
+            "y": 567,
+            "desc": "Bulles banquette 2 places R+5 Pas d'équipement"
+		},{
+            "x": 303,
+            "y": 586,
+            "desc": "Bulles banquette 2 places R+5 Pas d'équipement"
+		}]
+	}, {
+        "floor": 6,
+        "image": "r-6-bulles-banquette.png",
+        "points": [{
+            "x": 330,
+            "y": 534,
+            "desc": "Bulles banquette 2 places R+6 Pas d'équipement"
+		},{
+            "x": 345,
+            "y": 552,
+            "desc": "Bulles banquette 2 places R+6 Pas d'équipement"
+		},{
+            "x": 288,
+            "y": 567,
+            "desc": "Bulles banquette 2 places R+6 Pas d'équipement"
+		},{
+            "x": 303,
+            "y": 586,
+            "desc": "Bulles banquette 2 places R+6 Pas d'équipement"
+		}]
+	}, {
+        "floor": 7,
+        "image": "",
+        "points": []
+	}, {
+        "floor": 8,
+        "image": "",
+        "points": []
+	}],
+	 "pointCafe": [{
+        "floor": -1,
+        "image": "",
+        "points": []
+
+	}, {
+        "floor": 0,
+        "image": "",
+        "points": []
+	}, {
+        "floor": 1,
+        "image": "r-1-point-cafe.png",
+        "points": []
+	}, {
+        "floor": 2,
+        "image": "r-2-point-cafe.png",
+        "points": []
+	}, {
+        "floor": 3,
+        "image": "r-3-point-cafe.png",
+        "points": []
+	}, {
+        "floor": 4,
+        "image": "r-4-point-cafe.png",
+        "points": []
+	}, {
+        "floor": 5,
+        "image": "r-5-point-cafe.png",
+        "points": []
+	}, {
+        "floor": 6,
+        "image": "r-6-point-cafe.png",
+        "points": []
+	}, {
+        "floor": 7,
+        "image": "r-7-point-cafe.png",
+        "points": []
+	}, {
+        "floor": 8,
+        "image": "r-8-point-cafe.png",
+        "points": []
+	}],
+  "fitness": [{
+        "floor": -1,  
+        "image": "ss1-fitness.png",
+        "points": []
+	}, {
+        "floor": 0,
+        "image": "",
+        "points": []
+	}, {
+        "floor": 1,
+        "image": "",
+        "points": []
+	}, {
+        "floor": 2,
+       "image": "",
+        "points": []
+	}, {
+        "floor": 3,
+        "image": "",
+        "points": []
+	}, {
+        "floor": 4,
+       "image": "",
+        "points": []
+	}, {
+        "floor": 5,
+        "image": "",
+        "points": []
+	}, {
+        "floor": 6,
+        "image": "",
+        "points": []
+	}, {
+        "floor": 7,
+       "image": "",
+        "points": []
+	}, {
+        "floor": 8,
+        "image": "",
+        "points": []
+	}],
+	"auditorium": [{
+        "floor": -1,  
+        "image": "ss1-auditorium.png",
+        "points": []
+	}, {
+        "floor": 0,
+        "image": "",
+        "points": []
+	}, {
+        "floor": 1,
+        "image": "",
+        "points": []
+	}, {
+        "floor": 2,
+       "image": "",
+        "points": []
+	}, {
+        "floor": 3,
+        "image": "",
+        "points": []
+	}, {
+        "floor": 4,
+       "image": "",
+        "points": []
+	}, {
+        "floor": 5,
+        "image": "",
+        "points": []
+	}, {
+        "floor": 6,
+        "image": "",
+        "points": []
+	}, {
+        "floor": 7,
+       "image": "",
+        "points": []
+	}, {
+        "floor": 8,
+        "image": "",
+        "points": []
+	}],
+	"auditorium": [{
+        "floor": -1,  
+        "image": "ss1-auditorium.png",
+        "points": []
+	}, {
+        "floor": 0,
+        "image": "",
+        "points": []
+	}, {
+        "floor": 1,
+        "image": "",
+        "points": []
+	}, {
+        "floor": 2,
+       "image": "",
+        "points": []
+	}, {
+        "floor": 3,
+        "image": "",
+        "points": []
+	}, {
+        "floor": 4,
+       "image": "",
+        "points": []
+	}, {
+        "floor": 5,
+        "image": "",
+        "points": []
+	}, {
+        "floor": 6,
+        "image": "",
+        "points": []
+	}, {
+        "floor": 7,
+       "image": "",
+        "points": []
+	}, {
+        "floor": 8,
+        "image": "",
+        "points": []
+	}],
+	"kiosque": [{
+        "floor": -1,  
+        "image": "",
+        "points": []
+	}, {
+        "floor": 0,
+        "image": "rdc-kiosque-it.png",
+        "points": []
+	}, {
+        "floor": 1,
+        "image": "",
+        "points": []
+	}, {
+        "floor": 2,
+       "image": "",
+        "points": []
+	}, {
+        "floor": 3,
+        "image": "",
+        "points": []
+	}, {
+        "floor": 4,
+       "image": "",
+        "points": []
+	}, {
+        "floor": 5,
+        "image": "",
+        "points": []
+	}, {
+        "floor": 6,
+        "image": "",
+        "points": []
+	}, {
+        "floor": 7,
+       "image": "",
+        "points": []
+	}, {
+        "floor": 8,
+        "image": "",
+        "points": []
+	}],
+	"localVelo": [{
+        "floor": -1,  
+        "image": "",
+        "points": []
+	}, {
+        "floor": 0,
+        "image": "rdc-local-velo.png",
+        "points": []
+	}, {
+        "floor": 1,
+        "image": "",
+        "points": []
+	}, {
+        "floor": 2,
+       "image": "",
+        "points": []
+	}, {
+        "floor": 3,
+        "image": "",
+        "points": []
+	}, {
+        "floor": 4,
+       "image": "",
+        "points": []
+	}, {
+        "floor": 5,
+        "image": "",
+        "points": []
+	}, {
+        "floor": 6,
+        "image": "",
+        "points": []
+	}, {
+        "floor": 7,
+       "image": "",
+        "points": []
+	}, {
+        "floor": 8,
+        "image": "",
+        "points": []
+	}],
+	"pcSecurite": [{
+        "floor": -1,  
+        "image": "",
+        "points": []
+	}, {
+        "floor": 0,
+        "image": "rdc-pc-securite.png",
+        "points": []
+	}, {
+        "floor": 1,
+        "image": "",
+        "points": []
+	}, {
+        "floor": 2,
+       "image": "",
+        "points": []
+	}, {
+        "floor": 3,
+        "image": "",
+        "points": []
+	}, {
+        "floor": 4,
+       "image": "",
+        "points": []
+	}, {
+        "floor": 5,
+        "image": "",
+        "points": []
+	}, {
+        "floor": 6,
+        "image": "",
+        "points": []
+	}, {
+        "floor": 7,
+       "image": "",
+        "points": []
+	}, {
+        "floor": 8,
+        "image": "",
+        "points": []
+	}],
+	"cantine": [{
+        "floor": -1,  
+        "image": "",
+        "points": []
+	}, {
+        "floor": 0,
+        "image": "rdc-cantine.png",
+        "points": []
+	}, {
+        "floor": 1,
+        "image": "",
+        "points": []
+	}, {
+        "floor": 2,
+       "image": "",
+        "points": []
+	}, {
+        "floor": 3,
+        "image": "",
+        "points": []
+	}, {
+        "floor": 4,
+       "image": "",
+        "points": []
+	}, {
+        "floor": 5,
+        "image": "",
+        "points": []
+	}, {
+        "floor": 6,
+        "image": "",
+        "points": []
+	}, {
+        "floor": 7,
+       "image": "",
+        "points": []
+	}, {
+        "floor": 8,
+        "image": "",
+        "points": []
+	}],
+	"cafeteria": [{
+        "floor": -1,  
+        "image": "",
+        "points": []
+	}, {
+        "floor": 0,
+        "image": "rdc-cafeterie.png",
+        "points": []
+	}, {
+        "floor": 1,
+        "image": "",
+        "points": []
+	}, {
+        "floor": 2,
+       "image": "",
+        "points": []
+	}, {
+        "floor": 3,
+        "image": "",
+        "points": []
+	}, {
+        "floor": 4,
+       "image": "",
+        "points": []
+	}, {
+        "floor": 5,
+        "image": "",
+        "points": []
+	}, {
+        "floor": 6,
+        "image": "",
+        "points": []
+	}, {
+        "floor": 7,
+       "image": "",
+        "points": []
+	}, {
+        "floor": 8,
+        "image": "",
+        "points": []
+	}],
+	"conciergeria": [{
+        "floor": -1,  
+        "image": "",
+        "points": []
+	}, {
+        "floor": 0,
+        "image": "rdc-conciergerie.png",
+        "points": []
+	}, {
+        "floor": 1,
+        "image": "",
+        "points": []
+	}, {
+        "floor": 2,
+       "image": "",
+        "points": []
+	}, {
+        "floor": 3,
+        "image": "",
+        "points": []
+	}, {
+        "floor": 4,
+       "image": "",
+        "points": []
+	}, {
+        "floor": 5,
+        "image": "",
+        "points": []
+	}, {
+        "floor": 6,
+        "image": "",
+        "points": []
+	}, {
+        "floor": 7,
+       "image": "",
+        "points": []
+	}, {
+        "floor": 8,
+        "image": "",
+        "points": []
+	}],
+	"echangeur": [{
+        "floor": -1,  
+        "image": "",
+        "points": []
+	}, {
+        "floor": 0,
+        "image": "rdc-echangeur.png",
+        "points": []
+	}, {
+        "floor": 1,
+        "image": "",
+        "points": []
+	}, {
+        "floor": 2,
+       "image": "",
+        "points": []
+	}, {
+        "floor": 3,
+        "image": "",
+        "points": []
+	}, {
+        "floor": 4,
+       "image": "",
+        "points": []
+	}, {
+        "floor": 5,
+        "image": "",
+        "points": []
+	}, {
+        "floor": 6,
+        "image": "",
+        "points": []
+	}, {
+        "floor": 7,
+       "image": "",
+        "points": []
+	}, {
+        "floor": 8,
+        "image": "",
+        "points": []
+	}],
+	"bureauBadges": [{
+        "floor": -1,  
+        "image": "",
+        "points": []
+	}, {
+        "floor": 0,
+        "image": "rdc-bureau-badges.png",
+        "points": []
+	}, {
+        "floor": 1,
+        "image": "",
+        "points": []
+	}, {
+        "floor": 2,
+       "image": "",
+        "points": []
+	}, {
+        "floor": 3,
+        "image": "",
+        "points": []
+	}, {
+        "floor": 4,
+       "image": "",
+        "points": []
+	}, {
+        "floor": 5,
+        "image": "",
+        "points": []
+	}, {
+        "floor": 6,
+        "image": "",
+        "points": []
+	}, {
+        "floor": 7,
+       "image": "",
+        "points": []
+	}, {
+        "floor": 8,
+        "image": "",
+        "points": []
+	}]
+}

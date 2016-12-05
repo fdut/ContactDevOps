@@ -1,0 +1,338 @@
+{
+"Lundi":[{
+	"title": "\"Xinniàn kuàilé\": Bon nouvel an chinois",
+	"value": "2.75€",
+	"type": "normal"
+ }, 
+ {
+	"title": "L'ENTREE DU JOUR",
+	"type": "header"
+ }, 
+ {
+	"title": "Assiette Asiatique",
+	"value": "2.75€",
+	"type": "normal"
+ }, 
+ {
+	"title": "LES PLATS",
+	"type": "header"
+ }, 
+ {
+	"title": "Filet de Flétan sauce Beurre Blanc",
+	"value": "2.75€",
+	"type": "normal"
+ }, 
+ {
+	"title": "Filet de Flétan sauce Beurre Blanc",
+	"value": "2.75€",
+	"type": "normal"
+ }, 
+ {
+	"title": "Cuisse de Pintade sauce Aigre-Douce",
+	"value": "2.75€",
+	"type": "normal"
+ },
+ {
+	"title": "Pizza aux Fromages",
+	"value": "2.75€",
+	"type": "normal"
+  }, 
+  {
+	"title": "LES ACCOMPAGNEMENTS",
+	"type": "header"
+  },
+  {
+	"title": "Riz du Soleil Levant",
+	"value": "2.75€",
+	"type": "normal"
+  },
+  {
+	"title": "Poêlée Chinoise",
+	"value": "2.75€",
+	"type": "normal"
+  }, 
+  {
+	"title": "Brocoli Nature",
+	"value": "2.75€",
+	"type": "normal"
+  },
+  {
+	"title": "LE DESSERT DU JOUR",
+	"type": "header"
+  }, 
+  {
+	"title": "Assiette de Litchi et Mangues",
+	"value": "2.75€",
+	"type": "normal"
+  }
+ ],
+"Mardi":[{
+	"title": "Lasagnes à la bolognaise ",
+	"value": "2.75€",
+	"type": "normal"
+ }, 
+ {
+	"title": "L'ENTREE DU JOUR",
+	"type": "header"
+ }, 
+ {
+	"title": "Assiette Asiatique",
+	"value": "2.75€",
+	"type": "normal"
+ }, 
+ {
+	"title": "LES PLATS",
+	"type": "header"
+ }, 
+ {
+	"title": "Filet de Flétan sauce Beurre Blanc",
+	"value": "2.75€",
+	"type": "normal"
+ }, 
+ {
+	"title": "Filet de Flétan sauce Beurre Blanc",
+	"value": "2.75€",
+	"type": "normal"
+ }, 
+ {
+	"title": "Cuisse de Pintade sauce Aigre-Douce",
+	"value": "2.75€",
+	"type": "normal"
+ },
+ {
+	"title": "Pizza aux Fromages",
+	"value": "2.75€",
+	"type": "normal"
+  }, 
+  {
+	"title": "LES ACCOMPAGNEMENTS",
+	"type": "header"
+  },
+  {
+	"title": "Riz du Soleil Levant",
+	"value": "2.75€",
+	"type": "normal"
+  },
+  {
+	"title": "Poêlée Chinoise",
+	"value": "2.75€",
+	"type": "normal"
+  }, 
+  {
+	"title": "Brocoli Nature",
+	"value": "2.75€",
+	"type": "normal"
+  },
+  {
+	"title": "LE DESSERT DU JOUR",
+	"type": "header"
+  }, 
+  {
+	"title": "Assiette de Litchi et Mangues",
+	"value": "2.75€",
+	"type": "normal"
+  }
+ ],
+ "Mercredi":[{
+	"title": "Gratin dauphinois simplissime",
+	"value": "2.75€",
+	"type": "normal"
+ }, 
+ {
+	"title": "L'ENTREE DU JOUR",
+	"type": "header"
+ }, 
+ {
+	"title": "Assiette Asiatique",
+	"value": "2.75€",
+	"type": "normal"
+ }, 
+ {
+	"title": "LES PLATS",
+	"type": "header"
+ }, 
+ {
+	"title": "Filet de Flétan sauce Beurre Blanc",
+	"value": "2.75€",
+	"type": "normal"
+ }, 
+ {
+	"title": "Filet de Flétan sauce Beurre Blanc",
+	"value": "2.75€",
+	"type": "normal"
+ }, 
+ {
+	"title": "Cuisse de Pintade sauce Aigre-Douce",
+	"value": "2.75€",
+	"type": "normal"
+ },
+ {
+	"title": "Pizza aux Fromages",
+	"value": "2.75€",
+	"type": "normal"
+  }, 
+  {
+	"title": "LES ACCOMPAGNEMENTS",
+	"type": "header"
+  },
+  {
+	"title": "Riz du Soleil Levant",
+	"value": "2.75€",
+	"type": "normal"
+  },
+  {
+	"title": "Poêlée Chinoise",
+	"value": "2.75€",
+	"type": "normal"
+  }, 
+  {
+	"title": "Brocoli Nature",
+	"value": "2.75€",
+	"type": "normal"
+  },
+  {
+	"title": "LE DESSERT DU JOUR",
+	"type": "header"
+  }, 
+  {
+	"title": "Assiette de Litchi et Mangues",
+	"value": "2.75€",
+	"type": "normal"
+  }
+ ],
+ "Jeudi":[{
+	"title": "Potatoes maison",
+	"value": "2.75€",
+	"type": "normal"
+ }, 
+ {
+	"title": "L'ENTREE DU JOUR",
+	"type": "header"
+ }, 
+ {
+	"title": "Assiette Asiatique",
+	"value": "2.75€",
+	"type": "normal"
+ }, 
+ {
+	"title": "LES PLATS",
+	"type": "header"
+ }, 
+ {
+	"title": "Filet de Flétan sauce Beurre Blanc",
+	"value": "2.75€",
+	"type": "normal"
+ }, 
+ {
+	"title": "Filet de Flétan sauce Beurre Blanc",
+	"value": "2.75€",
+	"type": "normal"
+ }, 
+ {
+	"title": "Cuisse de Pintade sauce Aigre-Douce",
+	"value": "2.75€",
+	"type": "normal"
+ },
+ {
+	"title": "Pizza aux Fromages",
+	"value": "2.75€",
+	"type": "normal"
+  }, 
+  {
+	"title": "LES ACCOMPAGNEMENTS",
+	"type": "header"
+  },
+  {
+	"title": "Riz du Soleil Levant",
+	"value": "2.75€",
+	"type": "normal"
+  },
+  {
+	"title": "Poêlée Chinoise",
+	"value": "2.75€",
+	"type": "normal"
+  }, 
+  {
+	"title": "Brocoli Nature",
+	"value": "2.75€",
+	"type": "normal"
+  },
+  {
+	"title": "LE DESSERT DU JOUR",
+	"type": "header"
+  }, 
+  {
+	"title": "Assiette de Litchi et Mangues",
+	"value": "2.75€",
+	"type": "normal"
+  }
+ ],
+ "Vendredi":[{
+	"title": "Makis de saumon",
+	"value": "2.75€",
+	"type": "normal"
+ }, 
+ {
+	"title": "L'ENTREE DU JOUR",
+	"type": "header"
+ }, 
+ {
+	"title": "Assiette Asiatique",
+	"value": "2.75€",
+	"type": "normal"
+ }, 
+ {
+	"title": "LES PLATS",
+	"type": "header"
+ }, 
+ {
+	"title": "Filet de Flétan sauce Beurre Blanc",
+	"value": "2.75€",
+	"type": "normal"
+ }, 
+ {
+	"title": "Filet de Flétan sauce Beurre Blanc",
+	"value": "2.75€",
+	"type": "normal"
+ }, 
+ {
+	"title": "Cuisse de Pintade sauce Aigre-Douce",
+	"value": "2.75€",
+	"type": "normal"
+ },
+ {
+	"title": "Pizza aux Fromages",
+	"value": "2.75€",
+	"type": "normal"
+  }, 
+  {
+	"title": "LES ACCOMPAGNEMENTS",
+	"type": "header"
+  },
+  {
+	"title": "Riz du Soleil Levant",
+	"value": "2.75€",
+	"type": "normal"
+  },
+  {
+	"title": "Poêlée Chinoise",
+	"value": "2.75€",
+	"type": "normal"
+  }, 
+  {
+	"title": "Brocoli Nature",
+	"value": "2.75€",
+	"type": "normal"
+  },
+  {
+	"title": "LE DESSERT DU JOUR",
+	"type": "header"
+  }, 
+  {
+	"title": "Assiette de Litchi et Mangues",
+	"value": "2.75€",
+	"type": "normal"
+  }
+ ]
+
+}

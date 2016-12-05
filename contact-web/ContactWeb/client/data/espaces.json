@@ -1,0 +1,117 @@
+{
+    "sections": [
+      {
+            "name": "Accueil", 
+            "keyName": "acceuil",
+            "state": "espacesTravail.acceuil",
+            "path": "/espaces-de-travail/acceuil"
+                 },
+        {
+            "name": "Point Copie", 
+            "keyName": "pointCopie",
+            "state": "espacesTravail.pointCopie",
+            "path": "/espaces-de-travail/point-copie"
+                 },
+        {
+            "name": "Salles de réunion",
+             "keyName": "sallesDeReunion",
+            "state": "espacesTravail.sallesDeReunion",
+            "path": "/espaces-de-travail/salles-de-reunion"
+                 },
+        {
+            "name": "Bulles 2 places",
+             "keyName": "bullesDuo",
+            "state": "espacesTravail.bullesDuo",
+            "path": "/espaces-de-travail/bulles-duo"
+                 },
+        { "name": "Bulles 3 places",
+             "keyName": "bullesTrio",
+            "state": "espacesTravail.bullesTrio",
+            "path": "/espaces-de-travail/bulles-trio"
+                 },
+        {
+            "name": "Bulles lounge",
+             "keyName": "bullesLounge",
+            "state": "espacesTravail.bullesLounge",
+            "path": "/espaces-de-travail/bulles-lounge"
+                 },
+        {
+            "name": "Bulles banquette",
+             "keyName": "bullesBanquette",
+            "state": "espacesTravail.bullesBanquette",
+            "path": "/espaces-de-travail/bulles-banquette"
+                 },
+        {
+            "name": "Point café",
+            "keyName": "pointCafe",
+            "state": "espacesTravail.pointCafe",
+            "path": "/espaces-de-travail/point-cafe"
+                 },
+        {
+            "name": "Fitness",
+            "keyName": "fitness",
+            "state": "espacesTravail.fitness",
+            "path": "/espaces-de-travail/fitness"
+                 },
+        {
+            "name": "Auditorium",
+            "keyName": "auditorium",
+            "state": "espacesTravail.auditorium",
+            "path": "/espaces-de-travail/auditorium"
+                 },
+           {
+            "name": "Kiosques",
+            "keyName": "kiosque",
+            "state": "espacesTravail.kiosque",
+            "path": "/espaces-de-travail/kiosque"
+                 },    
+        {
+            "name": "Local Vélo",
+            "keyName": "localVelo",
+            "state": "espacesTravail.localVelo",
+            "path": "/espaces-de-travail/local-velo"
+                 },
+        {
+            "name": "PC Sécurité",
+            "keyName": "pcSecurite",
+            "state": "espacesTravail.pcSecurite",
+            "path": "/espaces-de-travail/pc-securite"
+                 },
+         {
+            "name": "Cantine",
+            "keyName": "cantine",
+            "state": "espacesTravail.cantine",
+            "path": "/espaces-de-travail/cantine"
+                 },
+          {
+            "name": "Caféteria",
+            "keyName": "cafeteria",
+            "state": "espacesTravail.cafeteria",
+            "path": "/espaces-de-travail/cafeteria"
+                 },
+           {
+            "name": "Conciergerie",
+            "keyName": "conciergeria",
+            "state": "espacesTravail.conciergeria",
+            "path": "/espaces-de-travail/conciergeria"
+                 },
+             {
+            "name": "Echangeur",
+            "keyName": "echangeur",
+            "state": "espacesTravail.echangeur",
+            "path": "/espaces-de-travail/echangeur"
+                 },
+                   {
+            "name": "Infirmerie", 
+            "keyName": "infirmerie",
+            "state": "espacesTravail.infirmerie",
+            "path": "/espaces-de-travail/infirmerie"
+                 },
+           {
+            "name": "Bureau des Badges",
+            "keyName": "bureauBadges",
+            "state": "espacesTravail.bureauBadges",
+            "path": "/espaces-de-travail/bureau-badges"
+                 }                                                                              
+    ]
+}
