@@ -21,7 +21,7 @@
     </feature>
     <mfp:android>
         <mfp:sdkChecksum>3937717781</mfp:sdkChecksum>
-        <mfp:appChecksum>0</mfp:appChecksum>
+        <mfp:appChecksum>1810151820</mfp:appChecksum>
         <mfp:security>
             <mfp:testWebResourcesChecksum enabled="false" ignoreFileExtensions="png, jpg, jpeg, gif, mp4, mp3" />
         </mfp:security>
