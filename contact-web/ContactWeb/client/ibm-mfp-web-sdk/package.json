@@ -1,0 +1,49 @@
+{
+  "name": "ibm-mfp-web-sdk",
+  "version": "8.0.2016070716",
+  "description": "IBM MobileFirst Platform Foundation Web Environment SDK",
+  "author": {
+    "name": "IBM"
+  },
+  "main": "ibmmfpf.js",
+  "typings": "./lib/typings/ibmmfpf.d.ts",
+  "keywords": [
+    "ibm",
+    "worklight",
+    "mobilefirst",
+    "mfp",
+    "web sdk",
+    "cordova-web"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://hub.jazz.net/git/ibmmfpf/ibm-mfp-web-sdk"
+  },
+  "license": "SEE LICENSE IN LICENSE.TXT",
+  "_id": "ibm-mfp-web-sdk@8.0.2016070716",
+  "scripts": {},
+  "_shasum": "dda89814b1f3be4ff8f7e4b9b650afdcacc552d8",
+  "_from": "ibm-mfp-web-sdk@latest",
+  "_npmVersion": "3.7.3",
+  "_nodeVersion": "5.9.1",
+  "_npmUser": {
+    "name": "ibmmfpf",
+    "email": "ibmmfpf@us.ibm.com"
+  },
+  "dist": {
+    "shasum": "dda89814b1f3be4ff8f7e4b9b650afdcacc552d8",
+    "tarball": "https://registry.npmjs.org/ibm-mfp-web-sdk/-/ibm-mfp-web-sdk-8.0.2016070716.tgz"
+  },
+  "maintainers": [
+    {
+      "name": "ibmmfpf",
+      "email": "ibmmfpf@us.ibm.com"
+    }
+  ],
+  "_npmOperationalInternal": {
+    "host": "packages-16-east.internal.npmjs.com",
+    "tmp": "tmp/ibm-mfp-web-sdk-8.0.2016070716.tgz_1468175077573_0.8568019485101104"
+  },
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/ibm-mfp-web-sdk/-/ibm-mfp-web-sdk-8.0.2016070716.tgz"
+}
