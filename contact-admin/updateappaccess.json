@@ -1,0 +1,18 @@
+{
+  "applicationAccessConfig" : {
+    "action" : "BLOCKED",
+    "downloadLink" : "www.ynet.co.il",
+    "message" : "The application is blocked.",
+    "multiLanguageMessages" : [
+      {
+        "locale" : "de",
+        "message" : "Bitte updaten!",
+      },
+      ...
+    ],
+  },
+  "clientLogProfiles" : {
+    "level" : "INFO",
+    "name" : "com.acme.sub1",
+  },
+}
