@@ -16,6 +16,10 @@ case $key in
     SERVER_URL="$2"
     shift # past argument
     ;;
+     -f|--file)
+    FILE="$2"
+    shift # past argument
+    ;;
     *)
             # unknown option
     ;;
@@ -26,5 +30,6 @@ done
 echo USERNAME   = "${USERNAME}"
 echo PASSWORD   = "${PASSWORD}"
 echo SERVER URL = "${SERVER_URL}"
+echo FILE = "${FILE}"
 
-./acdeploytool.sh -s ${SERVER_URL} -c applicationcenter -u ${USERNAME} -p ${PASSWORD} -f android-debug.apk
+./acdeploytool.sh -s ${SERVER_URL} -c applicationcenter -u ${USERNAME} -p ${PASSWORD} -f ${FILE}
