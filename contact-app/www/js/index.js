@@ -16,6 +16,7 @@ function wlCommonInit() {
       console.log("url : " + url);
   });
 
+/** 
  MQA.startNewSession(
 {
         mode: "QA",
@@ -32,6 +33,7 @@ function wlCommonInit() {
         error: function (string) { console.log("Session error" + string);}
     }
   );
+  */
   
   //Calling to the MobileFirst Server    
   WLAuthorizationManager.obtainAccessToken().then(
