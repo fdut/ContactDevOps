@@ -15,6 +15,23 @@ function wlCommonInit() {
   WL.App.getServerUrl(function (url) {
       console.log("url : " + url);
   });
+
+ MQA.startNewSession(
+{
+        mode: "QA",
+                           // or mode: "MARKET" for production mode.
+                           // Key for MQA Sydnet : 1g15b6a583f170042b717b2f0192f6b4a846a1b496g0g2g21230c56
+                           // Key fo MQA US : 1g24d8f8b6e1713509e11aae1076a5bddba9575c63g0g2g34080d1c
+         android: {
+           appKey: "1g8126965879978a7b67f63322bade6d5eb729a024g0g2g1d7e0c7d" ,
+           notificationsEnabled: true
+      }
+    },
+    {
+        success: function () {console.log("Session Started successfully");},
+        error: function (string) { console.log("Session error" + string);}
+    }
+  );
   
   //Calling to the MobileFirst Server    
   WLAuthorizationManager.obtainAccessToken().then(

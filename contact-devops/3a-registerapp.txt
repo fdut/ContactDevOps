@@ -1,0 +1,22 @@
+#!/bin/bash
+# The default Node.js version is 0.10.40
+# To use Node.js 0.12.7, uncomment the following line:
+# #export PATH=/opt/IBM/node-v0.12/bin:$PATH
+# To use Node.js 4.2.2, uncomment the following line:
+export PATH=/opt/IBM/node-v4.2/bin:$PATH
+
+echo "#### npm install -g mfpdev-cli"
+npm install -g mfpdev-cli
+
+echo "#### mfpdev --version"
+mfpdev --version
+npm install -g cordova ionic@1.7.6
+cd contact-app
+npm install
+
+echo "#### adding server definition"
+mfpdev server add mfpbluemix --url 'https://mfp-myunicity-ts-server.mybluemix.net:443' --login '<USER>' --password '<PASSWORD>' --setdefault
+
+echo "#### register server"
+cordova platform add android
+mfpdev app register

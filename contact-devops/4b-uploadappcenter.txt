@@ -1,0 +1,12 @@
+#!/bin/bash
+# your script here
+
+java -version
+ls -l $WORKSPACE
+
+cd $WORKSPACE/contact-tools/appcenter
+./deploy.sh -u "<USER>" -p "<PASSWORD>" -s "<SERVER>" -f $WORKSPACE/contact-app/platforms/android/build/outputs/apk/android-debug.apk
+
+# Remove Android-sdk
+rm -rf $WORKSPACE/android-sdk-linux
+rm -rf $WORKSPACE/contact-app/platforms

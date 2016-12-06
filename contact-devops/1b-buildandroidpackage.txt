@@ -1,0 +1,59 @@
+#!/bin/bash
+# The default Node.js version is 0.10.40
+# To use Node.js 0.12.7, uncomment the following line:
+#export PATH=/opt/IBM/node-v0.12/bin:$PATH
+# To use Node.js 4.2.2, uncomment the following line:
+export PATH=/opt/IBM/node-v4.2/bin:$PATH
+
+echo "#### npm install -g mfpdev-cli"
+npm install -g mfpdev-cli
+
+echo "#### mfpdev --version"
+mfpdev --version
+
+echo "Current PWD : $PWD"
+uname -a
+
+sudo apt-get update -y
+
+# import libs for Android Build tools
+sudo apt-get install -y lib32gcc1 libc6-i386 lib32z1 lib32stdc++6
+sudo apt-get install -y lib32ncurses5 lib32gomp1 lib32z1-dev
+
+echo "import android sdk"
+wget http://dl.google.com/android/android-sdk_r24.4.1-linux.tgz
+
+# untar and configure
+tar -xzvf android-sdk_r24.4.1-linux.tgz
+
+export ANDROID_HOME=$WORKSPACE/android-sdk-linux/
+export PATH=$WORKSPACE/android-sdk-linux/tools:$PATH
+
+cd $ANDROID_HOME/tools
+# ./android list sdk --all --extended
+
+echo y | $ANDROID_HOME/tools/android update sdk -u -a -t "tools","platform-tools","build-tools-23.0.3","android-23"
+
+echo "**** Current pwd : " + $PWD
+
+echo "install app requirement"
+cd $WORKSPACE/contact-app
+npm install -g cordova@6.3 ionic@1.7.6
+npm install
+
+cordova plugin add cordova-plugin-mfp
+
+cordova platform add android
+
+echo "#### adding server definition"
+mfpdev server add mfpbluemix --url 'https://mfp-myunicity-ts-server.mybluemix.net:443' --login '<USER>' --password '<PASSWORD>' --setdefault
+
+echo "#### register server"
+mfpdev app register
+
+cordova prepare
+cordova build android
+
+# Remove Android-sdk
+rm -rf $WORKSPACE/android-sdk-linux
+rm -rf $WORKSPACE/contact-adapter
