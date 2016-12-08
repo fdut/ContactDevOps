@@ -156,12 +156,12 @@ declare module ibmmfpfanalytics {
 	 * 
 	 * @param {boolean} [autoSend]
 	 * @example
-	 * ibmmfpfanalytics.setAutoSendLogs(true);
+	 * ibmmfpfanalytics.enableAutoSend(true);
 	 * 
 	 * @methodOf ibmmfpfanalytics#
-	 * @name ibmmfpfanalytics#setAutoSendLogs
+	 * @name ibmmfpfanalytics#enableAutoSend
 	 */
-	function setAutoSendLogs(autoSend: boolean): void;
+	function enableAutoSend(autoSend: boolean): void;
 
 	/**
 	 * 
@@ -1143,6 +1143,39 @@ declare module WL.Client {
     function deleteCookie(name: string): WLPromise;
 
 		/**
+        * Returns the previously saved value associated with key.
+        * @description Retrieves a previously saved value associated with key from application participating in simple shared data who are in the same application family, 
+        * defined by the same family name and same application signing key.
+        * @note {Note}  This API call is only applicable in Android and IOS environments. It is a safe, but no-op, call in other environments.
+        * @param Object Mandatory. Object containing the key to retrieve, like {key: 'myKey'} 
+        * @returns Promise containing the retrieved value, or null if no value is found
+        * @methodOf WL.Client#
+        */
+    function getSharedToken(Key: Object): WLPromise;
+
+        /**
+        * Saves a key/value pair such that it is available to other applications.
+        * @description Saves a key/value pair such that it is available to other applications participating in simple shared data who are in the same application family, 
+        * defined by the same family name and same application signing key. 
+        * @note {Note}  This API call is only applicable in Android and IOS environments. It is a safe, but no-op, call in other environments.
+        * @param Object Mandatory. Object containing the key/value pair to share, like {key: 'myKey', value: 'myValue'}
+        * @returns Promise
+        * @methodOf WL.Client#
+        */
+    function setSharedToken(keyvaluepair: Object): WLPromise;
+
+        /**
+        * Clears a previously saved value associated with key.
+        * @description Clears a previously saved value associated with key from applications participating in simple shared data who are in the same application family, 
+        * defined by the same family name and same application signing key.
+        * @note {Note}  This API call is only applicable in Android and IOS environments. It is a safe, but no-op, call in other environments.
+        * @param Object Mandatory. Object containing the key to clear, like {key: 'myKey'}
+        * @returns Promise
+        * @methodOf WL.Client#
+        */
+    function clearSharedToken(Key: Object): WLPromise;
+
+        /**
 		* @deprecated Since version 8.0
         * Return the language code of the language being used.
         * @description  This method returns the language or dialect code of the language currently being used for the application.
@@ -1285,20 +1318,30 @@ class GatewayChallengeHandler extends AbstractChallengeHandler{
 
 }
 
-       /**
-	    * get device display name from server registration data
-	    * @param options include onSucess, onFailure methods
-	    * @methodOf WL.Client#
-	    */
-	  function getDeviceDisplayName(options: Object): void;
+  	/**
+	 * Gets the display name of the device. The display name is retrieved from the MobileFirst Server registration data.
+	 *
+	 * @param {Object} options An object that contains <code>onSucess</code> and <code>onFailure</code> completion callback functions.<br />
+	 *        The <code>onSuccess</code> function receives a JSON object parameter that contains the server's response, which includes the
+	 *        display name of the the device or null if no display name was set. For example:
+	 *        <ul>
+	 *            <li>{ responseJSON: { deviceDisplayName: "John's Device" } }</li>
+	 *            <li>{ responseJSON: { deviceDisplayName: null } }</li>
+	 *        </ul>
+	 *
+	 * @methodOf WL.Client#
+	 */
+	function getDeviceDisplayName(options: Object): void;
 
-	  /**
-	    * set device display name to server registration data, cause update registration request to server
-	    * @param options include onSucess, onFailure methods
-	    * @param deviceDisplayName device display name
-	    * @methodOf WL.Client#
-	    */
-	  function setDeviceDisplayName(deviceDisplayName: string, options: Object): void;
+	/**
+	 * Sets the display name of the device. The display name is stored in the MobileFirst Server registration data.
+	 * 
+	 * @param {String} deviceDisplayName The device display name to set.
+	 * @param {Object} options An object that contains <code>onSucess</code> and <code>onFailure</code> completion callback functions.
+	 *
+	 * @methodOf WL.Client#
+	 */
+	function setDeviceDisplayName(deviceDisplayName: string, options: Object): void;
 }
 
 
@@ -1561,7 +1604,7 @@ var MobileProfileData : {
 
 declare module WL{
 	class ResourceRequest {
-    
+
 		/**
 		* @class
 		* The WL.ResourceRequest object is used to send a request to any protected or unprotected resource using an absolute or relative URL.
@@ -1575,7 +1618,10 @@ declare module WL{
 		* @param {string} url Mandatory. Specifies absolute or relative URL. If you send a request to an adapter, you must add the /adapters path element.
 		* For example: /adapters/myAdapterName/myMethodName
 		* @param {string} method Mandatory. Request method, usually WLResourceRequest.GET or WLResourceRequest.POST
-		* @param {number} timeout Optional. Request timeout, in milliseconds.
+		* @param {object} options Optional. An object containing the following properties:
+	  *
+	  *      options.timeout: (integer) Optional. Request timeout, in milliseconds.
+	  *      options.scope: (string) Optional. Protecting scope of the requested resource.
 		*
 		* @example
 		* var request = new WL.ResourceRequest('/adapters/sampleAdapter/multiplyNumbers', WLResourceRequest.GET);
@@ -1592,7 +1638,7 @@ declare module WL{
 		*
 		* @name WL.ResourceRequest
 		*/
-			constructor(_url: string, _method: string, _timeout?: number);
+			constructor(_url: string, _method: string, _options?: Object);
 
 			/**
 			 * @description Returns request URL. The URL must have been passed to the constructor.
@@ -1694,7 +1740,7 @@ declare module WL{
 			 * @param content Optional. Body content. It can be of a simple type (like string), object, or undefined.
 			 * @returns Promise
 			 * @example
-			 * var request = WLResourceRequest(url, method, timeout);
+			 * var request = WLResourceRequest(url, method, options);
 			 * request.send(content).then(
 			 *   function(response) {
 			 *     // success flow
@@ -1714,7 +1760,7 @@ declare module WL{
 			 * The content type will be set to application/x-www-form-urlencoded.
 			 * @returns Promise
 			 * @example
-			 * var request = WLResourceRequest(url, method, timeout);
+			 * var request = WLResourceRequest(url, method, options);
 			 * request.send(json).then(
 			 *   function(response) {
 			 *     // success flow

@@ -2,7 +2,7 @@
 "IBM-INTERNAL" : "Face de Usuário de PII" ,
 "accessDenied" : "Acesso Negado",
 "authFailure" : "Um erro foi encontrado ao processar a solicitação do aplicativo.",
-"applicationDenied" : "O Acesso ao Servidor Está Desativado",
+"applicationDenied" : "Aplicativo Desativado",
 "browserIsNotSupported" : "{0} não é suportado atualmente.",
 "cancel" : "Cancelar",
 "close" : "Fechar",
@@ -26,11 +26,11 @@
 "diagErrorMessage" : "Mensagem de Erro",
 "diagHttpStatus" : "Status de HTTP",
 "diagIPAddress" : "Endereço IP",
-"directUpdateNotificationTitle" : "A Atualização Está Disponível",
-"directUpdateNotificationMessage" : "Recursos da web mais recentes estão disponíveis. Gostaria de fazer o download deles agora? (o tamanho do arquivo é de {0} MB).",
-"directUpdateNotificationMessageKilobytes" : "Recursos da web mais recentes estão disponíveis. Gostaria de fazer o download deles agora? (o tamanho do arquivo é de {0} KB).",
+"directUpdateNotificationTitle" : "Atualização disponível",
+"directUpdateNotificationMessage" : "Recursos da web mais recentes estão disponíveis. Confirme para atualizar. (o tamanho do arquivo é de {0} MB).",
+"directUpdateNotificationMessageKilobytes" : "Recursos da web mais recentes estão disponíveis. Confirme para atualizar. (o tamanho do arquivo é de {0} KB).",
 "directUpdateErrorTitle" : "Atualização com Falha",
-"directUpdateErrorMessage" : "Falha na atualização direta.",
+"directUpdateErrorMessage" : "Falha na Atualização Direta.",
 "directUpdateErrorMessageNotEnoughStorage" : "Uma atualização para o aplicativo está disponível, mas não há espaço suficiente disponível no dispositivo (tamanho necessário: {0} MB, espaço disponível: {1} MB).",
 "directUpdateErrorMessageFailedDownloadingZipFile" : "Falha ao fazer download do arquivo de atualização do aplicativo.",
 "directUpdateErrorMessageFailedProcessingZipFile" : "Falha ao processar o arquivo de atualização do aplicativo.",
@@ -79,6 +79,7 @@
 "userEnrollmentUnsupportedOS" : "Falha de autenticação de certificado de usuário: plataforma do cliente não suportada.",
 "failureCallingMethod" : "Falha ao chamar {0}",
 "challengeHandlingCanceled" : "A operação do manipulador de desafios foi cancelada.",
-"unsupportedEnvironment" : "Ambiente não suportado"
+"unsupportedEnvironment" : "Ambiente não suportado",
+"redirect" : "Redirecionar"
 }
 

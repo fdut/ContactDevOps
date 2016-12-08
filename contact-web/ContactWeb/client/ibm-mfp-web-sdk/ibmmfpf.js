@@ -69,8 +69,8 @@
 			send: _apiAnalyticsMissing,
 			setUserContext: _apiAnalyticsMissing,
 			addEvent: _apiAnalyticsMissing,
-			setAutoSendLogs: _apiAnalyticsMissing,
-	        processAutomaticTrigger: _apiAnalyticsMissing,
+			enableAutoSend: _apiAnalyticsMissing,
+			_setClientId: _apiAnalyticsMissing,
 			logger: logger
 		}
 		function _apiAnalyticsMissing(message){
@@ -447,624 +447,6 @@
 //                  Victor Homyakov <victor-homyakov@users.sourceforge.net> (2010)
 // https://github.com/eriwen/javascript-stacktrace/blob/v0.5.0/stacktrace.js
 function printStackTrace(e){e=e||{guess:true};var t=e.e||null,n=!!e.guess;var r=new printStackTrace.implementation,i=r.run(t);return n?r.guessAnonymousFunctions(i):i}if(typeof module!=="undefined"&&module.exports){module.exports=printStackTrace}printStackTrace.implementation=function(){};printStackTrace.implementation.prototype={run:function(e,t){e=e||this.createException();t=t||this.mode(e);if(t==="other"){return this.other(arguments.callee)}else{return this[t](e)}},createException:function(){try{this.undef()}catch(e){return e}},mode:function(e){if(e["arguments"]&&e.stack){return"chrome"}else if(e.stack&&e.sourceURL){return"safari"}else if(e.stack&&e.number){return"ie"}else if(typeof e.message==="string"&&typeof window!=="undefined"&&window.opera){if(!e.stacktrace){return"opera9"}if(e.message.indexOf("\n")>-1&&e.message.split("\n").length>e.stacktrace.split("\n").length){return"opera9"}if(!e.stack){return"opera10a"}if(e.stacktrace.indexOf("called from line")<0){return"opera10b"}return"opera11"}else if(e.stack){return"firefox"}return"other"},instrumentFunction:function(e,t,n){e=e||window;var r=e[t];e[t]=function(){n.call(this,printStackTrace().slice(4));return e[t]._instrumented.apply(this,arguments)};e[t]._instrumented=r},deinstrumentFunction:function(e,t){if(e[t].constructor===Function&&e[t]._instrumented&&e[t]._instrumented.constructor===Function){e[t]=e[t]._instrumented}},chrome:function(e){var t=(e.stack+"\n").replace(/^\S[^\(]+?[\n$]/gm,"").replace(/^\s+(at eval )?at\s+/gm,"").replace(/^([^\(]+?)([\n$])/gm,"{anonymous}()@$1$2").replace(/^Object.<anonymous>\s*\(([^\)]+)\)/gm,"{anonymous}()@$1").split("\n");t.pop();return t},safari:function(e){return e.stack.replace(/\[native code\]\n/m,"").replace(/^(?=\w+Error\:).*$\n/m,"").replace(/^@/gm,"{anonymous}()@").split("\n")},ie:function(e){var t=/^.*at (\w+) \(([^\)]+)\)$/gm;return e.stack.replace(/at Anonymous function /gm,"{anonymous}()@").replace(/^(?=\w+Error\:).*$\n/m,"").replace(t,"$1@$2").split("\n")},firefox:function(e){return e.stack.replace(/(?:\n@:0)?\s+$/m,"").replace(/^[\(@]/gm,"{anonymous}()@").split("\n")},opera11:function(e){var t="{anonymous}",n=/^.*line (\d+), column (\d+)(?: in (.+))? in (\S+):$/;var r=e.stacktrace.split("\n"),i=[];for(var s=0,o=r.length;s<o;s+=2){var u=n.exec(r[s]);if(u){var a=u[4]+":"+u[1]+":"+u[2];var f=u[3]||"global code";f=f.replace(/<anonymous function: (\S+)>/,"$1").replace(/<anonymous function>/,t);i.push(f+"@"+a+" -- "+r[s+1].replace(/^\s+/,""))}}return i},opera10b:function(e){var t=/^(.*)@(.+):(\d+)$/;var n=e.stacktrace.split("\n"),r=[];for(var i=0,s=n.length;i<s;i++){var o=t.exec(n[i]);if(o){var u=o[1]?o[1]+"()":"global code";r.push(u+"@"+o[2]+":"+o[3])}}return r},opera10a:function(e){var t="{anonymous}",n=/Line (\d+).*script (?:in )?(\S+)(?:: In function (\S+))?$/i;var r=e.stacktrace.split("\n"),i=[];for(var s=0,o=r.length;s<o;s+=2){var u=n.exec(r[s]);if(u){var a=u[3]||t;i.push(a+"()@"+u[2]+":"+u[1]+" -- "+r[s+1].replace(/^\s+/,""))}}return i},opera9:function(e){var t="{anonymous}",n=/Line (\d+).*script (?:in )?(\S+)/i;var r=e.message.split("\n"),i=[];for(var s=2,o=r.length;s<o;s+=2){var u=n.exec(r[s]);if(u){i.push(t+"()@"+u[2]+":"+u[1]+" -- "+r[s+1].replace(/^\s+/,""))}}return i},other:function(e){var t="{anonymous}",n=/function\s*([\w\-$]+)?\s*\(/i,r=[],i,s,o=10;while(e&&e["arguments"]&&r.length<o){i=n.test(e.toString())?RegExp.$1||t:t;s=Array.prototype.slice.call(e["arguments"]||[]);r[r.length]=i+"("+this.stringifyArguments(s)+")";e=e.caller}return r},stringifyArguments:function(e){var t=[];var n=Array.prototype.slice;for(var r=0;r<e.length;++r){var i=e[r];if(i===undefined){t[r]="undefined"}else if(i===null){t[r]="null"}else if(i.constructor){if(i.constructor===Array){if(i.length<3){t[r]="["+this.stringifyArguments(i)+"]"}else{t[r]="["+this.stringifyArguments(n.call(i,0,1))+"..."+this.stringifyArguments(n.call(i,-1))+"]"}}else if(i.constructor===Object){t[r]="#object"}else if(i.constructor===Function){t[r]="#function"}else if(i.constructor===String){t[r]='"'+i+'"'}else if(i.constructor===Number){t[r]=i}}}return t.join(",")},sourceCache:{},ajax:function(e){var t=this.createXMLHTTPObject();if(t){try{t.open("GET",e,false);t.send(null);return t.responseText}catch(n){}}return""},createXMLHTTPObject:function(){var e,t=[function(){return new XMLHttpRequest},function(){return new ActiveXObject("Msxml2.XMLHTTP")},function(){return new ActiveXObject("Msxml3.XMLHTTP")},function(){return new ActiveXObject("Microsoft.XMLHTTP")}];for(var n=0;n<t.length;n++){try{e=t[n]();this.createXMLHTTPObject=t[n];return e}catch(r){}}},isSameDomain:function(e){return typeof location!=="undefined"&&e.indexOf(location.hostname)!==-1},getSource:function(e){if(!(e in this.sourceCache)){this.sourceCache[e]=this.ajax(e).split("\n")}return this.sourceCache[e]},guessAnonymousFunctions:function(e){for(var t=0;t<e.length;++t){var n=/\{anonymous\}\(.*\)@(.*)/,r=/^(.*?)(?::(\d+))(?::(\d+))?(?: -- .+)?$/,i=e[t],s=n.exec(i);if(s){var o=r.exec(s[1]);if(o){var u=o[1],a=o[2],f=o[3]||0;if(u&&this.isSameDomain(u)&&a){var l=this.guessAnonymousFunction(u,a,f);e[t]=i.replace("{anonymous}",l)}}}}return e},guessAnonymousFunction:function(e,t,n){var r;try{r=this.findFunctionName(this.getSource(e),t)}catch(i){r="getSource failed with url: "+e+", exception: "+i.toString()}return r},findFunctionName:function(e,t){var n=/function\s+([^(]*?)\s*\(([^)]*)\)/;var r=/['"]?([$_A-Za-z][$_A-Za-z0-9]*)['"]?\s*[:=]\s*function\b/;var i=/['"]?([$_A-Za-z][$_A-Za-z0-9]*)['"]?\s*[:=]\s*(?:eval|new Function)\b/;var s="",o,u=Math.min(t,20),a,f;for(var l=0;l<u;++l){o=e[t-l-1];f=o.indexOf("//");if(f>=0){o=o.substr(0,f)}if(o){s=o+s;a=r.exec(s);if(a&&a[1]){return a[1]}a=n.exec(s);if(a&&a[1]){return a[1]}a=i.exec(s);if(a&&a[1]){return a[1]}}}return"(?)"}}
-
-
-/**
- * ================================================================= 
- * Source file taken from :: webcrypto-shim.js
- * ================================================================= 
- */
-
-/*
- Licensed Materials - Property of IBM
-
- (C) Copyright 2016 IBM Corp.
-
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
- */
-
-
-/**
- * @file Web Cryptography API shim
- * @author Artem S Vybornov <vybornov@gmail.com>
- * @license MIT
- */
-!function ( global ) {
-    'use strict';
-
-    if ( typeof Promise !== 'function' )
-        throw "Promise support required";
-
-    var _crypto = global.crypto || global.msCrypto;
-    if ( !_crypto ) return;
-
-    var _subtle = _crypto.subtle || _crypto.webkitSubtle;
-    if ( !_subtle ) return;
-
-    var _Crypto     = global.Crypto || _crypto.constructor || Object,
-        _SubtleCrypto = global.SubtleCrypto || _subtle.constructor || Object,
-        _CryptoKey  = global.CryptoKey || global.Key || Object;
-
-    var isIE    = !!global.msCrypto,
-        isWebkit = !!_crypto.webkitSubtle;
-    if ( !isIE && !isWebkit ) return;
-
-    function s2a ( s ) {
-        return btoa(s).replace(/\=+$/, '').replace(/\+/g, '-').replace(/\//g, '_');
-    }
-
-    function a2s ( s ) {
-        s += '===', s = s.slice( 0, -s.length % 4 );
-        return atob( s.replace(/-/g, '+').replace(/_/g, '/') );
-    }
-
-    function s2b ( s ) {
-        var b = new Uint8Array(s.length);
-        for ( var i = 0; i < s.length; i++ ) b[i] = s.charCodeAt(i);
-        return b;
-    }
-
-    function b2s ( b ) {
-        if ( b instanceof ArrayBuffer ) b = new Uint8Array(b);
-        return String.fromCharCode.apply( String, b );
-    }
-
-    function alg ( a ) {
-        var r = { 'name': (a.name || a || '').toUpperCase().replace('V','v') };
-        switch ( r.name ) {
-            case 'SHA-1':
-            case 'SHA-256':
-            case 'SHA-384':
-            case 'SHA-512':
-                break;
-            case 'AES-CBC':
-            case 'AES-GCM':
-            case 'AES-KW':
-                if ( a.length ) r['length'] = a.length;
-                break;
-            case 'HMAC':
-                if ( a.hash ) r['hash'] = alg(a.hash);
-                if ( a.length ) r['length'] = a.length;
-                break;
-            case 'RSAES-PKCS1-v1_5':
-                if ( a.publicExponent ) r['publicExponent'] = new Uint8Array(a.publicExponent);
-                if ( a.modulusLength ) r['modulusLength'] = a.modulusLength;
-                break;
-            case 'RSASSA-PKCS1-v1_5':
-            case 'RSA-OAEP':
-                if ( a.hash ) r['hash'] = alg(a.hash);
-                if ( a.publicExponent ) r['publicExponent'] = new Uint8Array(a.publicExponent);
-                if ( a.modulusLength ) r['modulusLength'] = a.modulusLength;
-                break;
-            default:
-                throw new SyntaxError("Bad algorithm name");
-        }
-        return r;
-    };
-
-    function jwkAlg ( a ) {
-        return {
-            'HMAC': {
-                'SHA-1': 'HS1',
-                'SHA-256': 'HS256',
-                'SHA-384': 'HS384',
-                'SHA-512': 'HS512'
-            },
-            'RSASSA-PKCS1-v1_5': {
-                'SHA-1': 'RS1',
-                'SHA-256': 'RS256',
-                'SHA-384': 'RS384',
-                'SHA-512': 'RS512'
-            },
-            'RSAES-PKCS1-v1_5': {
-                '': 'RSA1_5'
-            },
-            'RSA-OAEP': {
-                'SHA-1': 'RSA-OAEP',
-                'SHA-256': 'RSA-OAEP-256'
-            },
-            'AES-KW': {
-                '128': 'A128KW',
-                '192': 'A192KW',
-                '256': 'A256KW'
-            },
-            'AES-GCM': {
-                '128': 'A128GCM',
-                '192': 'A192GCM',
-                '256': 'A256GCM'
-            },
-            'AES-CBC': {
-                '128': 'A128CBC',
-                '192': 'A192CBC',
-                '256': 'A256CBC'
-            }
-        }[a.name][ ( a.hash || {} ).name || a.length || '' ];
-    }
-
-    function b2jwk ( k ) {
-        if ( k instanceof ArrayBuffer || k instanceof Uint8Array ) k = JSON.parse( decodeURIComponent( escape( b2s(k) ) ) );
-        var jwk = { 'kty': k.kty, 'alg': k.alg, 'ext': k.ext || k.extractable };
-        switch ( jwk.kty ) {
-            case 'oct':
-                jwk.k = k.k;
-            case 'RSA':
-                [ 'n', 'e', 'd', 'p', 'q', 'dp', 'dq', 'qi', 'oth' ].forEach( function ( x ) { if ( x in k ) jwk[x] = k[x] } );
-                break;
-            default:
-                throw new TypeError("Unsupported key type");
-        }
-        return jwk;
-    }
-
-    function jwk2b ( k ) {
-        var jwk = b2jwk(k);
-        if ( isIE ) jwk['extractable'] = jwk.ext, delete jwk.ext;
-        return s2b( unescape( encodeURIComponent( JSON.stringify(jwk) ) ) ).buffer;
-    }
-
-    function pkcs2jwk ( k ) {
-        var info = b2der(k), prv = false;
-        if ( info.length > 2 ) prv = true, info.shift(); // remove version from PKCS#8 PrivateKeyInfo structure
-        var jwk = { 'ext': true };
-        switch ( info[0][0] ) {
-            case '1.2.840.113549.1.1.1':
-                var rsaComp = [ 'n', 'e', 'd', 'p', 'q', 'dp', 'dq', 'qi' ],
-                    rsaKey  = b2der( info[1] );
-                if ( prv ) rsaKey.shift(); // remove version from PKCS#1 RSAPrivateKey structure
-                for ( var i = 0; i < rsaKey.length; i++ ) {
-                    if ( !rsaKey[i][0] ) rsaKey[i] = rsaKey[i].subarray(1);
-                    jwk[ rsaComp[i] ] = s2a( b2s( rsaKey[i] ) );
-                }
-                jwk['kty'] = 'RSA';
-                break;
-            default:
-                throw new TypeError("Unsupported key type");
-        }
-        return jwk;
-    }
-
-    function jwk2pkcs ( k ) {
-        var key, info = [ [ '', null ] ], prv = false;
-        switch ( k.kty ) {
-            case 'RSA':
-                var rsaComp = [ 'n', 'e', 'd', 'p', 'q', 'dp', 'dq', 'qi' ],
-                    rsaKey = [];
-                for ( var i = 0; i < rsaComp.length; i++ ) {
-                    if ( !( rsaComp[i] in k ) ) break;
-                    var b = rsaKey[i] = s2b( a2s( k[ rsaComp[i] ] ) );
-                    if ( b[0] & 0x80 ) rsaKey[i] = new Uint8Array(b.length + 1), rsaKey[i].set( b, 1 );
-                }
-                if ( rsaKey.length > 2 ) prv = true, rsaKey.unshift( new Uint8Array([0]) ); // add version to PKCS#1 RSAPrivateKey structure
-                info[0][0] = '1.2.840.113549.1.1.1';
-                key = rsaKey;
-                break;
-            default:
-                throw new TypeError("Unsupported key type");
-        }
-        info.push( new Uint8Array( der2b(key) ).buffer );
-        if ( !prv ) info[1] = { 'tag': 0x03, 'value': info[1] };
-        else info.unshift( new Uint8Array([0]) ); // add version to PKCS#8 PrivateKeyInfo structure
-        return new Uint8Array( der2b(info) ).buffer;
-    }
-
-    var oid2str = { 'KoZIhvcNAQEB': '1.2.840.113549.1.1.1' },
-        str2oid = { '1.2.840.113549.1.1.1': 'KoZIhvcNAQEB' };
-
-    function b2der ( buf, ctx ) {
-        if ( buf instanceof ArrayBuffer ) buf = new Uint8Array(buf);
-        if ( !ctx ) ctx = { pos: 0, end: buf.length };
-
-        if ( ctx.end - ctx.pos < 2 || ctx.end > buf.length ) throw new RangeError("Malformed DER");
-
-        var tag = buf[ctx.pos++],
-            len = buf[ctx.pos++];
-
-        if ( len >= 0x80 ) {
-            len &= 0x7f;
-            if ( ctx.end - ctx.pos < len ) throw new RangeError("Malformed DER");
-            for ( var xlen = 0; len--; ) xlen <<= 8, xlen |= buf[ctx.pos++];
-            len = xlen;
-        }
-
-        if ( ctx.end - ctx.pos < len ) throw new RangeError("Malformed DER");
-
-        var rv;
-
-        switch ( tag ) {
-            case 0x02: // Universal Primitive INTEGER
-                rv = buf.subarray( ctx.pos, ctx.pos += len );
-                break;
-            case 0x03: // Universal Primitive BIT STRING
-                if ( buf[ctx.pos++] ) throw new Error( "Unsupported bit string" );
-                len--;
-            case 0x04: // Universal Primitive OCTET STRING
-                rv = new Uint8Array( buf.subarray( ctx.pos, ctx.pos += len ) ).buffer;
-                break;
-            case 0x05: // Universal Primitive NULL
-                rv = null;
-                break;
-            case 0x06: // Universal Primitive OBJECT IDENTIFIER
-                var oid = btoa( b2s( buf.subarray( ctx.pos, ctx.pos += len ) ) );
-                if ( !( oid in oid2str ) ) throw new Error( "Unsupported OBJECT ID " + oid );
-                rv = oid2str[oid];
-                break;
-            case 0x30: // Universal Constructed SEQUENCE
-                rv = [];
-                for ( var end = ctx.pos + len; ctx.pos < end; ) rv.push( b2der( buf, ctx ) );
-                break;
-            default:
-                throw new Error( "Unsupported DER tag 0x" + tag.toString(16) );
-        }
-
-        return rv;
-    }
-
-    function der2b ( val, buf ) {
-        if ( !buf ) buf = [];
-
-        var tag = 0, len = 0,
-            pos = buf.length + 2;
-
-        buf.push( 0, 0 ); // placeholder
-
-        if ( val instanceof Uint8Array ) {  // Universal Primitive INTEGER
-            tag = 0x02, len = val.length;
-            for ( var i = 0; i < len; i++ ) buf.push( val[i] );
-        }
-        else if ( val instanceof ArrayBuffer ) { // Universal Primitive OCTET STRING
-            tag = 0x04, len = val.byteLength, val = new Uint8Array(val);
-            for ( var i = 0; i < len; i++ ) buf.push( val[i] );
-        }
-        else if ( val === null ) { // Universal Primitive NULL
-            tag = 0x05, len = 0;
-        }
-        else if ( typeof val === 'string' && val in str2oid ) { // Universal Primitive OBJECT IDENTIFIER
-            var oid = s2b( atob( str2oid[val] ) );
-            tag = 0x06, len = oid.length;
-            for ( var i = 0; i < len; i++ ) buf.push( oid[i] );
-        }
-        else if ( val instanceof Array ) { // Universal Constructed SEQUENCE
-            for ( var i = 0; i < val.length; i++ ) der2b( val[i], buf );
-            tag = 0x30, len = buf.length - pos;
-        }
-        else if ( typeof val === 'object' && val.tag === 0x03 && val.value instanceof ArrayBuffer ) { // Tag hint
-            val = new Uint8Array(val.value), tag = 0x03, len = val.byteLength;
-            buf.push(0); for ( var i = 0; i < len; i++ ) buf.push( val[i] );
-            len++;
-        }
-        else {
-            throw new Error( "Unsupported DER value " + val );
-        }
-
-        if ( len >= 0x80 ) {
-            var xlen = len, len = 4;
-            buf.splice( pos, 0, (xlen >> 24) & 0xff, (xlen >> 16) & 0xff, (xlen >> 8) & 0xff, xlen & 0xff );
-            while ( len > 1 && !(xlen >> 24) ) xlen <<= 8, len--;
-            if ( len < 4 ) buf.splice( pos, 4 - len );
-            len |= 0x80;
-        }
-
-        buf.splice( pos - 2, 2, tag, len );
-
-        return buf;
-    }
-
-    function CryptoKey ( key, alg, ext, use ) {
-        Object.defineProperties( this, {
-            _key: {
-                value: key
-            },
-            type: {
-                value: key.type,
-                enumerable: true
-            },
-            extractable: {
-                value: (ext === undefined) ? key.extractable : ext,
-                enumerable: true
-            },
-            algorithm: {
-                value: (alg === undefined) ? key.algorithm : alg,
-                enumerable: true
-            },
-            usages: {
-                value: (use === undefined) ? key.usages : use,
-                enumerable: true
-            }
-        });
-    }
-
-    function isPubKeyUse ( u ) {
-        return u === 'verify' || u === 'encrypt' || u === 'wrapKey';
-    }
-
-    function isPrvKeyUse ( u ) {
-        return u === 'sign' || u === 'decrypt' || u === 'unwrapKey';
-    }
-
-    [ 'generateKey', 'importKey', 'unwrapKey' ]
-        .forEach( function ( m ) {
-            var _fn = _subtle[m];
-
-            _subtle[m] = function ( a, b, c ) {
-                var args = [].slice.call(arguments),
-                    ka, kx, ku;
-
-                switch ( m ) {
-                    case 'generateKey':
-                        ka = alg(a), kx = b, ku = c;
-                        break;
-                    case 'importKey':
-                        ka = alg(c), kx = args[3], ku = args[4];
-                        if ( a === 'jwk' ) {
-                            b = b2jwk(b);
-                            if ( !b.alg ) b.alg = jwkAlg(ka);
-                            if ( !b.key_ops ) b.key_ops = ( b.kty !== 'oct' ) ? ( 'd' in b ) ? ku.filter(isPrvKeyUse) : ku.filter(isPubKeyUse) : ku.slice();
-                            args[1] = jwk2b(b);
-                        }
-                        break;
-                    case 'unwrapKey':
-                        ka = args[4], kx = args[5], ku = args[6];
-                        args[2] = c._key;
-                        break;
-                }
-
-                if ( m === 'generateKey' && ka.name === 'HMAC' && ka.hash ) {
-                    ka.length = ka.length || { 'SHA-1': 512, 'SHA-256': 512, 'SHA-384': 1024, 'SHA-512': 1024 }[ka.hash.name];
-                    return _subtle.importKey( 'raw', _crypto.getRandomValues( new Uint8Array( (ka.length+7)>>3 ) ), ka, kx, ku );
-                }
-
-                if ( isWebkit && m === 'generateKey' && ka.name === 'RSASSA-PKCS1-v1_5' && ( !ka.modulusLength || ka.modulusLength >= 2048 ) ) {
-                    a = alg(a), a.name = 'RSAES-PKCS1-v1_5', delete a.hash;
-                    return _subtle.generateKey( a, true, [ 'encrypt', 'decrypt' ] )
-                        .then( function ( k ) {
-                            return Promise.all([
-                                _subtle.exportKey( 'jwk', k.publicKey ),
-                                _subtle.exportKey( 'jwk', k.privateKey )
-                            ]);
-                        })
-                        .then( function ( keys ) {
-                            keys[0].alg = keys[1].alg = jwkAlg(ka);
-                            keys[0].key_ops = ku.filter(isPubKeyUse), keys[1].key_ops = ku.filter(isPrvKeyUse);
-                            return Promise.all([
-                                _subtle.importKey( 'jwk', keys[0], ka, kx, keys[0].key_ops ),
-                                _subtle.importKey( 'jwk', keys[1], ka, kx, keys[1].key_ops )
-                            ]);
-                        })
-                        .then( function ( keys ) {
-                            return {
-                                publicKey: keys[0],
-                                privateKey: keys[1]
-                            };
-                        });
-                }
-
-                if ( ( isWebkit || ( isIE && ( ka.hash || {} ).name === 'SHA-1' ) )
-                        && m === 'importKey' && a === 'jwk' && ka.name === 'HMAC' && b.kty === 'oct' ) {
-                    return _subtle.importKey( 'raw', s2b( a2s(b.k) ), c, args[3], args[4] );
-                }
-
-                if ( isWebkit && m === 'importKey' && ( a === 'spki' || a === 'pkcs8' ) ) {
-                    return _subtle.importKey( 'jwk', pkcs2jwk(b), c, args[3], args[4] );
-                }
-
-                if ( isIE && m === 'unwrapKey' ) {
-                    return _subtle.decrypt( args[3], c, b )
-                        .then( function ( k ) {
-                            return _subtle.importKey( a, k, args[4], args[5], args[6] );
-                        });
-                }
-
-                var op;
-                try {
-                    op = _fn.apply( _subtle, args );
-                }
-                catch ( e ) {
-                    return Promise.reject(e);
-                }
-
-                if ( isIE ) {
-                    op = new Promise( function ( res, rej ) {
-                        op.onabort =
-                        op.onerror =    function ( e ) { rej(e)               };
-                        op.oncomplete = function ( r ) { res(r.target.result) };
-                    });
-                }
-
-                op = op.then( function ( k ) {
-                    if ( ka.name === 'HMAC' ) {
-                        if ( !ka.length ) ka.length = 8 * k.algorithm.length;
-                    }
-                    if ( ka.name.search('RSA') == 0 ) {
-                        if ( !ka.modulusLength ) ka.modulusLength = (k.publicKey || k).algorithm.modulusLength;
-                        if ( !ka.publicExponent ) ka.publicExponent = (k.publicKey || k).algorithm.publicExponent;
-                    }
-                    if ( k.publicKey && k.privateKey ) {
-                        k = {
-                            publicKey: new CryptoKey( k.publicKey, ka, kx, ku.filter(isPubKeyUse) ),
-                            privateKey: new CryptoKey( k.privateKey, ka, kx, ku.filter(isPrvKeyUse) )
-                        };
-                    }
-                    else {
-                        k = new CryptoKey( k, ka, kx, ku );
-                    }
-                    return k;
-                });
-
-                return op;
-            }
-        });
-
-    [ 'exportKey', 'wrapKey' ]
-        .forEach( function ( m ) {
-            var _fn = _subtle[m];
-
-            _subtle[m] = function ( a, b, c ) {
-                var args = [].slice.call(arguments);
-
-                switch ( m ) {
-                    case 'exportKey':
-                        args[1] = b._key;
-                        break;
-                    case 'wrapKey':
-                        args[1] = b._key, args[2] = c._key;
-                        break;
-                }
-
-                if ( ( isWebkit || ( isIE && ( b.algorithm.hash || {} ).name === 'SHA-1' ) )
-                        && m === 'exportKey' && a === 'jwk' && b.algorithm.name === 'HMAC' ) {
-                    args[0] = 'raw';
-                }
-
-                if ( isWebkit && m === 'exportKey' && ( a === 'spki' || a === 'pkcs8' ) ) {
-                    args[0] = 'jwk';
-                }
-
-                if ( isIE && m === 'wrapKey' ) {
-                    return _subtle.exportKey( a, b )
-                        .then( function ( k ) {
-                            if ( a === 'jwk' ) k = s2b( unescape( encodeURIComponent( JSON.stringify( b2jwk(k) ) ) ) );
-                            return  _subtle.encrypt( args[3], c, k );
-                        });
-                }
-
-                var op;
-                try {
-                    op = _fn.apply( _subtle, args );
-                }
-                catch ( e ) {
-                    return Promise.reject(e);
-                }
-
-                if ( isIE ) {
-                    op = new Promise( function ( res, rej ) {
-                        op.onabort =
-                        op.onerror =    function ( e ) { rej(e)               };
-                        op.oncomplete = function ( r ) { res(r.target.result) };
-                    });
-                }
-
-                if ( m === 'exportKey' && a === 'jwk' ) {
-                    op = op.then( function ( k ) {
-                        if ( ( isWebkit || ( isIE && ( b.algorithm.hash || {} ).name === 'SHA-1' ) )
-                                && b.algorithm.name === 'HMAC') {
-                            return { 'kty': 'oct', 'alg': jwkAlg(b.algorithm), 'key_ops': b.usages.slice(), 'ext': true, 'k': s2a( b2s(k) ) };
-                        }
-                        k = b2jwk(k);
-                        if ( !k.alg ) k['alg'] = jwkAlg(b.algorithm);
-                        if ( !k.key_ops ) k['key_ops'] = ( b.type === 'public' ) ? b.usages.filter(isPubKeyUse) : ( b.type === 'private' ) ? b.usages.filter(isPrvKeyUse) : b.usages.slice();
-                        return k;
-                    });
-                }
-
-                if ( isWebkit && m === 'exportKey' && ( a === 'spki' || a === 'pkcs8' ) ) {
-                    op = op.then( function ( k ) {
-                        k = jwk2pkcs( b2jwk(k) );
-                        return k;
-                    });
-                }
-
-                return op;
-            }
-        });
-
-    [ 'encrypt', 'decrypt', 'sign', 'verify' ]
-        .forEach( function ( m ) {
-            var _fn = _subtle[m];
-
-            _subtle[m] = function ( a, b, c, d ) {
-                if ( isIE && ( !c.byteLength || ( d && !d.byteLength ) ) )
-                    throw new Error("Empy input is not allowed");
-
-                var args = [].slice.call(arguments),
-                    ka = alg(a);
-
-                if ( isIE && m === 'decrypt' && ka.name === 'AES-GCM' ) {
-                    var tl = a.tagLength >> 3;
-                    args[2] = (c.buffer || c).slice( 0, c.byteLength - tl ),
-                    a.tag = (c.buffer || c).slice( c.byteLength - tl );
-                }
-
-                args[1] = b._key;
-
-                var op;
-                try {
-                    op = _fn.apply( _subtle, args );
-                }
-                catch ( e ) {
-                    return Promise.reject(e);
-                }
-
-                if ( isIE ) {
-                    op = new Promise( function ( res, rej ) {
-                        op.onabort =
-                        op.onerror = function ( e ) {
-                            rej(e);
-                        };
-
-                        op.oncomplete = function ( r ) {
-                            var r = r.target.result;
-
-                            if ( m === 'encrypt' && r instanceof AesGcmEncryptResult ) {
-                                var c = r.ciphertext, t = r.tag;
-                                r = new Uint8Array( c.byteLength + t.byteLength );
-                                r.set( new Uint8Array(c), 0 );
-                                r.set( new Uint8Array(t), c.byteLength );
-                                r = r.buffer;
-                            }
-
-                            res(r);
-                        };
-                    });
-                }
-
-                return op;
-            }
-        });
-
-    if ( isIE ) {
-        var _digest = _subtle.digest;
-
-        _subtle['digest'] = function ( a, b ) {
-            if ( !b.byteLength )
-                throw new Error("Empy input is not allowed");
-
-            var op;
-            try {
-                op = _digest.call( _subtle, a, b );
-            }
-            catch ( e ) {
-                return Promise.reject(e);
-            }
-
-            op = new Promise( function ( res, rej ) {
-                op.onabort =
-                op.onerror =    function ( e ) { rej(e)               };
-                op.oncomplete = function ( r ) { res(r.target.result) };
-            });
-
-            return op;
-        };
-
-        global.crypto = Object.create( _crypto, {
-            getRandomValues: { value: function ( a ) { return _crypto.getRandomValues(a) } },
-            subtle:          { value: _subtle }
-        });
-
-        global.CryptoKey = CryptoKey;
-    }
-
-    if ( isWebkit ) {
-        _crypto.subtle = _subtle;
-
-        global.Crypto = _Crypto;
-        global.SubtleCrypto = _SubtleCrypto;
-        global.CryptoKey = CryptoKey;
-    }
-}(this);
 
 
 /**
@@ -1943,16 +1325,21 @@ WLJSX.Object.extend(Function.prototype, (function() {
     return names.length == 1 && !names[0] ? [] : names;
   }
 
-  function bind(context) {
-    if (arguments.length < 2 && WLJSX.Object.isUndefined(arguments[0])) {
-      return this;
-    }
-    var __method = this,
-      args = slice.call(arguments, 1);
-    return function() {
-      var a = merge(args, arguments);
-      return __method.apply(context, a);
-    };
+  function bind(obj) {
+      var args = Array.prototype.slice.call(arguments, 1),
+          self = this,
+          Nop = function() {
+          },
+          bound = function() {
+              return self.apply(
+                  this instanceof Nop ? this : (obj || {}), args.concat(
+                      Array.prototype.slice.call(arguments)
+                  )
+              );
+          };
+      Nop.prototype = this.prototype || {};
+      bound.prototype = new Nop();
+      return bound;
   }
 
   function bindAsEventListener(context) {
@@ -2444,226 +1831,6 @@ WL.ErrorCode = __WLErrorCode;
 
 /**
  * ================================================================= 
- * Source file taken from :: wlIndexDb.js
- * ================================================================= 
- */
-
-/*
- Licensed Materials - Property of IBM
-
- (C) Copyright 2015 IBM Corp.
-
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
- */
-
-/*jshint strict:false, maxparams:4*/
-__WLIndexDB = function() {
-    var defaultCategory = 'default';
-
-    // This works on all devices/browsers, and uses IndexedDBShim as a final fallback
-    var indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB || window.shimIndexedDB;
-
-
-
-    // Open (or create) the database, the database is always the appID
-    var dbName;
-
-    var db;
-
-    /**
-     * Initializes the DB and creates a default category, should be called on startup
-     * @param name
-     * @returns {*}
-     */
-    this.init = function() {
-        var dfd = WLJQ.Deferred();
-
-        // In the cases where we don't have indexedDB support
-        WL.Validators.validateDefined(indexedDB, 'init');
-
-        dbName = WL.Config.__getApplicationName();
-        var request = indexedDB.open(dbName, 1);
-        request.onupgradeneeded = function(event) {
-            var thisDB = event.target.result;
-            if(!thisDB.objectStoreNames.contains(defaultCategory)) {
-                thisDB.createObjectStore(defaultCategory, {keyPath: "key"});
-            }
-            var transaction = event.target.transaction;
-
-            transaction.oncomplete =
-                function() {
-                    dfd.resolve();
-                }
-        };
-
-        request.onerror = function (event) {
-            WL.Logger.error(JSON.stringify(event.target.error.message));
-            dfd.reject(event.target.error);
-        };
-
-        request.onsuccess = function(event) {
-            db = event.target.result;
-            dfd.resolve();
-        };
-        return dfd.promise();
-    };
-
-    this.saveOrUpdateKeyPair = function(keyId, keypair) {
-        var dfd = WLJQ.Deferred();
-        var privateKeyKey = keyId + '.private.key';
-        var publicKeyKey = keyId + '.public.key';
-        var privateKey = keypair.privateKey;
-        var publicKey = keypair.publicKey;
-
-        // Save private key
-        WL.IndexDB.saveOrUpdateItem(publicKeyKey, publicKey).then(
-            function(){
-                // Save public key
-               WL.IndexDB.saveOrUpdateItem(privateKeyKey, privateKey).then(
-                   function(){
-                   dfd.resolve();
-               },
-                   function(error){
-                       dfd.reject(error);
-               })
-        }, function(error){
-                dfd.reject(error);
-        });
-        return dfd.promise();
-    };
-
-
-    this.saveOrUpdateItem = function(key, value) {
-        var dfd = WLJQ.Deferred();
-        var store = getObjectStore('readwrite');
-        var input = {'key' : key , 'value' : value};
-        var request = store.put(input);
-
-        request.onsuccess = function() {
-            dfd.resolve();
-        };
-
-        request.onerror = function(e) {
-            WL.Logger.error('Error setting item in indexedDb : ' + e.target.error.name);
-            dfd.reject(e);
-        };
-        return dfd.promise();
-    };
-
-    this.getKeyPair = function(keyId) {
-        var dfd = WLJQ.Deferred();
-        var privateKeyKey = keyId + '.private.key';
-        var publicKeyKey = keyId + '.public.key';
-        var keypair = {};
-        this.getItem(privateKeyKey).then(
-            function(privateKey){
-                if(!privateKey) {
-                    dfd.resolve(null);
-                }
-                // Continue to public key
-                keypair['privateKey'] = privateKey;
-                WL.IndexDB.getItem(publicKeyKey).then(
-                    function(publicKey){
-                        if(!publicKey) {
-                            dfd.resolve(null);
-                        }
-                        // Got both keys
-                        keypair['publicKey'] = publicKey;
-                        dfd.resolve(keypair);
-                    },
-                    function(e){
-                        dfd.reject(e);
-                });
-        }, function(e){
-                dfd.reject(e);
-        });
-        return dfd.promise();
-    };
-
-    this.getItem = function(key) {
-        var dfd = WLJQ.Deferred();
-        var store = getObjectStore('readonly');
-        var request = store.get(key);
-
-        request.onerror = function(e) {
-            WL.Logger.error('Error getting item from indexedDb : ' + e.target.error.name);
-            dfd.reject(e);
-        };
-
-        request.onsuccess = function() {
-            if (!WL.Validators.isNullOrUndefined(request.result)){
-                dfd.resolve(request.result.value);
-            } else {
-                dfd.resolve();
-            }
-        };
-        return dfd.promise();
-    };
-
-    this.removeKeyPair = function(keyId) {
-        var dfd = WLJQ.Deferred();
-        var privateKeyKey = keyId + '.private.key';
-        var publicKeyKey = keyId + '.public.key';
-        this.removeItem(privateKeyKey).always(
-            function(){
-            WL.IndexDB.removeItem(publicKeyKey).always(function(){
-                dfd.resolve();
-            });
-        });
-        return dfd.promise();
-    };
-
-    this.removeItem = function(key) {
-        var dfd = WLJQ.Deferred();
-        var store = getObjectStore('readwrite');
-
-        var request = store.delete(key);
-
-        request.onsuccess = function() {
-            dfd.resolve();
-        };
-        return dfd.promise();
-    };
-
-    this.clearDB = function() {
-        var dfd = WLJQ.Deferred();
-        var DBOpenRequest = window.indexedDB.open(dbName, 1);
-        DBOpenRequest.onsuccess = function (event) {
-
-            // store the result of opening the database in the db variable. This is used a lot below
-            var db = event.target.result;
-            var transaction = db.transaction(defaultCategory, 'readwrite');
-            var objectStore = transaction.objectStore(defaultCategory);
-            var objectStoreRequest = objectStore.clear();
-
-            objectStoreRequest.onsuccess = function(event) {
-                dfd.resolve();
-            };
-
-            objectStoreRequest.onerror = function(event) {
-                dfd.reject();
-            };
-        };
-        return dfd.promise();
-    };
-
-    function getObjectStore(permissions) {
-        WL.Validators.validateDefined(db, 'getObjectStore');
-        var tx = db.transaction(defaultCategory, permissions);
-        return tx.objectStore(defaultCategory);
-    }
-
-};
-__WL.prototype.IndexDB = new __WLIndexDB;
-WL.IndexDB = new __WLIndexDB;
-
-
-/**
- * ================================================================= 
  * Source file taken from :: wllocalstoragedb.js
  * ================================================================= 
  */
@@ -2689,13 +1856,16 @@ __WLLocalStorageDB = function() {
     // By Default, we work with localStorage, unless it is changed during a set/get
     var storage = window.localStorage;
 
-
+	/**
+     * Initializes the database and verifies it is accessible
+     * @returns {*}
+     */
     this.init = function() {
         appNamePrefix = WL.Config.__getApplicationName();
     };
 
     /**
-     * Sets an item in the Database
+     * Sets an item in the database
      * @param key
      * @param value
      * @param options {{session : boolean, global : boolean}}
@@ -2708,6 +1878,12 @@ __WLLocalStorageDB = function() {
         storage.setItem(finalKey, finalValue);
     };
 
+    /**
+     * Gets an item in the database
+     * @param key
+     * @param options {{session : boolean, global : boolean}}
+     * @returns {string - JSON representation of value for given key}
+     */
     this.getItem = function(key, options) {
         var finalOptions = initOptions(options);
         var finalKey = buildKey(key, finalOptions);
@@ -2715,7 +1891,12 @@ __WLLocalStorageDB = function() {
         return value ? JSON.parse(value) : null;
     };
 
-
+    /**
+     * Removes an item in the database
+     * @param key
+     * @param options {{session : boolean, global : boolean}}
+     * @returns {*}
+     */
     this.removeItem = function(key, options) {
         var finalOptions = initOptions(options);
         var finalKey = buildKey(key, finalOptions);
@@ -2748,8 +1929,8 @@ __WLLocalStorageDB = function() {
     }
 };
 
-__WL.prototype.LocalStorageDB = new __WLLocalStorageDB;
-WL.LocalStorageDB = new __WLLocalStorageDB;
+WL.LocalStorageDB = new __WLLocalStorageDB();
+
 
 
 /**
@@ -2801,7 +1982,7 @@ __WLClient = function() {
         setInitParams(initOptions);
 
         // Init the DBs
-        WL.LocalStorageDB.init();
+        WL.DAO.init();
 
         // init analytics - analytics is defined in AMDWrapper.js
         wlanalytics.init(WL.BrowserManager.getWLUniqueID(),WL.Config.__getApplicationName(), WL.Config.__getContext());
@@ -2809,7 +1990,7 @@ __WLClient = function() {
         var hasWlCommonInit = window.wlCommonInit !== undefined;
         //Call to load localized user visible messages based on device locale.
         WL.Utils.setLocalization().always(function () {
-            WL.IndexDB.init().then(
+            WL.CertManager.init().then(
             function(){
                 if (hasWlCommonInit) {
                     wlCommonInit();
@@ -2822,7 +2003,7 @@ __WLClient = function() {
         });
 
         if(!hasWlCommonInit) {
-            // We return a promise only if the user didn't implement wlCommonInit();
+            // We return a promise onlyWL if the user didn't implement wlCommonInit();
             return dfd.promise();
         }
     };
@@ -2984,6 +2165,23 @@ __WLClient = function() {
         }
         return false;
     };
+    
+	/**
+	 * @ignore
+	 * Go over all non MFP challenge handlers and call it's canHandleResponse function.
+	 * Return true if ChallengeHander was called
+	 */
+	this.isGatewayResponse = function(response){
+
+		for (var processorRealm in WL.Client.__chMap) {
+			if (Object.prototype.hasOwnProperty.call(WL.Client.__chMap, processorRealm)) {
+				var handler = WL.Client.__chMap[processorRealm];
+				if (!handler.isWLHandler && handler.canHandleResponse(response)) {
+					return true;
+				}
+			}
+		}
+	};
 
     /**
      * @ignore
@@ -3180,11 +2378,6 @@ __WLClient = function() {
                 setTimer(WLJSX.Ajax.WLRequest.options.timeout);
 
                 var requestHeaders = WL.CookieManager.createCookieHeaders();
-                requestHeaders['x-wl-app-version'] = WL.StaticAppProps.APP_VERSION;
-                if (!WL.EnvProfile.isEnabled(WL.EPField.SUPPORT_WL_NATIVE_XHR)) {
-                    // should be removed when all environments will work via native
-                    requestHeaders['x-wl-device-id'] = WL.Client.__getGlobalHeaders()['x-wl-device-id'];
-                }
 
                 // add headers
                 if (options && options.headers) {
@@ -3209,11 +2402,8 @@ __WLClient = function() {
                     requestHeaders : requestHeaders
                 };
 
-                if (WL.StaticAppProps.ENVIRONMENT === WL.Environment.ADOBE_AIR) {
-                    reqOptions.postBody = WLJSX.Object.toQueryString(options.parameters);
-                } else {
-                    reqOptions.parameters = options.parameters;
-                }
+                
+                reqOptions.parameters = options.parameters;
 
                 var finalUrl = null;
 
@@ -3521,139 +2711,6 @@ WL.AccessToken = WLJSX.Class.create({
 
 /**
  * ================================================================= 
- * Source file taken from :: wlcrypto.js
- * ================================================================= 
- */
-
-/*
- Licensed Materials - Property of IBM
-
- (C) Copyright 2015 IBM Corp.
-
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
- */
-
-/**
- * Handles the Crypto API
- * @type {{signPayload, generateKeypair}}
- */
-WL.Crypto = (function () {
-
-    var crypto = window.crypto.subtle || window.crypto.webkitSubtle;
-
-    var generateKeyPair = function () {
-        var dfd = WLJQ.Deferred();
-
-        var algorithmKeyGen = {
-            name: 'RSASSA-PKCS1-v1_5',
-            modulusLength: 2048,
-            publicExponent: new Uint8Array([0x01, 0x00, 0x01]),  // Equivalent to 65537
-            hash: {
-                name: 'SHA-256'
-            }
-        };
-
-        crypto.generateKey(algorithmKeyGen, true, ['sign']).then(
-            function (keyPair) {
-                dfd.resolve(keyPair);
-            },
-            function (error) {
-                WL.Logger.error('Failed to generate keypair ' + JSON.stringify(error));
-                dfd.reject(error);
-            }
-        );
-
-        return dfd.promise();
-    };
-
-    var signJWS = function (payload, kid, keyPair) {
-        var dfd = WLJQ.Deferred();
-
-        exportPublicKey(keyPair).then(
-            function (jwk) {
-                var alg = jwk.alg;
-                jwk.kid = !WL.Validators.isNullOrUndefined(kid) ? kid : undefined;
-                var header = {'alg' : alg, 'jwk' : jwk};
-                var jwsHeaderAsString = JSON.stringify(header);
-                var payloadAsString = JSON.stringify(payload);
-                // concatenate JWS Header and payload.
-                var csrHeaderAndPayload = encodeToBase64(jwsHeaderAsString) + '.' + encodeToBase64(payloadAsString);
-                signData(csrHeaderAndPayload, keyPair).then(
-                    function (signedData) {
-                        dfd.resolve(csrHeaderAndPayload + '.' + signedData);
-                    },
-                    function (error) {
-                        dfd.reject(error);
-                    });
-            },
-            function (error) {
-                dfd.reject(error);
-            });
-        return dfd.promise();
-    };
-
-    var signData = function (stringToSign, keyPair) {
-        var dfd = WLJQ.Deferred();
-
-        var algorithmSign = {
-            name: 'RSASSA-PKCS1-v1_5',
-            hash: 'SHA-256'
-        };
-        crypto.sign(algorithmSign, keyPair.privateKey, new Uint8Array(str2arrayBuffer(stringToSign))).then(
-            function (signedData) {
-                var base64sign = btoa(String.fromCharCode.apply(null, new Uint8Array(signedData)));
-                dfd.resolve(base64sign);
-            })
-            .catch(
-                function (error) {
-                    WL.Logger.error('error in signing data with keypair: ' + error.toString());
-                    dfd.reject(error);
-                });
-
-        return dfd.promise();
-    };
-
-    var encodeToBase64 = function (string) {
-        return btoa(String.fromCharCode.apply(null, new Uint8Array(str2arrayBuffer(string))));
-    };
-
-    var exportPublicKey = function (keyPair) {
-        var dfd = WLJQ.Deferred();
-
-        crypto.exportKey("jwk", keyPair.publicKey).then(
-            function (jsonKey) {
-                dfd.resolve(jsonKey);
-            },
-            function (error) {
-                WL.Logger.error('Failed to extract public key from keypair ' + error.toString());
-                dfd.reject(error);
-            });
-
-        return dfd.promise();
-    };
-
-    var str2arrayBuffer = function (str) {
-        var buf = new ArrayBuffer(str.length);
-        var bufView = new Uint8Array(buf);
-        for (var i = 0, strLen = str.length; i < strLen; i++) {
-            bufView[i] = str.charCodeAt(i);
-        }
-        return buf;
-    }
-
-    return {
-        signJWS: signJWS,
-        generateKeyPair: generateKeyPair
-    };
-
-}());
-
-/**
- * ================================================================= 
  * Source file taken from :: wlbrowsermanager.js
  * ================================================================= 
  */
@@ -3685,10 +2742,10 @@ __WLBrowserManager = function() {
         // BrowserID should be saved cross applications
         var globalOptions = {'global' : true};
         
-        var uniqueId = WL.LocalStorageDB.getItem(key, globalOptions);
+        var uniqueId = WL.DAO.getItem(key, globalOptions);
         if(WL.Validators.isNullOrUndefined(uniqueId)) {
             uniqueId = generateGUID();
-            WL.LocalStorageDB.setItem(key, uniqueId, globalOptions);
+            WL.DAO.setItem(key, uniqueId, globalOptions);
         }
         return uniqueId;
     };
@@ -3788,9 +2845,6 @@ window.WLJSX.Ajax.Request = WLJSX.Class.create({
         this.options.method = this.options.method.toLowerCase();
         this.transport = window.WLJSX.Ajax.getTransport();
 
-        this.transport.timeout = options.timeout || 60 * 1000;
-
-
         this.request(url);
     },
 
@@ -3828,6 +2882,8 @@ window.WLJSX.Ajax.Request = WLJSX.Class.create({
             }
 
             this.transport.open(this.method.toUpperCase(), this.url, this.options.asynchronous);
+
+            this.transport.timeout = this.options.timeout;
 
             if (this.options.asynchronous) {
                 this.respondToReadyState.bind(this).defer(1);
@@ -4163,6 +3219,11 @@ __WLApp = function() {
      * @note {Note} On BlackBerry 6 and 7, this method returns the device language (for example, en), not the device locale.
      */
     this.__getDeviceLocale = function() {
+    	if (navigator.languages != null && navigator.languages[0] !== "") {
+    		   // has navigator.languages list and it is non-empty
+    		   // relevant only for Chrome
+    			return navigator.languages[0];
+    		}
         return navigator.language;
     };
 
@@ -4271,15 +3332,14 @@ var __WLUtils = function () {
 
     var IBMMFPF_SDK_NAME = 'ibmmfpf';
 
-    function loadWLClientMessages(lang) {
+    function loadWLClientMessages(path, lang) {
         var dfd = WLJQ.Deferred();
 
         var url = 'lib/messages/' + lang + '/messages.json';
         if (lang === null || typeof lang === 'undefined' || lang.indexOf('en') === 0) {
             url = 'lib/messages/messages.json';
         }
-        var sdkPath = findSDKPath();
-        loadJSON(sdkPath + url).then(function(data){
+        loadJSON(path + url).then(function(data){
             WL.ClientMessages = data;
             dfd.resolve();
         }, function(){
@@ -4289,15 +3349,13 @@ var __WLUtils = function () {
         return dfd.promise();
     }
 
-    var findSDKPath = (function () {
-        var path = null;
 
-        return function () {
-            //check if path is already found, if not search for it.
-            if (!path) {
+    var findSDKPath = (function () {
+            return function (sdk) {
+                var path = null;
                 // search mfp sdk path using script tag
                 var scripts = document.getElementsByTagName('script');
-                var term = '/' + IBMMFPF_SDK_NAME + '.js';
+                var term = '/' + sdk + '.js';
                 for (var n = scripts.length-1; n>-1; n--) {
                     var src = scripts[n].src.replace(/\?.*$/, ''); // Strip any query param (CB-6007).
                     if (src.indexOf(term) === (src.length - term.length)) {
@@ -4305,10 +3363,9 @@ var __WLUtils = function () {
                         break;
                     }
                 }
+                return path;
             }
-            return path;
         }
-    }
     )();
 
     function loadJSON(path) {
@@ -4327,6 +3384,17 @@ var __WLUtils = function () {
         };
         xobj.send(null);
         return dfd.promise();
+    }
+
+    function addScript(url) {
+        var sdkPath = findSDKPath(IBMMFPF_SDK_NAME);
+        var script   = document.createElement("script");
+        script.src   = sdkPath + url;
+        document.head.appendChild(script);
+
+        // remove from the dom
+        //document.head.removeChild(document.head.lastChild);
+        return true;
     }
 
     this.wlReachableCallback = function () {};
@@ -4363,6 +3431,16 @@ var __WLUtils = function () {
         return resStr;
     };
 
+    this.loadLibrary = function(libPath, amdCallback){
+        var sdkPath = findSDKPath(IBMMFPF_SDK_NAME);
+        if (('function' === typeof define) && (define['amd'])) /* AMD Support */
+        {
+          require([sdkPath+libPath], amdCallback);
+        } else {
+          addScript(libPath);
+        }
+    }
+
     var __deviceLocale;
     this.setLocalization = function () {
         var dfd = WLJQ.Deferred();
@@ -4396,18 +3474,19 @@ var __WLUtils = function () {
                 // Get the file from which to pickup the user visible messages.
                 if (typeof WL.ClientMessages === 'undefined') {
                     // find sdk path first, because messages.json is relative to it.
-                    if (!findSDKPath()) {
+                    var ibmmfpsdk = findSDKPath(IBMMFPF_SDK_NAME);
+                    if (!ibmmfpsdk) {
                         WL.Logger.error('could not find ' + IBMMFPF_SDK_NAME + '.js, please rename MobileFirst SDK name to: ' + IBMMFPF_SDK_NAME + '.js');
                         return dfd.reject()
                     }
                     // prefer deviceLocale, then deviceLanguage, then English, in that order
-                    loadWLClientMessages(deviceLocale).always(function() {
+                    loadWLClientMessages(ibmmfpsdk, deviceLocale).always(function() {
                         // we don't have a deviceLanguage translation file, try deviceLanguage
                         if (typeof WL.ClientMessages === 'undefined') {
-                            loadWLClientMessages(lang).always(function() {
+                            loadWLClientMessages(ibmmfpsdk, lang).always(function() {
                                 // fall back to English
                                 if (typeof WL.ClientMessages === 'undefined') {
-                                    loadWLClientMessages('en').always(function(){dfd.resolve()});
+                                    loadWLClientMessages(ibmmfpsdk, 'en').always(function(){dfd.resolve()});
                                 } else {
                                     dfd.resolve();
                                 }
@@ -4532,9 +3611,24 @@ var __WLUtils = function () {
     };
 }; // End WL.Utils
 
+
 /*jshint newcap:false*/
 __WL.prototype.Utils = new __WLUtils();
 WL.Utils = new __WLUtils();
+
+// Load promiz.js script
+if ( typeof Promise !== 'function' ) {
+	WL.Utils.loadLibrary('node_modules/promiz/promiz.min.js', function(promiz){});
+}
+
+// Load indexedDB shim (and force)
+//WL.Utils.loadIndexedDBShim();
+// Load SHA library
+WL.Utils.loadLibrary('node_modules/sjcl/sjcl.js', function(sjcl){});
+WL.Utils.loadLibrary('node_modules/jssha/src/sha.js', function(sha){window.jsSHA = sha;});
+
+
+
 
 /**
  * ================================================================= 
@@ -5176,60 +4270,6 @@ window.WLJSX.Ajax.WLRequest = WLJSX.Class.create({
 
 });
 
-
-// always add this piggybacker
-WLJSX.Ajax.WlRequestPiggyBackers.push({
-
-    name: 'ConfigProfile Piggybacker', // for display/debug purposes
-
-    processOptions: function (options, url) {
-        /*jshint strict:false*/
-
-        function endsWith(str, suffix) {
-            return str.indexOf(suffix, str.length - suffix.length) !== -1;
-        }
-
-        if (endsWith(url, 'init') || endsWith(url, 'query') || endsWith(url, 'configprofile') || endsWith(url, 'loguploader')) {
-            var piggybackerHeaders = WL.WebLogger._getHeaders();
-            var optionalHeaders = options.optionalHeaders || {};
-
-            // we can't assume we have jQuery.extend available to us,
-            // so we do it ourselves:
-            for (var property in piggybackerHeaders) {
-                if (piggybackerHeaders.hasOwnProperty(property)) {
-                    optionalHeaders[property] = piggybackerHeaders[property];
-                }
-            }
-
-            options.optionalHeaders = optionalHeaders;
-        }
-    },
-
-    onSuccess: function (data) {
-        /*jshint strict:false*/
-        // process piggybacked response, if any, and remove it
-        function startsWith(str, prefix) {
-            return str && str.lastIndexOf(prefix, 0) === 0;
-        }
-
-        var responseText = '';
-        if (data.responseJSON) {
-            if (data.responseJSON.piggyback) {
-                if (data.responseJSON.piggyback.configprofile) {
-                    responseText = JSON.stringify(data.responseJSON.piggyback.configprofile);
-                    WL.WebLogger._processUpdateConfig({
-                        responseText: responseText
-                    });
-                }
-                delete data.responseJSON.piggyback;
-                if (startsWith(data.responseText, '/')) { // response came from init or invokeProcedure
-                    data.responseText = '/*-secure-' + JSON.stringify(data.responseJSON) + '*/';
-                }
-            }
-        }
-    }
-});
-
 // WLRequest default options:
 WLJSX.Ajax.WLRequest.options = {
     method: 'post',
@@ -5237,7 +4277,7 @@ WLJSX.Ajax.WLRequest.options = {
     encoding: 'UTF-8',
     parameters: '',
     evalJSON: true,
-    timeout: -1,
+    timeout: 60 * 1000,
     onAuthentication: null,
     isAuthResponse: null
 };
@@ -5260,7 +4300,7 @@ WLJSX.Ajax.WLRequest.options = {
  limitations under the License.
  */
 
-/*globals WL, WLJQ, WLJSX, cordova, WLAuthorizationManager, WLIndexDB, WLConfig, WLBrowserManager, WLCrypto, WLLocalStorageDB */
+/*globals WL, WLJQ, WLJSX, cordova, WLAuthorizationManager, WLIndexDB, WLConfig, WLBrowserManager, WLCrypto, WLDAO */
 
 WL.AuthorizationManager = (function () {
 
@@ -5283,7 +4323,7 @@ WL.AuthorizationManager = (function () {
     var authorizationAlreadyInProgress = false;
 
 
-    // The options for storing in the WL.LocalStorage
+    // The options for storing in the WL.DAO
     var scopeToTokenMappingKey = 'com.mfp.scope.token.mapping';
     var resourceToScopeMappingKey = 'com.mfp.resource.scope.mapping';
     var clientApplicationDataKey = 'com.mfp.oauth.application.data';
@@ -5305,16 +4345,16 @@ WL.AuthorizationManager = (function () {
     Adds an item to a specific mapping (ResourceScope/ScopeToken)
      */
     function addItemToMap(mapId, key, value) {
-        var map = WL.LocalStorageDB.getItem(mapId, mappingOptions) || {};
+        var map = WL.DAO.getItem(mapId, mappingOptions) || {};
         map[key] = value;
-        WL.LocalStorageDB.setItem(mapId, map, mappingOptions);
+        WL.DAO.setItem(mapId, map, mappingOptions);
     }
 
     /*
      Gets an item to a specific mapping (ResourceScope/ScopeToken)
      */
     function getItemFromMap(mapId, key) {
-        var map = WL.LocalStorageDB.getItem(mapId, mappingOptions) || {};
+        var map = WL.DAO.getItem(mapId, mappingOptions) || {};
         return map[key];
     }
 
@@ -5329,10 +4369,10 @@ WL.AuthorizationManager = (function () {
      Clears the Mappings
      */
     function clearMappings() {
-       WL.LocalStorageDB.removeItem(scopeToTokenMappingKey, mappingOptions);
-       WL.LocalStorageDB.removeItem(resourceToScopeMappingKey, mappingOptions);
+       WL.DAO.removeItem(scopeToTokenMappingKey, mappingOptions);
+       WL.DAO.removeItem(resourceToScopeMappingKey, mappingOptions);
        //delete messageId that was received during remote disable notify challenge
-       WL.LocalStorageDB.removeItem(WL.Client.getMessageID());
+       WL.DAO.removeItem(WL.Client.getMessageID());
     }
 
     function getAccessTokenForScope(scope) {
@@ -5528,8 +4568,7 @@ WL.AuthorizationManager = (function () {
 
         // if there is at least one object in the queue, send auth request for its scope
         if (obtainAuthHeaderCallbacks.length > 0) {
-            var realClientId = obtainAuthHeaderCallbacks[0].clientId !== null ? obtainAuthHeaderCallbacks[0].clientId : clientId;
-            startAuthorizationProcess(realClientId, obtainAuthHeaderCallbacks[0].scope);
+            startAuthorizationProcess(obtainAuthHeaderCallbacks[0].scope);
         }
 
         // notify objects. This must be done after splice, because it could be that the code being notified
@@ -5653,7 +4692,7 @@ WL.AuthorizationManager = (function () {
             parameters: params,
             onSuccess: function (response) {
                 // Clear scope to token mappings
-                WL.LocalStorageDB.setItem(scopeToTokenMappingKey,{}, mappingOptions);
+                WL.DAO.setItem(scopeToTokenMappingKey,{}, mappingOptions);
 
                 callbackDfd.resolve();
             },
@@ -5804,14 +4843,16 @@ WL.AuthorizationManager = (function () {
 
 
     var __getClientId = function () {
-        return WL.LocalStorageDB.getItem(clientIdKey);
+        return WL.DAO.getItem(clientIdKey);
     };
 
     var __setClientId = function (id) {
         if(!id) {
-            WL.LocalStorageDB.removeItem(clientIdKey);
+            WL.DAO.removeItem(clientIdKey);
+            wlanalytics._setClientId("");
         }
-        WL.LocalStorageDB.setItem(clientIdKey, id);
+        WL.DAO.setItem(clientIdKey, id);
+        wlanalytics._setClientId(id);
     };
 
 
@@ -5893,11 +4934,11 @@ WL.AuthorizationManager = (function () {
 
     var setAuthorizationServerUrl = function (url) {
         WL.Validators.validateURLOrNull(url, 'setAuthorizationServerUrl');
-        WL.LocalStorageDB.setItem('com.mfp.authorization.url', url);
+        WL.DAO.setItem('com.mfp.authorization.url', url);
     };
 
     var getAuthorizationServerUrl = function () {
-        var url = WL.LocalStorageDB.getItem('com.mfp.authorization.url');
+        var url = WL.DAO.getItem('com.mfp.authorization.url');
         if(__isUndefinedOrNull(url)) {
             url = WL.Config.__getBaseURL();
         }
@@ -6064,7 +5105,7 @@ WL.AuthorizationManager = (function () {
         invokePreAuthorizationRequest(securityCheck, credentials).then(
             function (transport) {
                 // No need to continue to authorization end point.
-                console.log('Successfully logged in to security check: ' + securityCheck);
+                WL.Logger.debug('Successfully logged in to security check: ' + securityCheck);
                 authorizationAlreadyInProgress = false;
                 processObtainAccessTokenCallbacks(clientId, securityCheck, transport, true);
                 userCallbackDfd.resolve();
@@ -6184,13 +5225,13 @@ WL.AuthorizationManager = (function () {
 
     function __setClientRegisteredData(data) {
         if(!data) {
-            WL.LocalStorageDB.removeItem(clientApplicationDataKey);
+            WL.DAO.removeItem(clientApplicationDataKey);
         }
-        return WL.LocalStorageDB.setItem(clientApplicationDataKey, data);
+        return WL.DAO.setItem(clientApplicationDataKey, data);
     }
 
     function __getClientRegisteredData() {
-        return WL.LocalStorageDB.getItem(clientApplicationDataKey);
+        return WL.DAO.getItem(clientApplicationDataKey);
     }
 
     function __sendLogoutRequest(securityCheck) {
@@ -6811,20 +5852,9 @@ WL.CookieManager = (function() {
         }
       }
 
-      if (!WL.EnvProfile.isEnabled(WL.EPField.SUPPORT_DEVICE_AUTH) && typeof device !== "undefined" && device !== null && typeof device.uuid !== "undefined") {
-        var deviceId = {};
-        if (WL.Client.getEnvironment() === WL.Environment.WINDOWS8 || WL.Client.getEnvironment() === WL.Environment.WINDOWS || WL.Client.getEnvironment() === WL.Environment.WINDOWSPHONE8) {
-          //Device uuid changes and system generates different uuid's for different apps. 
-          //For device SSO to work it should be same across apps and adapterid remains same for a device.
-          deviceId.id = WL.Device.getHardwareIdentifier();
-        } else {
-          deviceId.id = device.uuid;
-        }
-        deviceId.os = device.version;
-        deviceId.model = device.model;
-        deviceId.environment = WL.Client.getEnvironment();
-        headers.deviceId = WLJSX.Object.toJSON(deviceId);
-      }
+	    var deviceId =  WL.BrowserManager.getDeviceData();
+	    deviceId.environment = WL.Client.getEnvironment();
+	    headers.deviceId = WLJSX.Object.toJSON(deviceId);
       return headers;
     },
 
@@ -7495,10 +6525,12 @@ WL.ResourceRequest = function (_url, _method, _options) {
     function sendRequestAsync(contentString, attempt, conflictAttemptCounter) {
         var dfd = WLJQ.Deferred();
         var builtUrl = buildRequestUrl();
+        
+        
 
         __send(builtUrl, contentString, attempt, conflictAttemptCounter).then(
             function (response) {
-            	wlanalytics.processAutomaticTrigger();
+            	wlanalytics.send(true);
                 dfd.resolve(response);
             },
             function (error) {
@@ -7530,39 +6562,43 @@ WL.ResourceRequest = function (_url, _method, _options) {
         }
 
         addRequestHeaders(xhr);
-        xhr.onreadystatechange = function () {
-            if (this.readyState === 4) {
-                // any status in the 2xx range is considered a success
-                if (this.status >= 200 && this.status <= 299) {
-                    dfd.resolve(new WL.Response(this, null));
-                } else {
-                    var transport = this;
-                    if (this.status === 0) {
-                        var errorCode = this.wlFailureStatus !== 'undefined' ? this.wlFailureStatus : WL.ErrorCode.UNEXPECTED_ERROR;
-                        // handle errors - timeout, unresponsive host and unexpected error
-                        transport.status = 0;
-                        transport.responseJSON = {
-                            errorCode: errorCode,
-                            errorMsg: this.statusText //WL.Utils.formatString(WL.ClientMessages.handleTimeOut, finalUrl)
-                        };
-                    }
+		xhr.onreadystatechange = function () {
+			if (this.readyState === 4) {
+				var transport = this;
+				if (this.status === 0) {
+					var errorCode = this.wlFailureStatus !== 'undefined' ? this.wlFailureStatus : WL.ErrorCode.UNEXPECTED_ERROR;
+					// handle errors - timeout, unresponsive host and unexpected error
+					transport.status = 0;
+					transport.responseJSON = {
+							errorCode: errorCode,
+							errorMsg: this.statusText //WL.Utils.formatString(WL.ClientMessages.handleTimeOut, finalUrl)
+					};
+				}
 
-                    var failResponse = new WL.Response(transport, null);
+				var wlResponse = new WL.Response(this, null);
 
-                    // WL.Response sets status to 200 if transport.status is 0 - set it back to 0.
-                    if (this.status === 0) {
-                        failResponse.status = 0;
-                    }
+				// WL.Response sets status to 200 if transport.status is 0 - set it back to 0.
+				if (this.status === 0) {
+					wlResponse.status = 0;
+				}
 
-                    if (typeof (WL.AuthorizationManager) !== 'undefined' && isAuthorizationRequired(transport) && (transport.status !== 409 && attempt < maxRequestAttempts || transport.status === 409 && conflictAttemptCounter < MAX_CONFLICT_ATTEMPTS)) {
-                        processResponse(transport);
-                    } else {
-                        // it's not OAuth error or number of attempts is exceeded; fail the request with last error, which will be propagated up
-                        dfd.reject(failResponse);
-                    }
-                }
-            }
-        };
+				if (typeof (WL.AuthorizationManager) !== 'undefined' && isAuthorizationRequired(transport) && (transport.status !== 409 && attempt < maxRequestAttempts || transport.status === 409 && conflictAttemptCounter < MAX_CONFLICT_ATTEMPTS)) {
+					processResponse(transport);
+				} else if(WL.Client.isGatewayResponse(wlResponse)){
+                    WLAuthorizationManager.clearAccessToken({
+	                    scope: (currentResourceRequest.scope ? currentResourceRequest.scope : '')
+	                });
+					obtainAccessTokenAndSendRequest(currentResourceRequest.scope ? currentResourceRequest.scope : '');
+				} else if (this.status >= 200 && this.status <= 299) {
+					// any status in the 2xx range is considered a success
+					dfd.resolve(wlResponse);
+				}
+				else {
+					// it's not OAuth error or number of attempts is exceeded; fail the request with last error, which will be propagated up
+					dfd.reject(wlResponse);
+				}
+			}
+		};
 
         var isAuthorizationRequired = function(transport) {
             if (isUndefinedOrNull(transport)) {
@@ -7622,6 +6658,9 @@ WL.ResourceRequest = function (_url, _method, _options) {
                     function (accessToken) {
                         // Send request with accessToken as authorization header.
                         if (!WL.Validators.isNullOrUndefined(accessToken)) {
+                            if(xhr.readyState == 4){
+                              xhr.open(xhr.requestOptions.method,xhr.requestOptions.url,true);
+                            }
                             xhr.setRequestHeader(WL.AuthorizationManager.WL_AUTHORIZATION_HEADER, accessToken.asAuthorizationRequestHeader);
                         }
                         sendRequest();
@@ -7793,7 +6832,7 @@ wl_remoteDisableChallengeHandler.handleChallenge = function(obj) {
     var messageType = obj.messageType;
 
     // get value of previously stored message id
-	var storedMessageId = WL.LocalStorageDB.getItem(WL.Client.getMessageID());
+	var storedMessageId = WL.DAO.getItem(WL.Client.getMessageID());
 
 	var challengeAnswer = { messageId : messageId };
 
@@ -7814,7 +6853,7 @@ wl_remoteDisableChallengeHandler.handleChallenge = function(obj) {
            wl_remoteDisableChallengeHandler.submitChallengeAnswer(challengeAnswer);
         }
 		// keep the message id in the local storage
-		WL.LocalStorageDB.setItem(WL.Client.getMessageID(), messageId);
+		WL.DAO.setItem(WL.Client.getMessageID(), messageId);
 	} else {
 		// don't show dialogue
 		wl_remoteDisableChallengeHandler.submitChallengeAnswer(challengeAnswer);
@@ -7968,6 +7007,10 @@ var addRemoteDisableHTML = (function () {
                 +   'float: right;'
                 +   'font-size: 15px;'
                 + '}'
+                
+                + '.remoteDisableModalClass[dir="rtl"] .closeBtn {'
+                +   'float: left;'
+                + '}'
 
                 + '.remoteDisableRedirectBtn {'
                 +   'display: none;'
@@ -8001,6 +7044,1377 @@ var setDirectionToRemoteDisableMsg = function() {
             document.getElementById('remoteDisableModalId').dir = 'rtl';
         }
 }
+
+
+/**
+ * ================================================================= 
+ * Source file taken from :: webcrypto-shim.js
+ * ================================================================= 
+ */
+
+/*
+ Licensed Materials - Property of IBM
+
+ (C) Copyright 2016 IBM Corp.
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+ */
+
+isCryptoShim = false;
+/**
+ * @file Web Cryptography API shim
+ * @author Artem S Vybornov <vybornov@gmail.com>
+ * @license MIT
+ */
+!function ( global ) {
+    'use strict';
+    
+    var _crypto = global.crypto || global.msCrypto;
+    if ( !_crypto ) return;
+
+    var _subtle = _crypto.subtle || _crypto.webkitSubtle;
+    if ( !_subtle ) return;
+
+    var _Crypto     = global.Crypto || _crypto.constructor || Object,
+        _SubtleCrypto = global.SubtleCrypto || _subtle.constructor || Object,
+        _CryptoKey  = global.CryptoKey || global.Key || Object;
+
+    var isIE    = !!global.msCrypto,
+        isWebkit = !!_crypto.webkitSubtle;
+    if ( !isIE && !isWebkit ){
+    	return;
+    }
+    //if using crypto-shim the crypto key has to be set as extractable
+	isCryptoShim = true;
+
+    function s2a ( s ) {
+        return btoa(s).replace(/\=+$/, '').replace(/\+/g, '-').replace(/\//g, '_');
+    }
+
+    function a2s ( s ) {
+        s += '===', s = s.slice( 0, -s.length % 4 );
+        return atob( s.replace(/-/g, '+').replace(/_/g, '/') );
+    }
+
+    function s2b ( s ) {
+        var b = new Uint8Array(s.length);
+        for ( var i = 0; i < s.length; i++ ) b[i] = s.charCodeAt(i);
+        return b;
+    }
+
+    function b2s ( b ) {
+        if ( b instanceof ArrayBuffer ) b = new Uint8Array(b);
+        return String.fromCharCode.apply( String, b );
+    }
+
+    function alg ( a ) {
+        var r = { 'name': (a.name || a || '').toUpperCase().replace('V','v') };
+        switch ( r.name ) {
+            case 'SHA-1':
+            case 'SHA-256':
+            case 'SHA-384':
+            case 'SHA-512':
+                break;
+            case 'AES-CBC':
+            case 'AES-GCM':
+            case 'AES-KW':
+                if ( a.length ) r['length'] = a.length;
+                break;
+            case 'HMAC':
+                if ( a.hash ) r['hash'] = alg(a.hash);
+                if ( a.length ) r['length'] = a.length;
+                break;
+            case 'RSAES-PKCS1-v1_5':
+                if ( a.publicExponent ) r['publicExponent'] = new Uint8Array(a.publicExponent);
+                if ( a.modulusLength ) r['modulusLength'] = a.modulusLength;
+                break;
+            case 'RSASSA-PKCS1-v1_5':
+            case 'RSA-OAEP':
+                if ( a.hash ) r['hash'] = alg(a.hash);
+                if ( a.publicExponent ) r['publicExponent'] = new Uint8Array(a.publicExponent);
+                if ( a.modulusLength ) r['modulusLength'] = a.modulusLength;
+                break;
+            default:
+                throw new SyntaxError("Bad algorithm name");
+        }
+        return r;
+    };
+
+    function jwkAlg ( a ) {
+        return {
+            'HMAC': {
+                'SHA-1': 'HS1',
+                'SHA-256': 'HS256',
+                'SHA-384': 'HS384',
+                'SHA-512': 'HS512'
+            },
+            'RSASSA-PKCS1-v1_5': {
+                'SHA-1': 'RS1',
+                'SHA-256': 'RS256',
+                'SHA-384': 'RS384',
+                'SHA-512': 'RS512'
+            },
+            'RSAES-PKCS1-v1_5': {
+                '': 'RSA1_5'
+            },
+            'RSA-OAEP': {
+                'SHA-1': 'RSA-OAEP',
+                'SHA-256': 'RSA-OAEP-256'
+            },
+            'AES-KW': {
+                '128': 'A128KW',
+                '192': 'A192KW',
+                '256': 'A256KW'
+            },
+            'AES-GCM': {
+                '128': 'A128GCM',
+                '192': 'A192GCM',
+                '256': 'A256GCM'
+            },
+            'AES-CBC': {
+                '128': 'A128CBC',
+                '192': 'A192CBC',
+                '256': 'A256CBC'
+            }
+        }[a.name][ ( a.hash || {} ).name || a.length || '' ];
+    }
+
+    function b2jwk ( k ) {
+        if ( k instanceof ArrayBuffer || k instanceof Uint8Array ) k = JSON.parse( decodeURIComponent( escape( b2s(k) ) ) );
+        var jwk = { 'kty': k.kty, 'alg': k.alg, 'ext': k.ext || k.extractable };
+        switch ( jwk.kty ) {
+            case 'oct':
+                jwk.k = k.k;
+            case 'RSA':
+                [ 'n', 'e', 'd', 'p', 'q', 'dp', 'dq', 'qi', 'oth' ].forEach( function ( x ) { if ( x in k ) jwk[x] = k[x] } );
+                break;
+            default:
+                throw new TypeError("Unsupported key type");
+        }
+        return jwk;
+    }
+
+    function jwk2b ( k ) {
+        var jwk = b2jwk(k);
+        if ( isIE ) jwk['extractable'] = jwk.ext, delete jwk.ext;
+        return s2b( unescape( encodeURIComponent( JSON.stringify(jwk) ) ) ).buffer;
+    }
+
+    function pkcs2jwk ( k ) {
+        var info = b2der(k), prv = false;
+        if ( info.length > 2 ) prv = true, info.shift(); // remove version from PKCS#8 PrivateKeyInfo structure
+        var jwk = { 'ext': true };
+        switch ( info[0][0] ) {
+            case '1.2.840.113549.1.1.1':
+                var rsaComp = [ 'n', 'e', 'd', 'p', 'q', 'dp', 'dq', 'qi' ],
+                    rsaKey  = b2der( info[1] );
+                if ( prv ) rsaKey.shift(); // remove version from PKCS#1 RSAPrivateKey structure
+                for ( var i = 0; i < rsaKey.length; i++ ) {
+                    if ( !rsaKey[i][0] ) rsaKey[i] = rsaKey[i].subarray(1);
+                    jwk[ rsaComp[i] ] = s2a( b2s( rsaKey[i] ) );
+                }
+                jwk['kty'] = 'RSA';
+                break;
+            default:
+                throw new TypeError("Unsupported key type");
+        }
+        return jwk;
+    }
+
+    function jwk2pkcs ( k ) {
+        var key, info = [ [ '', null ] ], prv = false;
+        switch ( k.kty ) {
+            case 'RSA':
+                var rsaComp = [ 'n', 'e', 'd', 'p', 'q', 'dp', 'dq', 'qi' ],
+                    rsaKey = [];
+                for ( var i = 0; i < rsaComp.length; i++ ) {
+                    if ( !( rsaComp[i] in k ) ) break;
+                    var b = rsaKey[i] = s2b( a2s( k[ rsaComp[i] ] ) );
+                    if ( b[0] & 0x80 ) rsaKey[i] = new Uint8Array(b.length + 1), rsaKey[i].set( b, 1 );
+                }
+                if ( rsaKey.length > 2 ) prv = true, rsaKey.unshift( new Uint8Array([0]) ); // add version to PKCS#1 RSAPrivateKey structure
+                info[0][0] = '1.2.840.113549.1.1.1';
+                key = rsaKey;
+                break;
+            default:
+                throw new TypeError("Unsupported key type");
+        }
+        info.push( new Uint8Array( der2b(key) ).buffer );
+        if ( !prv ) info[1] = { 'tag': 0x03, 'value': info[1] };
+        else info.unshift( new Uint8Array([0]) ); // add version to PKCS#8 PrivateKeyInfo structure
+        return new Uint8Array( der2b(info) ).buffer;
+    }
+
+    var oid2str = { 'KoZIhvcNAQEB': '1.2.840.113549.1.1.1' },
+        str2oid = { '1.2.840.113549.1.1.1': 'KoZIhvcNAQEB' };
+
+    function b2der ( buf, ctx ) {
+        if ( buf instanceof ArrayBuffer ) buf = new Uint8Array(buf);
+        if ( !ctx ) ctx = { pos: 0, end: buf.length };
+
+        if ( ctx.end - ctx.pos < 2 || ctx.end > buf.length ) throw new RangeError("Malformed DER");
+
+        var tag = buf[ctx.pos++],
+            len = buf[ctx.pos++];
+
+        if ( len >= 0x80 ) {
+            len &= 0x7f;
+            if ( ctx.end - ctx.pos < len ) throw new RangeError("Malformed DER");
+            for ( var xlen = 0; len--; ) xlen <<= 8, xlen |= buf[ctx.pos++];
+            len = xlen;
+        }
+
+        if ( ctx.end - ctx.pos < len ) throw new RangeError("Malformed DER");
+
+        var rv;
+
+        switch ( tag ) {
+            case 0x02: // Universal Primitive INTEGER
+                rv = buf.subarray( ctx.pos, ctx.pos += len );
+                break;
+            case 0x03: // Universal Primitive BIT STRING
+                if ( buf[ctx.pos++] ) throw new Error( "Unsupported bit string" );
+                len--;
+            case 0x04: // Universal Primitive OCTET STRING
+                rv = new Uint8Array( buf.subarray( ctx.pos, ctx.pos += len ) ).buffer;
+                break;
+            case 0x05: // Universal Primitive NULL
+                rv = null;
+                break;
+            case 0x06: // Universal Primitive OBJECT IDENTIFIER
+                var oid = btoa( b2s( buf.subarray( ctx.pos, ctx.pos += len ) ) );
+                if ( !( oid in oid2str ) ) throw new Error( "Unsupported OBJECT ID " + oid );
+                rv = oid2str[oid];
+                break;
+            case 0x30: // Universal Constructed SEQUENCE
+                rv = [];
+                for ( var end = ctx.pos + len; ctx.pos < end; ) rv.push( b2der( buf, ctx ) );
+                break;
+            default:
+                throw new Error( "Unsupported DER tag 0x" + tag.toString(16) );
+        }
+
+        return rv;
+    }
+
+    function der2b ( val, buf ) {
+        if ( !buf ) buf = [];
+
+        var tag = 0, len = 0,
+            pos = buf.length + 2;
+
+        buf.push( 0, 0 ); // placeholder
+
+        if ( val instanceof Uint8Array ) {  // Universal Primitive INTEGER
+            tag = 0x02, len = val.length;
+            for ( var i = 0; i < len; i++ ) buf.push( val[i] );
+        }
+        else if ( val instanceof ArrayBuffer ) { // Universal Primitive OCTET STRING
+            tag = 0x04, len = val.byteLength, val = new Uint8Array(val);
+            for ( var i = 0; i < len; i++ ) buf.push( val[i] );
+        }
+        else if ( val === null ) { // Universal Primitive NULL
+            tag = 0x05, len = 0;
+        }
+        else if ( typeof val === 'string' && val in str2oid ) { // Universal Primitive OBJECT IDENTIFIER
+            var oid = s2b( atob( str2oid[val] ) );
+            tag = 0x06, len = oid.length;
+            for ( var i = 0; i < len; i++ ) buf.push( oid[i] );
+        }
+        else if ( val instanceof Array ) { // Universal Constructed SEQUENCE
+            for ( var i = 0; i < val.length; i++ ) der2b( val[i], buf );
+            tag = 0x30, len = buf.length - pos;
+        }
+        else if ( typeof val === 'object' && val.tag === 0x03 && val.value instanceof ArrayBuffer ) { // Tag hint
+            val = new Uint8Array(val.value), tag = 0x03, len = val.byteLength;
+            buf.push(0); for ( var i = 0; i < len; i++ ) buf.push( val[i] );
+            len++;
+        }
+        else {
+            throw new Error( "Unsupported DER value " + val );
+        }
+
+        if ( len >= 0x80 ) {
+            var xlen = len, len = 4;
+            buf.splice( pos, 0, (xlen >> 24) & 0xff, (xlen >> 16) & 0xff, (xlen >> 8) & 0xff, xlen & 0xff );
+            while ( len > 1 && !(xlen >> 24) ) xlen <<= 8, len--;
+            if ( len < 4 ) buf.splice( pos, 4 - len );
+            len |= 0x80;
+        }
+
+        buf.splice( pos - 2, 2, tag, len );
+
+        return buf;
+    }
+
+    function CryptoKey ( key, alg, ext, use ) {
+        Object.defineProperties( this, {
+            _key: {
+                value: key
+            },
+            type: {
+                value: key.type,
+                enumerable: true
+            },
+            extractable: {
+                value: (ext === undefined) ? key.extractable : ext,
+                enumerable: true
+            },
+            algorithm: {
+                value: (alg === undefined) ? key.algorithm : alg,
+                enumerable: true
+            },
+            usages: {
+                value: (use === undefined) ? key.usages : use,
+                enumerable: true
+            }
+        });
+    }
+
+    function isPubKeyUse ( u ) {
+        return u === 'verify' || u === 'encrypt' || u === 'wrapKey';
+    }
+
+    function isPrvKeyUse ( u ) {
+        return u === 'sign' || u === 'decrypt' || u === 'unwrapKey';
+    }
+
+    [ 'generateKey', 'importKey', 'unwrapKey' ]
+        .forEach( function ( m ) {
+            var _fn = _subtle[m];
+
+            _subtle[m] = function ( a, b, c ) {
+                var args = [].slice.call(arguments),
+                    ka, kx, ku;
+
+                switch ( m ) {
+                    case 'generateKey':
+                        ka = alg(a), kx = b, ku = c;
+                        break;
+                    case 'importKey':
+                        ka = alg(c), kx = args[3], ku = args[4];
+                        if ( a === 'jwk' ) {
+                            b = b2jwk(b);
+                            if ( !b.alg ) b.alg = jwkAlg(ka);
+                            if ( !b.key_ops ) b.key_ops = ( b.kty !== 'oct' ) ? ( 'd' in b ) ? ku.filter(isPrvKeyUse) : ku.filter(isPubKeyUse) : ku.slice();
+                            args[1] = jwk2b(b);
+                        }
+                        break;
+                    case 'unwrapKey':
+                        ka = args[4], kx = args[5], ku = args[6];
+                        args[2] = c._key;
+                        break;
+                }
+
+                if ( m === 'generateKey' && ka.name === 'HMAC' && ka.hash ) {
+                    ka.length = ka.length || { 'SHA-1': 512, 'SHA-256': 512, 'SHA-384': 1024, 'SHA-512': 1024 }[ka.hash.name];
+                    return _subtle.importKey( 'raw', _crypto.getRandomValues( new Uint8Array( (ka.length+7)>>3 ) ), ka, kx, ku );
+                }
+
+                if ( isWebkit && m === 'generateKey' && ka.name === 'RSASSA-PKCS1-v1_5' && ( !ka.modulusLength || ka.modulusLength >= 2048 ) ) {
+                    a = alg(a), a.name = 'RSAES-PKCS1-v1_5', delete a.hash;
+                    return _subtle.generateKey( a, true, [ 'encrypt', 'decrypt' ] )
+                        .then( function ( k ) {
+                            return Promise.all([
+                                _subtle.exportKey( 'jwk', k.publicKey ),
+                                _subtle.exportKey( 'jwk', k.privateKey )
+                            ]);
+                        })
+                        .then( function ( keys ) {
+                            keys[0].alg = keys[1].alg = jwkAlg(ka);
+                            keys[0].key_ops = ku.filter(isPubKeyUse), keys[1].key_ops = ku.filter(isPrvKeyUse);
+                            return Promise.all([
+                                _subtle.importKey( 'jwk', keys[0], ka, kx, keys[0].key_ops ),
+                                _subtle.importKey( 'jwk', keys[1], ka, kx, keys[1].key_ops )
+                            ]);
+                        })
+                        .then( function ( keys ) {
+                            return {
+                                publicKey: keys[0],
+                                privateKey: keys[1]
+                            };
+                        });
+                }
+
+                if ( ( isWebkit || ( isIE && ( ka.hash || {} ).name === 'SHA-1' ) )
+                        && m === 'importKey' && a === 'jwk' && ka.name === 'HMAC' && b.kty === 'oct' ) {
+                    return _subtle.importKey( 'raw', s2b( a2s(b.k) ), c, args[3], args[4] );
+                }
+
+                if ( isWebkit && m === 'importKey' && ( a === 'spki' || a === 'pkcs8' ) ) {
+                    return _subtle.importKey( 'jwk', pkcs2jwk(b), c, args[3], args[4] );
+                }
+
+                if ( isIE && m === 'unwrapKey' ) {
+                    return _subtle.decrypt( args[3], c, b )
+                        .then( function ( k ) {
+                            return _subtle.importKey( a, k, args[4], args[5], args[6] );
+                        });
+                }
+
+                var op;
+                try {
+                    op = _fn.apply( _subtle, args );
+                }
+                catch ( e ) {
+                    return Promise.reject(e);
+                }
+
+                if ( isIE ) {
+                    op = new Promise( function ( res, rej ) {
+                        op.onabort =
+                        op.onerror =    function ( e ) { rej(e)               };
+                        op.oncomplete = function ( r ) { res(r.target.result) };
+                    });
+                }
+
+                op = op.then( function ( k ) {
+                    if ( ka.name === 'HMAC' ) {
+                        if ( !ka.length ) ka.length = 8 * k.algorithm.length;
+                    }
+                    if ( ka.name.search('RSA') == 0 ) {
+                        if ( !ka.modulusLength ) ka.modulusLength = (k.publicKey || k).algorithm.modulusLength;
+                        if ( !ka.publicExponent ) ka.publicExponent = (k.publicKey || k).algorithm.publicExponent;
+                    }
+                    if ( k.publicKey && k.privateKey ) {
+                        k = {
+                            publicKey: new CryptoKey( k.publicKey, ka, kx, ku.filter(isPubKeyUse) ),
+                            privateKey: new CryptoKey( k.privateKey, ka, kx, ku.filter(isPrvKeyUse) )
+                        };
+                    }
+                    else {
+                        k = new CryptoKey( k, ka, kx, ku );
+                    }
+                    return k;
+                });
+
+                return op;
+            }
+        });
+
+    [ 'exportKey', 'wrapKey' ]
+        .forEach( function ( m ) {
+            var _fn = _subtle[m];
+
+            _subtle[m] = function ( a, b, c ) {
+                var args = [].slice.call(arguments);
+
+                switch ( m ) {
+                    case 'exportKey':
+                        args[1] = b._key;
+                        break;
+                    case 'wrapKey':
+                        args[1] = b._key, args[2] = c._key;
+                        break;
+                }
+
+                if ( ( isWebkit || ( isIE && ( b.algorithm.hash || {} ).name === 'SHA-1' ) )
+                        && m === 'exportKey' && a === 'jwk' && b.algorithm.name === 'HMAC' ) {
+                    args[0] = 'raw';
+                }
+
+                if ( isWebkit && m === 'exportKey' && ( a === 'spki' || a === 'pkcs8' ) ) {
+                    args[0] = 'jwk';
+                }
+
+                if ( isIE && m === 'wrapKey' ) {
+                    return _subtle.exportKey( a, b )
+                        .then( function ( k ) {
+                            if ( a === 'jwk' ) k = s2b( unescape( encodeURIComponent( JSON.stringify( b2jwk(k) ) ) ) );
+                            return  _subtle.encrypt( args[3], c, k );
+                        });
+                }
+
+                var op;
+                try {
+                    op = _fn.apply( _subtle, args );
+                }
+                catch ( e ) {
+                    return Promise.reject(e);
+                }
+
+                if ( isIE ) {
+                    op = new Promise( function ( res, rej ) {
+                        op.onabort =
+                        op.onerror =    function ( e ) { rej(e)               };
+                        op.oncomplete = function ( r ) { res(r.target.result) };
+                    });
+                }
+
+                if ( m === 'exportKey' && a === 'jwk' ) {
+                    op = op.then( function ( k ) {
+                        if ( ( isWebkit || ( isIE && ( b.algorithm.hash || {} ).name === 'SHA-1' ) )
+                                && b.algorithm.name === 'HMAC') {
+                            return { 'kty': 'oct', 'alg': jwkAlg(b.algorithm), 'key_ops': b.usages.slice(), 'ext': true, 'k': s2a( b2s(k) ) };
+                        }
+                        k = b2jwk(k);
+                        if ( !k.alg ) k['alg'] = jwkAlg(b.algorithm);
+                        if ( !k.key_ops ) k['key_ops'] = ( b.type === 'public' ) ? b.usages.filter(isPubKeyUse) : ( b.type === 'private' ) ? b.usages.filter(isPrvKeyUse) : b.usages.slice();
+                        return k;
+                    });
+                }
+
+                if ( isWebkit && m === 'exportKey' && ( a === 'spki' || a === 'pkcs8' ) ) {
+                    op = op.then( function ( k ) {
+                        k = jwk2pkcs( b2jwk(k) );
+                        return k;
+                    });
+                }
+
+                return op;
+            }
+        });
+
+    [ 'encrypt', 'decrypt', 'sign', 'verify' ]
+        .forEach( function ( m ) {
+            var _fn = _subtle[m];
+
+            _subtle[m] = function ( a, b, c, d ) {
+                if ( isIE && ( !c.byteLength || ( d && !d.byteLength ) ) )
+                    throw new Error("Empy input is not allowed");
+
+                var args = [].slice.call(arguments),
+                    ka = alg(a);
+
+                if ( isIE && m === 'decrypt' && ka.name === 'AES-GCM' ) {
+                    var tl = a.tagLength >> 3;
+                    args[2] = (c.buffer || c).slice( 0, c.byteLength - tl ),
+                    a.tag = (c.buffer || c).slice( c.byteLength - tl );
+                }
+
+                args[1] = b._key;
+
+                var op;
+                try {
+                    op = _fn.apply( _subtle, args );
+                }
+                catch ( e ) {
+                    return Promise.reject(e);
+                }
+
+                if ( isIE ) {
+                    op = new Promise( function ( res, rej ) {
+                        op.onabort =
+                        op.onerror = function ( e ) {
+                            rej(e);
+                        };
+
+                        op.oncomplete = function ( r ) {
+                            var r = r.target.result;
+
+                            if ( m === 'encrypt' && r instanceof AesGcmEncryptResult ) {
+                                var c = r.ciphertext, t = r.tag;
+                                r = new Uint8Array( c.byteLength + t.byteLength );
+                                r.set( new Uint8Array(c), 0 );
+                                r.set( new Uint8Array(t), c.byteLength );
+                                r = r.buffer;
+                            }
+
+                            res(r);
+                        };
+                    });
+                }
+
+                return op;
+            }
+        });
+
+    if ( isIE ) {
+        var _digest = _subtle.digest;
+
+        _subtle['digest'] = function ( a, b ) {
+            if ( !b.byteLength )
+                throw new Error("Empy input is not allowed");
+
+            var op;
+            try {
+                op = _digest.call( _subtle, a, b );
+            }
+            catch ( e ) {
+                return Promise.reject(e);
+            }
+
+            op = new Promise( function ( res, rej ) {
+                op.onabort =
+                op.onerror =    function ( e ) { rej(e)               };
+                op.oncomplete = function ( r ) { res(r.target.result) };
+            });
+
+            return op;
+        };
+
+        global.crypto = Object.create( _crypto, {
+            getRandomValues: { value: function ( a ) { return _crypto.getRandomValues(a) } },
+            subtle:          { value: _subtle }
+        });
+
+        global.CryptoKey = CryptoKey;
+    }
+
+    if ( isWebkit ) {
+        _crypto.subtle = _subtle;
+
+        global.Crypto = _Crypto;
+        global.SubtleCrypto = _SubtleCrypto;
+        global.CryptoKey = CryptoKey;
+    }
+}(this);
+
+
+/**
+ * ================================================================= 
+ * Source file taken from :: wlcrypto.js
+ * ================================================================= 
+ */
+
+/*
+ Licensed Materials - Property of IBM
+
+ (C) Copyright 2015 IBM Corp.
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+ */
+
+/**
+ * Handles the Crypto API
+ * 
+ * @type {{signPayload, generateKeypair}}
+ */
+__WLCrypto = 
+	
+	function CreateCryptoObject () {
+
+    /* ############## Asymmetric Native Crypto ############## */
+	var dfd = WLJQ.Deferred();
+	try{
+      var crypto = window.crypto.subtle || window.crypto.webkitSubtle;
+    }catch(e){
+      WL.Logger.info('No Crypto Object in this browser! '+JSON.stringify(e));
+    }
+
+    var generateAsymmetricKeyPair = function () {
+        var dfd = WLJQ.Deferred();
+        var algorithmKeyGen = {
+            name: 'RSASSA-PKCS1-v1_5',
+            modulusLength: 2048,
+            publicExponent: new Uint8Array([0x01, 0x00, 0x01]),  // Equivalent
+																	// to 65537
+            hash: {
+                name: 'SHA-256'
+            }
+        };
+        // When using IndexedDB AND native crypto we can set the key as
+		// non-extractable. We want it 'extractable' to be TRUE when we are
+		// using Crypto-Shim OR when we do NOT have IndexedDB available
+        var isExtractable = !WL.AsyncDAO.isIndexedDB() || isCryptoShim;
+        crypto.generateKey(algorithmKeyGen, isExtractable, ['sign']).then(
+            function (keyPair) {
+                dfd.resolve(keyPair);
+            },
+            function (error) {
+                WL.Logger.error('Failed to generate keypair ' + JSON.stringify(error));
+                dfd.reject(error);
+            }
+        );
+
+        return dfd.promise();
+    };
+
+    var signAsymmetricKeyPair = function (payload, kid, keyPair) {
+        var dfd = WLJQ.Deferred();
+
+        exportPublicKey(keyPair).then(
+            function (jwk) {
+                var alg = jwk.alg;
+                jwk.kid = !WL.Validators.isNullOrUndefined(kid) ? kid : undefined;
+                var header = {'alg' : alg, 'jwk' : jwk};
+                var jwsHeaderAsString = JSON.stringify(header);
+                var payloadAsString = JSON.stringify(payload);
+                // concatenate JWS Header and payload.
+                var csrHeaderAndPayload = encodeToBase64(jwsHeaderAsString) + '.' + encodeToBase64(payloadAsString);
+                signData(csrHeaderAndPayload, keyPair).then(
+                    function (signedData) {
+                        dfd.resolve(csrHeaderAndPayload + '.' + signedData);
+                    },
+                    function (error) {
+                        dfd.reject(error);
+                    });
+            },
+            function (error) {
+                dfd.reject(error);
+            });
+        return dfd.promise();
+    };
+
+    var signData = function (stringToSign, keyPair) {
+        var dfd = WLJQ.Deferred();
+
+        var algorithmSign = {
+            name: 'RSASSA-PKCS1-v1_5',
+            hash: 'SHA-256'
+        };
+        crypto.sign(algorithmSign, keyPair.privateKey, new Uint8Array(str2arrayBuffer(stringToSign))).then(
+            function (signedData) {
+                var base64sign = btoa(String.fromCharCode.apply(null, new Uint8Array(signedData)));
+                dfd.resolve(base64sign);
+            })
+            .catch(
+                function (error) {
+                    WL.Logger.error('error in signing data with keypair: ' + error.toString());
+                    dfd.reject(error);
+                });
+
+        return dfd.promise();
+    };
+
+    
+
+    var exportPublicKey = function (keyPair) {
+        var dfd = WLJQ.Deferred();
+
+        crypto.exportKey("jwk", keyPair.publicKey).then(
+            function (jsonKey) {
+                dfd.resolve(jsonKey);
+            },
+            function (error) {
+                WL.Logger.error('Failed to extract public key from keypair ' + error.toString());
+                dfd.reject(error);
+            });
+
+        return dfd.promise();
+    };
+    /* ############### End Asymmetric Native Crypto ################ */
+    /* ################## Symmetric Key ####################### */
+
+      var signSymmetric = function (payload, kid, keyPair) {
+        var dfd = WLJQ.Deferred();
+  	  	var jwk = createJWK(kid);
+        var alg = 'HS256';
+    	var header = {'alg' : alg, 'jwk' : jwk, 'key' : keyPair.publicKey};
+        var jwsHeaderAsString = JSON.stringify(header);
+        var payloadAsString = JSON.stringify(payload);
+        // concatenate JWS Header and payload.
+        var csrHeaderAndPayload = encodeToBase64(jwsHeaderAsString) + '.' + encodeToBase64(payloadAsString);
+        var shaObj = new jsSHA("SHA-256", "TEXT");
+        shaObj.setHMACKey(keyPair.publicKey, "TEXT");
+        shaObj.update(csrHeaderAndPayload);
+        var signedData = shaObj.getHMAC("B64");
+        dfd.resolve(csrHeaderAndPayload + '.' + signedData);
+        return dfd.promise();
+
+      }
+      
+      var generateSymmetricKey = function (){
+    	  var dfd = WLJQ.Deferred();
+		  try{
+			  dfd.resolve(CreateSymmetricKey());
+		  } catch(e) {
+			  // for older browsers who need to self generate seed
+			  var cont = function () {
+				    sjcl.random.removeEventListener('seeded', cont);
+				    // The collectors can be turned off if no more entropy is
+					// needed.
+				    sjcl.random.stopCollectors();
+
+					dfd.resolve(CreateSymmetricKey());
+				};
+
+				sjcl.random.addEventListener('seeded', cont);
+				sjcl.random.startCollectors();
+		  }
+          return dfd.promise();
+      }
+      
+      // creates a random key for symmetric signing
+      function CreateSymmetricKey(){
+    	var numbers = sjcl.random.randomWords(4, 7);
+		var key = "";
+		for (var i=0;i<numbers.length;i++){
+			key+=btoa(numbers[i]);
+		}
+		key = key.replace(/=/g,"");
+		key = key.substring(0,32);
+		var keyPair = {};
+        keyPair.privateKey = key;
+        keyPair.publicKey = key;
+        return keyPair;
+      }
+      
+      /* ################## End Symmetric Key ####################### */
+      /* ################## Utils ####################### */
+      
+      var createJWK = function(kid){
+    	  var jwk = {};
+          jwk.kid = !WL.Validators.isNullOrUndefined(kid) ? kid : undefined;
+          jwk.use = 'enc';
+          jwk.kty = 'oct';
+          jwk.k = "";
+          return jwk;
+      }
+      
+      var encodeToBase64 = function (string) {
+          return btoa(String.fromCharCode.apply(null, new Uint8Array(str2arrayBuffer(string))));
+      };
+      
+      var str2arrayBuffer = function (str) {
+          var buf = new ArrayBuffer(str.length);
+          var bufView = new Uint8Array(buf);
+          for (var i = 0, strLen = str.length; i < strLen; i++) {
+              bufView[i] = str.charCodeAt(i);
+          }
+          return buf;
+      }
+      /* ################## End Utils ####################### */
+      
+      /*
+		 * return true if asymmetric encryption based on native or shimmed
+		 * capabilities false for symmetric encryption with key in local storage
+		 * (no shims)
+		 */
+      function isAsymmetricAvailable(){
+    	  var dfd = WLJQ.Deferred();
+    	  if ((window.crypto && window.crypto.subtle)// Normal Browsers
+    			  ||(window.msCrypto && window.msCrypto.subtle) || // Supports
+																	// IE
+    			  (window.crypto && window.crypto.webkitSubtle)){ // Supports
+																	// Safari
+    		  generateAsymmetricKeyPair().done(function(){
+    			  dfd.resolve(true);
+    		  }).fail(function(){
+    			  dfd.resolve(false);
+    		  });
+    	  }
+          dfd.resolve(false);
+          return dfd.promise();// Symmetric Key
+        }
+      
+      isAsymmetricAvailable().always(function (result){
+    	  if (result){
+    		  WL.Crypto =  {
+    	                signJWS: signAsymmetricKeyPair,
+    	                generateKeyPair: generateAsymmetricKeyPair
+    	            };
+    	      } else {
+    	    	  WL.Crypto = {
+    	                signJWS: signSymmetric,
+    	                generateKeyPair: generateSymmetricKey
+    	            };
+    	      }
+      });
+    	  
+      return dfd.promise();
+};
+
+/**
+ * ================================================================= 
+ * Source file taken from :: wlIndexDb.js
+ * ================================================================= 
+ */
+
+/*
+ Licensed Materials - Property of IBM
+
+ (C) Copyright 2015 IBM Corp.
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+ */
+
+/*jshint strict:false, maxparams:4*/
+__WLIndexDB = function() {
+    var defaultCategory = 'default';
+
+    // This works on all devices/browsers, and uses IndexedDBShim as a final fallback
+    var indexedDB = null;
+
+
+
+    // Open (or create) the database, the database is always the appID
+    var dbName;
+
+    var db;
+
+    /**
+     * Initializes the DB and creates a default category, should be called on startup
+     * @returns {*}
+     */
+    this.init = function() {
+        var dfd = WLJQ.Deferred();
+
+        indexedDB = getIndexedDB();
+
+        // In the cases where we don't have indexedDB support
+        WL.Validators.validateDefined(indexedDB, 'init');
+
+        dbName = WL.Config.__getApplicationName();
+        var request = indexedDB.open(dbName, 1);
+        request.onupgradeneeded = function(event) {
+            var thisDB = event.target.result;
+            if(!thisDB.objectStoreNames.contains(defaultCategory)) {
+                thisDB.createObjectStore(defaultCategory, {keyPath: "key"});
+            }
+            var transaction = event.target.transaction;
+
+            transaction.oncomplete =
+                function() {
+                   db = event.target.result;
+                   dfd.resolve();
+                }
+        };
+
+        request.onerror = function (event) {
+            WL.Logger.error(JSON.stringify(event.target.error.message));
+            dfd.reject(event.target.error);
+        };
+
+        request.onsuccess = function(event) {
+            db = event.target.result;
+            dfd.resolve();
+        };
+        return dfd.promise();
+    };
+
+    /**
+     * Sets an item in the database
+     * @param key
+     * @param value
+     * @returns {*}
+     */
+    this.setItem = function(key, value) {
+        var dfd = WLJQ.Deferred();
+        var store = getObjectStore('readwrite');
+        var input = {'key' : key , 'value' : value};
+        var request = store.put(input);
+
+        request.onsuccess = function() {
+            dfd.resolve();
+        };
+
+        request.onerror = function(e) {
+            WL.Logger.error('Error setting item in indexedDb : ' + e.target.error.name);
+            dfd.reject(e);
+        };
+        return dfd.promise();
+    };
+
+    /**
+     * Gets an item in the database
+     * @param key
+     * @returns {value for given key}
+     */
+    this.getItem = function(key) {
+        var dfd = WLJQ.Deferred();
+        var store = getObjectStore('readonly');
+        var request = store.get(key);
+
+        request.onerror = function(e) {
+            WL.Logger.error('Error getting item from indexedDb : ' + e.target.error.name);
+            dfd.reject(e);
+        };
+
+        request.onsuccess = function() {
+            if (!WL.Validators.isNullOrUndefined(request.result)){
+                dfd.resolve(request.result.value);
+            } else {
+                dfd.resolve();
+            }
+        };
+        return dfd.promise();
+    };
+
+    /**
+     * Removes an item in the database
+     * @param key
+     * @returns {*}
+     */
+    this.removeItem = function(key) {
+        var dfd = WLJQ.Deferred();
+        var store = getObjectStore('readwrite');
+
+        var request = store.delete(key);
+
+        request.onsuccess = function() {
+            dfd.resolve();
+        };
+        return dfd.promise();
+    };
+
+    this.clearDB = function() {
+        var dfd = WLJQ.Deferred();
+        var DBOpenRequest = window.indexedDB.open(dbName, 1);
+        DBOpenRequest.onsuccess = function (event) {
+
+            // store the result of opening the database in the db variable. This is used a lot below
+            var db = event.target.result;
+            var transaction = db.transaction(defaultCategory, 'readwrite');
+            var objectStore = transaction.objectStore(defaultCategory);
+            var objectStoreRequest = objectStore.clear();
+
+            objectStoreRequest.onsuccess = function(event) {
+                dfd.resolve();
+            };
+
+            objectStoreRequest.onerror = function(event) {
+                dfd.reject();
+            };
+        };
+        return dfd.promise();
+    };
+
+    function getObjectStore(permissions) {
+        WL.Validators.validateDefined(db, 'getObjectStore');
+        var tx = db.transaction(defaultCategory, permissions);
+        return tx.objectStore(defaultCategory);
+    }
+
+    function getIndexedDB() {
+        // Get IndexedDB Factory according to browser
+        return window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;
+    }
+
+};
+
+
+
+/**
+ * ================================================================= 
+ * Source file taken from :: wldao.js
+ * ================================================================= 
+ */
+
+/*
+ Licensed Materials - Property of IBM
+
+ (C) Copyright 2016 IBM Corp.
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+ */
+
+__WLDAO = function() {
+	var dao;
+
+	/**
+	 * Initializes the database and verifies it is accessible
+	 * 
+	 * @returns {*}
+	 */
+	this.init = function() {
+		try {
+			dao = new __WLLocalStorageDB();
+			dao.init();
+			dao.setItem("testKey", "testValue");
+			if (dao.getItem("testKey") == "testValue") {
+				dao.removeItem("testKey");
+			} else {
+				throw "LocalStorage Error";
+			}
+		} catch (e) {
+			dao = new __WLVarStorageDB();
+			dao.init();
+		}
+	};
+
+	/**
+	 * Sets an item in the database
+	 * 
+	 * @param key
+	 * @param value
+	 * @param options
+	 *            {{session : boolean, global : boolean}} - NOTE: When local storage
+	 *            is not available (e.g. Safari private mode) all data will be
+	 *            saved as session storage (regardless of options parameter);
+	 * @returns {*}
+	 */
+	this.setItem = function(key, value, options) {
+		dao.setItem(key, value, options);
+	}
+
+	/**
+	 * Gets an item in the database
+	 * 
+	 * @param key
+	 * @param options
+	 *            {{session : boolean, global : boolean}}
+	 * @returns {value for given key}
+	 */
+	this.getItem = function(key, options) {
+		return dao.getItem(key, options);
+	}
+
+	/**
+	 * Removes an item in the database
+	 * 
+	 * @param key
+	 * @param options
+	 *            {{session : boolean, global : boolean}}
+	 * @returns {*}
+	 */
+	this.removeItem = function(key, options) {
+		dao.removeItem(key, options);
+	}
+};
+
+__WL.prototype.DAO = new __WLDAO;
+WL.DAO = new __WLDAO;
+
+/**
+ * ================================================================= 
+ * Source file taken from :: wlasyncdao.js
+ * ================================================================= 
+ */
+
+/*
+ Licensed Materials - Property of IBM
+
+ (C) Copyright 2016 IBM Corp.
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+ */
+
+__WLAsyncDAO = function() {
+	var dao;
+	var isIndexedDBEnabled = false;
+	
+	/**
+     * Initializes the database and verifies it is accessible
+     * @returns {*}
+     */
+	this.init = function() {
+		var dfd = WLJQ.Deferred();
+		dao = new __WLIndexDB();
+		// check if IndexedDB is actually working by setting a test value and
+		// then getting it by the test key. Finally removing the test key-value
+		// pair and asserting that IndexDB is working by the isIndexedDBEnabled
+		// variable.
+		try{
+		dao.init().done(function() {
+			dao.setItem("testKey", "testValue").done(function() {
+				dao.getItem("testKey").done(function(value) {
+					if (value == "testValue") {
+						dao.removeItem("testKey").done(function() {
+							isIndexedDBEnabled = true;
+							dfd.resolve();
+						});
+					} else {
+						dao = new __WLSyncDAOWrapper();
+						dao.init();
+						dfd.resolve();
+					}
+				});
+			});
+			// all failures will be caught here and revert the underlying DAO
+			// object to the synchronous DAO object.
+		}).fail(function() {
+			dao = new __WLSyncDAOWrapper();
+			dao.init();
+			dfd.resolve();
+		});
+		} catch (err){
+			dao = new __WLSyncDAOWrapper();
+			dao.init();
+			dfd.resolve();
+		}
+		return dfd.promise();
+	};
+	
+	/**
+     * Sets an item in the database
+     * @param key
+     * @param value
+     * @returns {*}
+     */
+	this.setItem = function(key, value) {
+		var dfd = WLJQ.Deferred();
+		dao.setItem(key, value).then(function(){
+			dfd.resolve();
+		});
+		return dfd.promise();
+	}
+
+	/**
+     * Gets an item in the database
+     * @param key
+     * @returns {value for given key}
+     */
+	this.getItem = function(key) {
+		var dfd = WLJQ.Deferred();
+		dao.getItem(key).then(function(value) {
+			dfd.resolve(value);
+		});
+		return dfd.promise();
+	}
+
+	/**
+     * Removes an item in the database
+     * @param key
+     * @returns {*}
+     */
+	this.removeItem = function(key) {
+		var dfd = WLJQ.Deferred();
+		dao.removeItem(key).then(function() {
+			dfd.resolve();
+		});
+		return dfd.promise();
+	}
+	
+	/**
+     * Checks if IndexedDB is available and working properly
+     * @returns {bool - true if IndexedDB is available}
+     */
+	this.isIndexedDB = function() {
+		return isIndexedDBEnabled;
+	}
+};
+
+/**
+ * ================================================================= 
+ * Source file taken from :: wldaoasyncwrapper.js
+ * ================================================================= 
+ */
+
+/*
+ Licensed Materials - Property of IBM
+
+ (C) Copyright 2016 IBM Corp.
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+ */
+__WLSyncDAOWrapper = function() {
+	var dao;
+	
+	/**
+     * Initializes the database
+     * @returns {*}
+     */
+	this.init = function() {
+		var dfd = WLJQ.Deferred();
+		dao = new __WLDAO();
+		dao.init();
+		dfd.resolve();
+		return dfd.promise();
+	};
+
+	/**
+     * Sets an item in the Database
+     * @param key
+     * @param value
+     * @returns {*}
+     */
+	this.setItem = function(key, value) {
+		var dfd = WLJQ.Deferred();
+		dao.setItem(key, value);
+		dfd.resolve();
+		return dfd.promise();
+	}
+
+	this.getItem = function(key) {
+		var dfd = WLJQ.Deferred();
+		var value = dao.getItem(key);
+		dfd.resolve(value);
+		return dfd.promise();
+	}
+
+	this.removeItem = function(key) {
+		var dfd = WLJQ.Deferred();
+		dao.removeItem(key);
+		dfd.resolve();
+		return dfd.promise();
+	}
+};
+
+/**
+ * ================================================================= 
+ * Source file taken from :: wlvarstorage.js
+ * ================================================================= 
+ */
+
+/*
+ Licensed Materials - Property of IBM
+
+ (C) Copyright 2016 IBM Corp.
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+ */
+
+__WLVarStorageDB = function() {
+
+	var appNamePrefix;
+	var storage = {};
+
+	/**
+     * Initializes the database and verifies it is accessible
+     * @returns {*}
+     */
+	this.init = function() {
+		appNamePrefix = WL.Config.__getApplicationName();
+	};
+
+    /**
+     * Sets an item in the Database
+     * @param key
+     * @param value
+     * @returns {*}
+     */
+	this.setItem = function(key, value) {
+		var finalKey = buildKey(key);
+		var finalValue = value ? JSON.stringify(value) : null;
+		storage[finalKey] = finalValue;
+	};
+
+    /**
+     * Gets an item in the Database
+     * @param key
+     * @returns {string - JSON representation of value for given key}
+     */
+	this.getItem = function(key) {
+		var finalKey = buildKey(key);
+		value = storage[finalKey];
+		return value ? JSON.parse(value) : null;
+	};
+
+	/**
+     * Removes an item in the database
+     * @param key
+     * @returns {*}
+     */
+	this.removeItem = function(key) {
+		var finalKey = buildKey(key);
+		delete storage[finalKey];
+	};
+
+	
+	 // Builds the key with the appName prefeix
+	function buildKey(key) {
+		return appNamePrefix + '.' + key;
+	}
+};
 
 
 /**
@@ -8047,7 +8461,7 @@ WL.CertManager = (function () {
         WL.Crypto.generateKeyPair().then(
             function (keyPair) {
                 keyPairMapping[keyPairId] = keyPair;
-                WL.IndexDB.saveOrUpdateKeyPair(keyPairId, keyPair).then(
+                saveOrUpdateKeyPair(keyPairId, keyPair).then(
                     function () {
                         dfd.resolve(keyPair);
                     },
@@ -8070,7 +8484,7 @@ WL.CertManager = (function () {
         if (keyPairMapping.hasOwnProperty(keyPairId) && !WL.Validators.isNullOrUndefined(keyPairMapping[keyPairId])) {
             dfd.resolve(keyPairMapping[keyPairId]);
         } else {
-            WL.IndexDB.getKeyPair(keyForDB).then(
+            getKeyPair(keyForDB).then(
                 function (keyPair) {
                     if (!WL.Validators.isNullOrUndefined(keyPair)) {
                         dfd.resolve(keyPair);
@@ -8101,7 +8515,7 @@ WL.CertManager = (function () {
         if (keyPairMapping.hasOwnProperty(keyForDB)) {
             keyPairMapping.keyPairId = null;
         }
-        WL.IndexDB.removeKeyPair(keyForDB).then(
+        removeKeyPair(keyForDB).then(
             function () {
                 dfd.resolve();
             },
@@ -8138,8 +8552,93 @@ WL.CertManager = (function () {
 
         return dfd.promise();
     };
+    
+    var saveOrUpdateKeyPair = function(keyId, keypair) {
+        var dfd = WLJQ.Deferred();
+        var privateKeyKey = keyId + '.private.key';
+        var publicKeyKey = keyId + '.public.key';
+        var privateKey = keypair.privateKey;
+        var publicKey = keypair.publicKey;
+
+        // Save public key
+        WL.AsyncDAO.setItem(publicKeyKey, publicKey).then(
+            function(){
+                // Save private key
+            	WL.AsyncDAO.setItem(privateKeyKey, privateKey).then(
+                   function(){
+                   dfd.resolve();
+               },
+                   function(error){
+                       dfd.reject(error);
+               })
+        }, function(error){
+                dfd.reject(error);
+        });
+        return dfd.promise();
+    };
+
+
+    var getKeyPair = function(keyId) {
+        var dfd = WLJQ.Deferred();
+        var privateKeyKey = keyId + '.private.key';
+        var publicKeyKey = keyId + '.public.key';
+        var keypair = {};
+        //Get private key
+        WL.AsyncDAO.getItem(privateKeyKey).then(
+            function(privateKey){
+                if(!privateKey) {
+                    dfd.resolve(null);
+                }
+                // Continue to  get public key
+                keypair['privateKey'] = privateKey;
+                WL.AsyncDAO.getItem(publicKeyKey).then(
+                    function(publicKey){
+                        if(!publicKey) {
+                            dfd.resolve(null);
+                        }
+                        // Got both keys
+                        keypair['publicKey'] = publicKey;
+                        dfd.resolve(keypair);
+                    },
+                    function(e){
+                        dfd.reject(e);
+                });
+        }, function(e){
+                dfd.reject(e);
+        });
+        return dfd.promise();
+    };
+
+    var removeKeyPair = function(keyId) {
+        var dfd = WLJQ.Deferred();
+        var privateKeyKey = keyId + '.private.key';
+        var publicKeyKey = keyId + '.public.key';
+        WL.AsyncDAO.removeItem(privateKeyKey).always(
+            function(){
+            	WL.AsyncDAO.removeItem(publicKeyKey).always(function(){
+                dfd.resolve();
+            });
+        });
+        return dfd.promise();
+    };
+    
+    var init = function(){
+        var dfd = WLJQ.Deferred();
+    	__WL.prototype.AsyncDAO = new __WLAsyncDAO();
+    	WL.AsyncDAO = new __WLAsyncDAO();
+    	WL.AsyncDAO.init().done(
+                function () {
+                	new __WLCrypto();
+                    dfd.resolve();
+                },
+                function (error) {
+                    dfd.reject(error);
+                });
+    	return dfd.promise();
+    };
 
     return {
+    	init:init,
         signJWS: signJWS,
         deleteKeyPair: deleteKeyPair,
         getOrCreateKeyPair: getOrCreateKeyPair

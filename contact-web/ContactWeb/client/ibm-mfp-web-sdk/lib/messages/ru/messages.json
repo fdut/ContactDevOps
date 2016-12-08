@@ -2,7 +2,7 @@
 "IBM-INTERNAL" : "Личные данные для пользователя" ,
 "accessDenied" : "Доступ запрещен",
 "authFailure" : "Произошла ошибка при обработке запроса из приложения.",
-"applicationDenied" : "Доступ к серверу выключен",
+"applicationDenied" : "Приложение выключено",
 "browserIsNotSupported" : "{0} в настоящее время не поддерживается.",
 "cancel" : "Отмена",
 "close" : "Закрыть",
@@ -26,9 +26,9 @@
 "diagErrorMessage" : "Сообщение",
 "diagHttpStatus" : "Состояние HTTP",
 "diagIPAddress" : "IP-адрес",
-"directUpdateNotificationTitle" : "Доступно обновление",
-"directUpdateNotificationMessage" : "Доступные новые веб-ресурсы. Загрузить их сейчас? (Размер файла: {0} МБ).",
-"directUpdateNotificationMessageKilobytes" : "Доступные новые веб-ресурсы. Загрузить их сейчас? (Размер файла: {0} КБ).",
+"directUpdateNotificationTitle" : "Есть обновление",
+"directUpdateNotificationMessage" : "Доступные новые веб-ресурсы. Подтвердите обновление. (Размер файла: {0} МБ).",
+"directUpdateNotificationMessageKilobytes" : "Доступные новые веб-ресурсы. Подтвердите обновление. (Размер файла: {0} КБ).",
 "directUpdateErrorTitle" : "Обновление не выполнено",
 "directUpdateErrorMessage" : "Сбой прямого обновления.",
 "directUpdateErrorMessageNotEnoughStorage" : "Для приложения доступно обновление, но в устройстве недостаточно памяти (необходимый объем: {0} МБ, доступно: {1} МБ).",
@@ -69,7 +69,7 @@
 "serverError" : "Ошибка вызова процедуры.",
 "tryAgain" : "Повторите попытку",
 "userInstanceAccessViolationException" : "Попытка входа в систему приложения, которое для вас не зарегистрировано.",
-"unexpectedError" : "Серверу не удалось обработать запрос из приложения. Попробуйте позднее.",
+"unexpectedError" : "Серверу не удалось обработать запрос из приложения. Повторите операцию позднее.",
 "unresponsiveHost" : "В данный момент служба недоступна.",
 "update" : "Обновить",
 "upgrade" : "Обновить",
@@ -79,6 +79,7 @@
 "userEnrollmentUnsupportedOS" : "Ошибка сертификата пользователя: неподдерживаемая платформа клиента.",
 "failureCallingMethod" : "Ошибка вызова {0}",
 "challengeHandlingCanceled" : "Операция обработчика вызовов была отменена.",
-"unsupportedEnvironment" : "Неподдерживаемая среда"
+"unsupportedEnvironment" : "Неподдерживаемая среда",
+"redirect" : "Перенаправление"
 }
 

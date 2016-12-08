@@ -1,8 +1,8 @@
 {
-"IBM-INTERNAL" : "" ,
+"IBM-INTERNAL" : "PII user facing" ,
 "accessDenied" : "הגישה חסומה",
 "authFailure" : "אירעה שגיאה בעיבוד הבקשה מהיישום.",
-"applicationDenied" : "הגישה לשרת מושבתת",
+"applicationDenied" : "היישום מושבת",
 "browserIsNotSupported" : "{0} אינו נתמך כרגע.",
 "cancel" : "ביטול",
 "close" : "סגירה",
@@ -26,9 +26,9 @@
 "diagErrorMessage" : "הודעת שגיאה",
 "diagHttpStatus" : "מצב HTTP",
 "diagIPAddress" : "כתובת IP",
-"directUpdateNotificationTitle" : "זמין עדכון",
-"directUpdateNotificationMessage" : "זמינים משאבי רשת חדשים יותר. האם ברצונכם להוריד אותם עכשיו? (גודל הקובץ הוא {0} ‏MB).‏ ",
-"directUpdateNotificationMessageKilobytes" : "זמינים משאבי רשת חדשים יותר. האם ברצונכם להוריד אותם עכשיו? (גודל הקובץ הוא {0} ‏KB).‏",
+"directUpdateNotificationTitle" : "יש עדכון זמין",
+"directUpdateNotificationMessage" : "זמינים משאבי רשת חדשים יותר. אשרו כדי לעדכן. (גודל הקובץ הוא {0} ‏MB).‏",
+"directUpdateNotificationMessageKilobytes" : "זמינים משאבי רשת חדשים יותר. אשרו כדי לעדכן. (גודל הקובץ הוא {0} ‏KB).‏",
 "directUpdateErrorTitle" : "העדכון נכשל",
 "directUpdateErrorMessage" : "כשל בעדכון הישיר.",
 "directUpdateErrorMessageNotEnoughStorage" : "זמין עדכון עבור היישום, אך אין מספיק מקום זמין בהתקן (גודל דרוש: {0} MB,‏ שטח זמין: {1} MB‏).",
@@ -79,6 +79,7 @@
 "userEnrollmentUnsupportedOS" : "כשל באימות אישור משתמש: פלטפורמת לקוח לא נתמכת.",
 "failureCallingMethod" : "כשל בקריאה למתודה {0}",
 "challengeHandlingCanceled" : "Challenge handler operation was cancelled.‎",
-"unsupportedEnvironment" : "סביבה לא נתמכת"
+"unsupportedEnvironment" : "סביבה לא נתמכת",
+"redirect" : "ניתוב"
 }
 

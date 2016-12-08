@@ -32,10 +32,32 @@
         KEY_LOCAL_STORAGE_ANALYTICS = '__WL_WEBLOG_ANALYTICS__',
         KEY_LOCAL_STORAGE_CONFIG = '__WL_WEBLOG_CONFIG__',
         KEY_REMOTE_STORAGE_CONFIG = '__WL_WEBLOG_REMOTE_CONFIG__',
+        
 
         DEFAULT_MAX_STORAGE_SIZE = 500000,
         BUFFER_TIME_IN_MILLISECONDS = 60000,
-        sendLogsTimeBuffer = 0;
+        sendLogsTimeBuffer = 0,
+
+		analyticsLocalStorage = {
+        		appNamePrefix:'',
+        		
+        		init: function(appName) {
+        			this.appNamePrefix=appName;
+        		},
+        		
+        		getItem: function(key) {
+                	return localStorage.getItem(this.appNamePrefix + '.' + key);
+                },
+                
+                setItem: function(key,value) {
+                	localStorage.setItem(this.appNamePrefix + '.' + key, value);
+                },
+                
+                removeItem: function(key) {
+        			localStorage.removeItem(this.appNamePrefix + '.' + key);
+                }
+        };
+
         var LEFT_BRACKET = '[';
     	var RIGHT_BRACKET = '] '; //There's a space at the end.
     	var _ANSALYTICS_PKG_NAME = 'wl.analytics';
@@ -44,6 +66,7 @@
         var startupTime = 0;
         var appSessionID = generateUUID('new');
         var userID = '';
+        var clientId = '';
         var state = __getStateDefaults();
         
         	// Private variables
@@ -81,7 +104,7 @@
     };
 
 	var __usingLocalConfiguration = function(){
-		var configurationString = localStorage.getItem(KEY_REMOTE_STORAGE_CONFIG);
+		var configurationString = analyticsLocalStorage.getItem(KEY_REMOTE_STORAGE_CONFIG);
 
 		if(configurationString == null){
 			return true;
@@ -90,37 +113,12 @@
 		return false;
 	};
 
+
 	/*
 	*	INIT - Load state if persisted. Else get default state
 	*/
 	(function(){
-		try {
-			if (typeof(Storage) !== 'undefined') {
 
-				var configurationString = null;
-
-				if(__usingLocalConfiguration()){
-					configurationString = localStorage.getItem(KEY_LOCAL_STORAGE_CONFIG);
-				}else{
-					configurationString = localStorage.getItem(KEY_REMOTE_STORAGE_CONFIG);
-				}
-
-				if (configurationString === null){
-				  var state = __state();
-				  state.maxFileSize = DEFAULT_MAX_STORAGE_SIZE;
-				  __updateState(state);
-
-				  var stateString = JSON.stringify(state);
-				  localStorage.setItem(KEY_LOCAL_STORAGE_CONFIG, stateString);
-				} else {
-				  var configuration = JSON.parse(configurationString);
-				  __updateState(configuration);
-				}
-				_init();
-			}
-		} catch ( err ) {
-			console.err(err.message);
-		}
 	})();
 	
 	function generateUUID(newSession) {
@@ -177,6 +175,9 @@
 		    	else if (duration > 1800000) {
 		   			logAnalyticsSessionStop();
 		    	}
+		    	if(clientId != ""){
+						metadataHeader.clientID = clientId;
+				}
 		    	startupTime = new Date().getTime();
 				this.setRequestHeader("x-wl-analytics-tracking-id", this.trackingId);
 				this.setRequestHeader("x-mfp-analytics-metadata", JSON.stringify(metadataHeader));
@@ -301,7 +302,7 @@
 				
 				var logData = {
 				 'pkg': 'wl.analytics',
-				 'timestamp': __formatDate(new Date(), '%d-%M-%Y %H:%m:%s:%ms'),
+				 'timestamp': new Date().getTime(),
 				 'level': 'ANALYTICS',
 				 'msg': 'InternalRequestSender outbound',
 				 'metadata': logMetadata
@@ -341,8 +342,12 @@
 						metadata['$bytesReceived'] = numBytes;
 						metadata['$roundTripTime'] = roundTripTime;
 						metadata['$responseCode'] = request.status;
-						metadata['$requestMethod'] = 'post';//TODO request.status;
-						metadata['$path'] = request.resposeURL;
+						var method = null;
+						if(request.requestOptions != null){
+							 var method = request.requestOptions.method;
+						}
+						metadata['$requestMethod'] = method;
+						metadata['$path'] = request.responseURL;
 						
 						request.networkMetadata = metadata;
 
@@ -351,7 +356,7 @@
 					
 					var logData = {
 					 'pkg': 'wl.analytics',
-					 'timestamp': __formatDate(new Date(), '%d-%M-%Y %H:%m:%s:%ms'),
+					 'timestamp': new Date().getTime(),
 					 'level': 'ANALYTICS',
 					 'msg': 'InternalRequestSender logInboundResponse',
 					 'metadata': metadata
@@ -370,7 +375,7 @@
 				
 				var logData = {
 				 'pkg': 'wl.analytics',
-				 'timestamp': __formatDate(new Date(), '%d-%M-%Y %H:%m:%s:%ms'),
+				 'timestamp': new Date().getTime(),
 				 'level': 'ANALYTICS',
 				 'msg': 'InternalRequestSender logInboundResponse',
 				 'metadata': metadata
@@ -385,7 +390,7 @@
     function getLogsData(keys){
         var persistedLogs = '';
         keys.forEach(function(key){
-            var value = localStorage.getItem(key);
+            var value = analyticsLocalStorage.getItem(key);
             if(value !== null){
             	if (persistedLogs !== ''){
             		persistedLogs += ',';
@@ -414,7 +419,7 @@
     		}
 
     		var stringified = JSON.stringify(log);
-    		var persistedLogs = localStorage.getItem(key);
+    		var persistedLogs = analyticsLocalStorage.getItem(key);
 
     		if(persistedLogs === null){
     			persistedLogs = stringified;
@@ -423,7 +428,7 @@
     		}
 
     		try{
-    			localStorage.setItem(key, persistedLogs);
+    			analyticsLocalStorage.setItem(key, persistedLogs);
     		}catch(e){
     			console.log('analytics: Local storage capacity reached. Client logs will not be persisted');
     		}
@@ -431,13 +436,13 @@
 
     	var __attemptFileSwap = function(){
     		try{
-    			var currentLogs = localStorage.getItem(KEY_LOCAL_STORAGE_LOGS);
-    			localStorage.setItem(KEY_LOCAL_STORAGE_SWAP, currentLogs);
-    			localStorage.removeItem(KEY_LOCAL_STORAGE_LOGS);
+    			var currentLogs = analyticsLocalStorage.getItem(KEY_LOCAL_STORAGE_LOGS);
+    			analyticsLocalStorage.setItem(KEY_LOCAL_STORAGE_SWAP, currentLogs);
+    			analyticsLocalStorage.removeItem(KEY_LOCAL_STORAGE_LOGS);
     		}catch(e){
     			console.log('analytics: Local storage capacity reached. WL.Logger will delete old logs to make room for new ones.');
-    			localStorage.removeItem(KEY_LOCAL_STORAGE_LOGS);
-    			localStorage.removeItem(KEY_LOCAL_STORAGE_SWAP);
+    			analyticsLocalStorage.removeItem(KEY_LOCAL_STORAGE_LOGS);
+    			analyticsLocalStorage.removeItem(KEY_LOCAL_STORAGE_SWAP);
     		}
     	};
 
@@ -451,15 +456,15 @@
     		if(config && config.clientLogProfileConfig){
     			console.log('analytics: Matching configuration successfully retrieved from the server.');
     			var wllogger = config.clientLogProfileConfig;
-    		    localStorage.setItem(KEY_REMOTE_STORAGE_CONFIG, localStorage.getItem(KEY_LOCAL_STORAGE_CONFIG));
+    		    analyticsLocalStorage.setItem(KEY_REMOTE_STORAGE_CONFIG, analyticsLocalStorage.getItem(KEY_LOCAL_STORAGE_CONFIG));
     		    state.levelFromServer = null;
     		    state.filtersFromServer = null;
     			__setServerOverrides(wllogger.clientLogProfiles);
     		}else{
     			console.log('analytics: No matching configurations found from the server. Defaulting to local configuration');
-    			localStorage.removeItem(KEY_REMOTE_STORAGE_CONFIG);
+    			analyticsLocalStorage.removeItem(KEY_REMOTE_STORAGE_CONFIG);
 
-    			var configurationString = localStorage.getItem(KEY_LOCAL_STORAGE_CONFIG);
+    			var configurationString = analyticsLocalStorage.getItem(KEY_LOCAL_STORAGE_CONFIG);
     			var configuration = JSON.parse(configurationString);
                 __updateState(configuration);
                 __unsetServerOverrides();
@@ -757,7 +762,7 @@
 	   };
    
 		function __fileSizeReached(key){
-			var persistedLogs = localStorage.getItem(key);
+			var persistedLogs = analyticsLocalStorage.getItem(key);
 			if(persistedLogs === null) {
 		       return false;
 			}
@@ -776,34 +781,6 @@
 
 			return false;
 		};
-
-		function __formatDate (date, fmt) {
-			function pad(value) {
-		  		return (value.toString().length < 2) ? '0' + value : value;
-			}
-		
-		return fmt.replace(/%([a-zA-Z])/g, function (m, fmtCode) {
-		  switch (fmtCode) {
-			case 'Y':
-			return date.getFullYear();
-			case 'M':
-			return pad(date.getMonth() + 1);
-			case 'd':
-			return pad(date.getDate());
-			case 'H':
-			return pad(date.getHours());
-			case 'm':
-			return pad(date.getMinutes());
-			case 's':
-			return pad(date.getSeconds());
-			case 'ms':
-			return pad(date.getMilliseconds());
-			default:
-			throw new Error('Unsupported format code: ' + fmtCode);
-		  }
-	   });
-	  };
-
 
     function __getStateDefaults() {
         var udf;  // because undefined can be overridden
@@ -832,9 +809,9 @@
 
     function __resetState() {
         state = __getStateDefaults();
-        localStorage.removeItem('__WL_WEBLOG_LOGS__');
-        localStorage.removeItem('__WL_WEBLOG_ANALYTICS__');
-        localStorage.removeItem('__WL_WEBLOG_CONFIG__');        
+        analyticsLocalStorage.removeItem('__WL_WEBLOG_LOGS__');
+        analyticsLocalStorage.removeItem('__WL_WEBLOG_ANALYTICS__');
+        analyticsLocalStorage.removeItem('__WL_WEBLOG_CONFIG__');        
         return this;
     };
 
@@ -958,9 +935,9 @@
             	var stateString = JSON.stringify(state);
 
             	if(__usingLocalConfiguration()){
-            		  localStorage.setItem(KEY_LOCAL_STORAGE_CONFIG, stateString);
+            		  analyticsLocalStorage.setItem(KEY_LOCAL_STORAGE_CONFIG, stateString);
             	}else{
-            		  localStorage.setItem(KEY_REMOTE_STORAGE_CONFIG, stateString);
+            		  analyticsLocalStorage.setItem(KEY_REMOTE_STORAGE_CONFIG, stateString);
             		  }
           }
     };
@@ -1092,6 +1069,9 @@
 					var pkg = logArgArray[1];
 					var msg = logArgArray[2];
 					var meta = logArgArray[3];
+					if(clientId != ""){
+						meta["$clientId"] = clientId;
+					}
 					var time = logArgArray[4];
 
 					var logData = {
@@ -1162,7 +1142,12 @@
         return this;
     };
     
-    function __sendAll() {
+    function __sendAll(checkAutoSend) {
+    	if(typeof(checkAutoSend) === "boolean"){
+    		if(checkAutoSend === true){
+    			return _processAutomaticTrigger();
+    		}
+    	}
         return __send([KEY_LOCAL_STORAGE_ANALYTICS,KEY_LOCAL_STORAGE_LOGS, KEY_LOCAL_STORAGE_SWAP]);
     };
 
@@ -1309,7 +1294,7 @@
 
     function emptyLogs(keys){
             keys.forEach(function(key){
-                localStorage.removeItem(key);
+                analyticsLocalStorage.removeItem(key);
             });
     };
 
@@ -1374,6 +1359,35 @@
     	if (appName != null && appName != ''){
     		metadataHeader.mfpAppName = appName;
     	}
+    	
+    	analyticsLocalStorage.init(metadataHeader.mfpAppName);
+		try {
+			if (typeof(Storage) !== 'undefined') {
+
+				var configurationString = null;
+
+				if(__usingLocalConfiguration()){
+					configurationString = analyticsLocalStorage.getItem(KEY_LOCAL_STORAGE_CONFIG);
+				}else{
+					configurationString = analyticsLocalStorage.getItem(KEY_REMOTE_STORAGE_CONFIG);
+				}
+
+				if (configurationString === null){
+				  var state = __state();
+				  state.maxFileSize = DEFAULT_MAX_STORAGE_SIZE;
+				  __updateState(state);
+
+				  var stateString = JSON.stringify(state);
+				  analyticsLocalStorage.setItem(KEY_LOCAL_STORAGE_CONFIG, stateString);
+				} else {
+				  var configuration = JSON.parse(configurationString);
+				  __updateState(configuration);
+				}
+			}
+		} catch ( err ) {
+			return console.error(err.message);
+		}
+    	
     	if (userID == '') {
     		userID = metadataHeader.deviceID;
     	}
@@ -1488,8 +1502,12 @@
 		  }
 	  }
 	
-	function _setAutoSendLogs(autoSend) {
+	function _enableAutoSend(autoSend) {
 		_config({autoSendLogs: typeof(autoSend) === "boolean" ? autoSend : true});
+	};
+	
+	var _setClientId = function (newClientId) {
+		 clientId = newClientId;	
 	};
 
 	//public API
@@ -1501,9 +1519,9 @@
 		setUserContext: _setUserContext,
 		addEvent: _event,
 		logger: logger,
-		setAutoSendLogs: _setAutoSendLogs,
-        processAutomaticTrigger: _processAutomaticTrigger,
-		_config:_config
+		enableAutoSend: _enableAutoSend,
+		_config:_config,
+		_setClientId:_setClientId
 	}
 
 }));

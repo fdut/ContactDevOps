@@ -2,7 +2,7 @@
 "IBM-INTERNAL" : "Para el usuario de PII" ,
 "accessDenied" : "Acceso denegado",
 "authFailure" : "Se ha producido un error al procesar la solicitud desde la aplicación.",
-"applicationDenied" : "El acceso al servidor está inhabilitado",
+"applicationDenied" : "Aplicación inhabilitada",
 "browserIsNotSupported" : "{0} no está actualmente soportado.",
 "cancel" : "Cancelar",
 "close" : "Cerrar",
@@ -27,10 +27,10 @@
 "diagHttpStatus" : "Estado HTTP",
 "diagIPAddress" : "Dirección IP",
 "directUpdateNotificationTitle" : "Actualización disponible",
-"directUpdateNotificationMessage" : "Hay disponibles nuevos recursos web. ¿Desea descargarlos ahora? (tamaño de archivo: {0} MB).",
-"directUpdateNotificationMessageKilobytes" : "Hay disponibles nuevos recursos web. ¿Desea descargarlos ahora? (tamaño de archivo: {0} KB).",
+"directUpdateNotificationMessage" : "Hay disponibles nuevos recursos web. Confirme para actualizar. (tamaño archivos: {0} MB).",
+"directUpdateNotificationMessageKilobytes" : "Hay disponibles nuevos recursos web. Confirme para actualizar. (tamaño archivos: {0} KB).",
 "directUpdateErrorTitle" : "Actualización fallida",
-"directUpdateErrorMessage" : "Actualización directa fallida.",
+"directUpdateErrorMessage" : "Anomalía en Direct Update. ",
 "directUpdateErrorMessageNotEnoughStorage" : "Hay una actualización disponible para la aplicación, pero no hay suficiente espacio disponible en el dispositivo (espacio necesario: {0} MB, espacio disponible: {1} MB).",
 "directUpdateErrorMessageFailedDownloadingZipFile" : "Ha fallado la descarga del archivo de actualización de aplicación.",
 "directUpdateErrorMessageFailedProcessingZipFile" : "Ha fallado el proceso del archivo de actualización de la aplicación.",
@@ -79,6 +79,7 @@
 "userEnrollmentUnsupportedOS" : "Error de autenticación de certificado de usuario: plataforma de cliente no soportada.",
 "failureCallingMethod" : "Error de llamada {0}",
 "challengeHandlingCanceled" : "Se ha cancelado la operación del manejador de desafíos.",
-"unsupportedEnvironment" : "Entorno no soportado"
+"unsupportedEnvironment" : "Entorno no soportado",
+"redirect" : "Redireccionar"
 }
 

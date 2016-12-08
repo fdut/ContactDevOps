@@ -1,11 +1,16 @@
 {
   "name": "ibm-mfp-web-sdk",
-  "version": "8.0.2016070716",
+  "version": "8.0.2016112109",
   "description": "IBM MobileFirst Platform Foundation Web Environment SDK",
   "author": {
     "name": "IBM"
   },
   "main": "ibmmfpf.js",
+  "homepage": "https://hub.jazz.net/project/ibmmfpf/ibm-mfp-web-sdk",
+  "repository": {
+    "type": "git",
+    "url": "https://hub.jazz.net/git/ibmmfpf/ibm-mfp-web-sdk"
+  },
   "typings": "./lib/typings/ibmmfpf.d.ts",
   "keywords": [
     "ibm",
@@ -15,24 +20,25 @@
     "web sdk",
     "cordova-web"
   ],
-  "repository": {
-    "type": "git",
-    "url": "https://hub.jazz.net/git/ibmmfpf/ibm-mfp-web-sdk"
-  },
   "license": "SEE LICENSE IN LICENSE.TXT",
-  "_id": "ibm-mfp-web-sdk@8.0.2016070716",
+  "dependencies": {
+    "promiz": "1.0.5",
+    "jssha": "2.2.0",
+    "sjcl": "1.0.3"
+  },
+  "_id": "ibm-mfp-web-sdk@8.0.2016112109",
   "scripts": {},
-  "_shasum": "dda89814b1f3be4ff8f7e4b9b650afdcacc552d8",
+  "_shasum": "008b069360dd632e0b31a103cbb9c54ab56a9c41",
   "_from": "ibm-mfp-web-sdk@latest",
-  "_npmVersion": "3.7.3",
-  "_nodeVersion": "5.9.1",
+  "_npmVersion": "3.8.7",
+  "_nodeVersion": "5.10.1",
   "_npmUser": {
     "name": "ibmmfpf",
     "email": "ibmmfpf@us.ibm.com"
   },
   "dist": {
-    "shasum": "dda89814b1f3be4ff8f7e4b9b650afdcacc552d8",
-    "tarball": "https://registry.npmjs.org/ibm-mfp-web-sdk/-/ibm-mfp-web-sdk-8.0.2016070716.tgz"
+    "shasum": "008b069360dd632e0b31a103cbb9c54ab56a9c41",
+    "tarball": "https://registry.npmjs.org/ibm-mfp-web-sdk/-/ibm-mfp-web-sdk-8.0.2016112109.tgz"
   },
   "maintainers": [
     {
@@ -41,9 +47,9 @@
     }
   ],
   "_npmOperationalInternal": {
-    "host": "packages-16-east.internal.npmjs.com",
-    "tmp": "tmp/ibm-mfp-web-sdk-8.0.2016070716.tgz_1468175077573_0.8568019485101104"
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/ibm-mfp-web-sdk-8.0.2016112109.tgz_1481147811906_0.49092598678544164"
   },
   "directories": {},
-  "_resolved": "https://registry.npmjs.org/ibm-mfp-web-sdk/-/ibm-mfp-web-sdk-8.0.2016070716.tgz"
+  "_resolved": "https://registry.npmjs.org/ibm-mfp-web-sdk/-/ibm-mfp-web-sdk-8.0.2016112109.tgz"
 }

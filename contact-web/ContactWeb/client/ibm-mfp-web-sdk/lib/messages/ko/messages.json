@@ -2,7 +2,7 @@
 "IBM-INTERNAL" : "PII 사용자 지향" ,
 "accessDenied" : "액세스 거부됨",
 "authFailure" : "애플리케이션의 요청을 처리하는 중에 오류가 발생했습니다.",
-"applicationDenied" : "서버에 대한 액세스 사용 안함",
+"applicationDenied" : "애플리케이션 사용 안함",
 "browserIsNotSupported" : "{0}은(는) 현재 지원되지 않습니다.",
 "cancel" : "취소",
 "close" : "닫기",
@@ -27,10 +27,10 @@
 "diagHttpStatus" : "HTTP 상태",
 "diagIPAddress" : "IP 주소",
 "directUpdateNotificationTitle" : "업데이트 사용 가능",
-"directUpdateNotificationMessage" : "최신 웹 자원이 사용 가능합니다. 지금 다운로드하시겠습니까? (파일 크기: {0}MB).",
-"directUpdateNotificationMessageKilobytes" : "최신 웹 자원이 사용 가능합니다. 지금 다운로드하시겠습니까? (파일 크기: {0}KB).",
+"directUpdateNotificationMessage" : "최신 웹 자원이 사용 가능합니다. 업데이트 확인(파일 크기: {0}MB).",
+"directUpdateNotificationMessageKilobytes" : "최신 웹 자원이 사용 가능합니다. 업데이트 확인(파일 크기: {0}KB).",
 "directUpdateErrorTitle" : "업데이트 실패",
-"directUpdateErrorMessage" : "직접 업데이트 실패",
+"directUpdateErrorMessage" : "직접 업데이트에 실패했습니다.",
 "directUpdateErrorMessageNotEnoughStorage" : "애플리케이션에 대한 업데이트를 사용할 수 있지만 디바이스의 사용 가능한 공간이 충분하지 않습니다(필수 크기: {0}MB, 사용 가능한 공간: {1} MB).",
 "directUpdateErrorMessageFailedDownloadingZipFile" : "애플리케이션 업데이트 파일을 다운로드하는 데 실패했습니다.",
 "directUpdateErrorMessageFailedProcessingZipFile" : "애플리케이션 업데이트 파일을 처리하는 데 실패했습니다.",
@@ -79,6 +79,7 @@
 "userEnrollmentUnsupportedOS" : "사용자 인증 실패: 지원되지 않는 클라이언트 플랫폼",
 "failureCallingMethod" : "{0} 호출 실패",
 "challengeHandlingCanceled" : "인증 확인 핸들러 조작이 취소되었습니다.",
-"unsupportedEnvironment" : "지원되지 않는 환경"
+"unsupportedEnvironment" : "지원되지 않는 환경",
+"redirect" : "경로 재지정"
 }
 

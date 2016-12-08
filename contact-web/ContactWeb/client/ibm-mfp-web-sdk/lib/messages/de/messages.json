@@ -1,8 +1,8 @@
 {
-"IBM-INTERNAL" : "" ,
+"IBM-INTERNAL" : "PII user facing" ,
 "accessDenied" : "Zugriff verweigert",
 "authFailure" : "Beim Verarbeiten der Anforderung von der Anwendung wurde ein Fehler festgestellt.",
-"applicationDenied" : "Inaktivierter Zugriff auf den Server",
+"applicationDenied" : "Anwendung inaktiviert",
 "browserIsNotSupported" : "{0} wird momentan nicht unterstützt.",
 "cancel" : "Abbrechen",
 "close" : "Schließen",
@@ -27,8 +27,8 @@
 "diagHttpStatus" : "HTTP-Status",
 "diagIPAddress" : "IP-Adresse",
 "directUpdateNotificationTitle" : "Aktualisierung verfügbar",
-"directUpdateNotificationMessage" : "Es sind neuere Webressourcen verfügbar. Möchten Sie sie jetzt herunterladen? (Dateigröße: {0} MB)",
-"directUpdateNotificationMessageKilobytes" : "Es sind neuere Webressourcen verfügbar. Möchten Sie sie jetzt herunterladen? (Dateigröße: {0} KB)",
+"directUpdateNotificationMessage" : "Es stehen neuere Webressourcen zur Verfügung. Für Aktualisierung bestätigen (Dateigröße: {0} MB).",
+"directUpdateNotificationMessageKilobytes" : "Es stehen neuere Webressourcen zur Verfügung. Für Aktualisierung bestätigen (Dateigröße: {0} KB).",
 "directUpdateErrorTitle" : "Aktualisierung fehlgeschlagen",
 "directUpdateErrorMessage" : "Die direkte Aktualisierung ist fehlgeschlagen.",
 "directUpdateErrorMessageNotEnoughStorage" : "Für die Anwendung steht ein Update zur Verfügung, aber es ist nicht genügend Speicherplatz auf den Gerät vorhanden (erforderlicher Speicherplatz: {0} MB, verfügbarer Speicherplatz: {1} MB).",
@@ -79,6 +79,7 @@
 "userEnrollmentUnsupportedOS" : "Fehler bei der Authentifizierung des Benutzerzertifikats. Nicht unterstützte Clientplattform.",
 "failureCallingMethod" : "Fehler beim Aufrufen von {0}",
 "challengeHandlingCanceled" : "Die Abfrage-Handler-Operation wurde abgebrochen.",
-"unsupportedEnvironment" : "Nicht unterstützte Umgebung"
+"unsupportedEnvironment" : "Nicht unterstützte Umgebung",
+"redirect" : "Umleiten"
 }
 
