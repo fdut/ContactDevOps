@@ -3,14 +3,17 @@
 # To use Node.js 0.12.7, uncomment the following line:
 # #export PATH=/opt/IBM/node-v0.12/bin:$PATH
 # To use Node.js 4.2.2, uncomment the following line:
+# Type : npm
+# Entry : Git https://github.com/fdut/ContactDevOps
+
+
+
 export PATH=/opt/IBM/node-v4.2/bin:$PATH
 
 echo "#### npm install -g mfpdev-cli"
 npm install -g mfpdev-cli
-
 echo "#### mfpdev --version"
 mfpdev --version
 cd contact-adapter/contactAdapter
-
 echo "#### mfpdev adapter build"
 mfpdev adapter build

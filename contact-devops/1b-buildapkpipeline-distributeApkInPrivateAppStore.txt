@@ -1,0 +1,19 @@
+# Distribute APK in Private AppStore
+# Type Schell 
+# Entry : Build Android APK Artefacts
+
+#!/bin/bash
+# your script here
+
+uname -a
+java -version
+ls -l $WORKSPACE
+
+
+cd $WORKSPACE/contact-tools/appcenter
+./deploy.sh -u $username -p $password -s "http://82.247.51.50:7060" -f $WORKSPACE/contact-app/platforms/android/build/outputs/apk/android-debug.apk
+
+# Remove Android-sdk
+rm -rf $WORKSPACE/android-sdk-linux
+rm -rf $WORKSPACE/contact-app/platforms
+

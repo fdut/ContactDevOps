@@ -3,17 +3,16 @@
 # To use Node.js 0.12.7, uncomment the following line:
 # #export PATH=/opt/IBM/node-v0.12/bin:$PATH
 # To use Node.js 4.2.2, uncomment the following line:
+# Type : npm
+
 export PATH=/opt/IBM/node-v4.2/bin:$PATH
 
 echo "#### npm install -g mfpdev-cli"
 npm install -g mfpdev-cli
-
 echo "#### mfpdev --version"
 mfpdev --version
 cd contact-adapter/contactAdapter
-
 echo "#### adding server definition"
-mfpdev server add mfpbluemix --url 'https://mfp-myunicity-ts-server.mybluemix.net:443' --login '<USER>' --password '<PASSWORD>' --setdefault
-
+mfpdev server add mfpbluemix --url $serverurl --login $username --password $password --setdefault
 echo "#### deploying adapter"
 mfpdev adapter deploy

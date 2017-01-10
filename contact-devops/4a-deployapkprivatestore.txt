@@ -1,9 +1,0 @@
-#!/bin/bash
-# your script here
-
-uname -a
-java -version
-env
-
-cd contact-tools/appcenter
-./deploy -u "<USER>" -p "<PASSWORD>" -s "<SERVER>" -f android-debug.apk
