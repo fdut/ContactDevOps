@@ -21,7 +21,7 @@
     </feature>
     <mfp:android>
         <mfp:sdkChecksum>3937717781</mfp:sdkChecksum>
-        <mfp:appChecksum>1259124885</mfp:appChecksum>
+        <mfp:appChecksum>3005210668</mfp:appChecksum>
         <mfp:security>
             <mfp:testWebResourcesChecksum enabled="false" ignoreFileExtensions="png, jpg, jpeg, gif, mp4, mp3" />
         </mfp:security>
@@ -54,7 +54,7 @@
         </mfp:windows10>
         <mfp:appChecksum>0</mfp:appChecksum>
     </mfp:windows>
-    <mfp:platformVersion>8.0.0.00-20161014-1546</mfp:platformVersion>
+    <mfp:platformVersion>8.0.0.00-20170328-091204</mfp:platformVersion>
     <mfp:clientCustomInit enabled="false" />
     <mfp:server runtime="mfp" url="https://mfp-myunicity-ts-server.mybluemix.net:443" />
     <mfp:directUpdateAuthenticityPublicKey />
