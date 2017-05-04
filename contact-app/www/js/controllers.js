@@ -5,8 +5,36 @@ angular.module('app.controllers', [])
   $scope.displayError = false;
 
   $scope.getcontacts = function() {
-  var contactsRequest = new WLResourceRequest(
-    "/adapters/contactAdapter/getcontacts",
+
+// -- START -- Code Direct API  (SANS MFP ADAPTER)
+    
+  var urlBase = 'https://randomuser.me/api/?results=25&nat=fr'; //MUST REPLACE WITH API URL
+
+  var headersBase =
+
+  {
+    'content-type': 'application/json',
+    'accept': 'application/json'
+   }
+
+   var req = {
+    method: 'GET',
+    url: urlBase,
+    headers: headersBase
+    }
+
+  $http(req).then(function(response){
+    console.log(JSON.stringify(response));
+      $scope.contacts = response.data.results;
+    });
+  
+  // --- END --  Code Direct API   
+
+
+  // -- START -- Code for MFP Adapter  
+/*
+ var contactsRequest = new WLResourceRequest(
+    "/adapters/contactAdapterRandomme/getcontacts",
     WLResourceRequest.GET
   );
 
@@ -26,6 +54,9 @@ angular.module('app.controllers', [])
   function getcontactsFailure(result){
     console.log('Failed to get a contacts list', result);
   }
+*/
+  // --- END --  Code for MFP Adapter  
+
 };
 
   $scope.goto = function(contact) {
