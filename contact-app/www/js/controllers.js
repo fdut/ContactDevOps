@@ -34,7 +34,7 @@ angular.module('app.controllers', [])
   // -- START -- Code for MFP Adapter  
 /*
  var contactsRequest = new WLResourceRequest(
-    "/adapters/contactAdapterRandomme/getcontacts",
+    "/adapters/contactAdapter/getcontacts",
     WLResourceRequest.GET
   );
 
