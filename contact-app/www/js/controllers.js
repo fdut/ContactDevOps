@@ -10,7 +10,6 @@ angular.module('app.controllers', [])
     //Switch for using MFP Security (true) or not (False)
     //You need to add 'UserLogin' security check to the scope for Mandatory Application Scope in the MobileFirst Console 
     // Before deploy contactAuthAdapter Adapter
-    
     $scope.useMFPSecurity = false;
 
 
