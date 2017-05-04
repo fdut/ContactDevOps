@@ -1,126 +1,162 @@
 angular.module('app.controllers', [])
 
-.controller('MainCtrl', function($scope, $state){
-  $scope.contacts = [];
-  $scope.displayError = false;
+  .controller('MainCtrl', function ($scope, $state, $http, $ionicPopup) {
+    $scope.contacts = [];
+    $scope.displayError = false;
 
-  $scope.getcontacts = function() {
+    //Switch for using MFP Adapter (true) or not (False)
+    $scope.useMFPAdapter = false;
 
-// -- START -- Code Direct API  (SANS MFP ADAPTER)
+    //Switch for using MFP Security (true) or not (False)
+    //You need to add 'UserLogin' security check to the scope for Mandatory Application Scope in the MobileFirst Console 
+    // Before deploy contactAuthAdapter Adapter
     
-  var urlBase = 'https://randomuser.me/api/?results=25&nat=fr'; //MUST REPLACE WITH API URL
+    $scope.useMFPSecurity = false;
 
-  var headersBase =
 
-  {
-    'content-type': 'application/json',
-    'accept': 'application/json'
-   }
+    $scope.getcontacts = function () {
 
-   var req = {
-    method: 'GET',
-    url: urlBase,
-    headers: headersBase
+
+      if ($scope.useMFPAdapter) {
+
+        // -- START -- Code for MFP Adapter  
+
+        var contactsRequest = new WLResourceRequest(
+          "/adapters/contactAdapter/getcontacts",
+          WLResourceRequest.GET
+        );
+
+        contactsRequest.setQueryParameter("params", "[]");
+
+        contactsRequest.send().then(
+          getcontactsSuccess,
+          getcontactsFailure
+        );
+
+        function getcontactsSuccess(result) {
+          console.log('We got a contacts list', result.responseJSON.results);
+          $scope.contacts = result.responseJSON.results;
+          $scope.$apply();
+        };
+
+        function getcontactsFailure(result) {
+          console.log('Failed to get a contacts list', result);
+        }
+
+        // --- END --  Code for MFP Adapter  
+
+      } else {
+
+        // -- START -- Code Direct API  (SANS MFP ADAPTER)
+
+        var urlBase = 'https://randomuser.me/api/?results=25&nat=fr'; //MUST REPLACE WITH API URL
+
+        var headersBase =
+
+          {
+            'content-type': 'application/json',
+            'accept': 'application/json'
+          }
+
+        var req = {
+          method: 'GET',
+          url: urlBase,
+          headers: headersBase
+        }
+
+        $http(req).then(function (response) {
+          console.log(JSON.stringify(response));
+          $scope.contacts = response.data.results;
+        });
+
+        // --- END --  Code Direct API   
+
+      }
+
+
+
+    }; //End of getContact
+
+    $scope.goto = function (contact) {
+      console.log('Current contact', contact);
+      $scope.currentcontact = contact;
+      $state.go('details');
     }
 
-  $http(req).then(function(response){
-    console.log(JSON.stringify(response));
-      $scope.contacts = response.data.results;
-    });
-  
-  // --- END --  Code Direct API   
+
+    $scope.isChallenged = false;
+    $scope.securityCheckName = 'UserLogin';
+    $scope.userLoginChallengeHandler = null;
+
+    $scope.doLogin = function (username, password) {
 
 
-  // -- START -- Code for MFP Adapter  
-/*
- var contactsRequest = new WLResourceRequest(
-    "/adapters/contactAdapter/getcontacts",
-    WLResourceRequest.GET
-  );
+      if ($scope.useMFPSecurity) {
 
-  contactsRequest.setQueryParameter("params", "[]");
+        /* START With Authentication */
 
-  contactsRequest.send().then(
-    getcontactsSuccess,
-    getcontactsFailure
-  );
+        console.log(">> loginCtrl - doLogin - $scope.username:" + username);
+        if ($scope.isChallenged) {
+          console.log(">> loginCtrl - doLogin -  $scope.isChallenged == true");
+          $scope.userLoginChallengeHandler.submitChallengeAnswer({
+            'username': username,
+            'password': password
+          });
+        } else {
+          console.log(">> loginCtrl - doLogin -  $scope.isChallenged == false");
+          WLAuthorizationManager.login($scope.securityCheckName, {
+            'username': username,
+            'password': password
+          }).then(function () {
+              console.log(">> WLAuthorizationManager.login - onSuccess");
+              $scope.getcontacts();
+              $state.go('main');
+            },
+            function (response) {
+              console.log(">> WLAuthorizationManager.login - onFailure: " + JSON.stringify(response));
+              $scope.showLoginError("Erreur", "Erreur lors de l'authentification");
 
-  function getcontactsSuccess(result){
-    console.log('We got a contacts list', result.responseJSON.results);
-    $scope.contacts = result.responseJSON.results;
-    $scope.$apply();
-  };
+            });
+        }
+        /* END With Authentication */
 
-  function getcontactsFailure(result){
-    console.log('Failed to get a contacts list', result);
-  }
-*/
-  // --- END --  Code for MFP Adapter  
+      } else {
 
-};
+        /* START Without Authentication */
 
-  $scope.goto = function(contact) {
-    console.log('Current contact', contact);
-    $scope.currentcontact = contact;
-    $state.go('details');
-  }
+        $scope.getcontacts();
+        $state.go('main');
 
-  $scope.doLogout = function() {
-    WL.Client.logout("AuthRealm");
-    $scope.username = '';
-    $scope.password = '';
-    $scope.username = [];
-    $state.go('login');
-  }
-
-  $scope.doLogin = function(username, password) {
-    $scope.getcontacts();
-    $state.go('main');
-
-    // var AuthRealmChallengeHandler = WL.Client.createChallengeHandler("AuthRealm");
-
-// AuthRealmChallengeHandler.isCustomResponse = function(response) {
-// 	if (!response || !response.responseJSON	|| response.responseText === null) {
-// 		return false;
-// 	}
-// 	if (typeof(response.responseJSON.authRequired) !== 'undefined'){
-// 		return true;
-// 	} else {
-// 		return false;
-// 	}
-// };
-//
-// AuthRealmChallengeHandler.handleChallenge = function(response){
-// 	var authRequired = response.responseJSON.authRequired;
-//
-// 	if (authRequired == true){
-//       console.log('authRequired ', authRequired);
-//
-// 		if (response.responseJSON.errorMessage)
-//         console.log('Auth error ', response.responseJSON.errorMessage);
-//         $scope.displayError = true;
-//         $scope.displayMessage = response.responseJSON.errorMessage;
-//         $scope.$apply();
-//
-// 	} else if (authRequired == false){
-// 		console.log('authRequired ', authRequired);
-// 		AuthRealmChallengeHandler.submitSuccess();
-//     $scope.displayError = false;
-//     $scope.getcontacts();
-//     $state.go('main');
-// 	}
-// };
-
-	// var invocationData = {
-	// 	adapter : "contactAuthAdapter",
-	// 	procedure : "submitAuthentication",
-	// 	parameters : [ username, password ]
-	// };
-  //
-	// AuthRealmChallengeHandler.submitAdapterAuthentication(invocationData, {});
+        /* END Without Authentication */
+      }
 
 
+    } //End dologin
 
-  }
+    $scope.doLogout = function () {
+      WLAuthorizationManager.logout($scope.securityCheckName).then(
+        function () {
+          WL.Logger.debug("logout onSuccess");
+          $scope.username = '';
+          $scope.password = '';
+          $scope.username = [];
+          $state.go('login');
+        },
+        function (response) {
+          WL.Logger.debug("logout onFailure: " + JSON.stringify(response));
+        });
+    };
 
-})
+    // Triggered on a popup alert
+    $scope.showLoginError = function (titletxt, templatetxt) {
+      var alertPopup = $ionicPopup.alert({
+        title: titletxt,
+        template: templatetxt
+      });
+      alertPopup.then(function (res) {
+        console.log(templatetxt);
+      });
+    }; //End of showpopup
+
+
+  })
