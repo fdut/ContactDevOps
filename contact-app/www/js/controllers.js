@@ -12,7 +12,6 @@ angular.module('app.controllers', [])
     // Before deploy contactAuthAdapter Adapter
     $scope.useMFPSecurity = false;
 
-
     $scope.getcontacts = function () {
 
 
@@ -63,10 +62,14 @@ angular.module('app.controllers', [])
           headers: headersBase
         }
 
-        $http(req).then(function (response) {
-          console.log(JSON.stringify(response));
-          $scope.contacts = response.data.results;
-        });
+        $http(req).then(function successCallback(response) {
+            console.log(JSON.stringify(response));
+            $scope.contacts = response.data.results;
+          },
+          function errorCallback(response) {
+            console.log("FAIL");
+            console.log(JSON.stringify(response));
+          });
 
         // --- END --  Code Direct API   
 
