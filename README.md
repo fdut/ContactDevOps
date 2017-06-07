@@ -152,7 +152,6 @@ par
 
 - Intall AppCenter
 - Lancer l'url suivante dans le navigateur
-http://82.247.51.50:7050/applicationcenter/installers.html
-ou
+
 http://bit.ly/2r56RdD
 
