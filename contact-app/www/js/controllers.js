@@ -5,6 +5,7 @@ angular.module('app.controllers', [])
     $scope.displayError = false;
 
     //Switch for using MFP Adapter (true) or not (False)
+    // if using MFP Adapter (true) Before deploy contactAuthAdapter Adapter
     $scope.useMFPAdapter = false;
 
     //Switch for using MFP Security (true) or not (False)
